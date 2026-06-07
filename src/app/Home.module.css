@@ -665,5 +665,8 @@
   .processGrid { grid-template-columns: 1fr; }
   .blogGrid { grid-template-columns: 1fr; }
   .faqGrid { grid-template-columns: 1fr; }
+  .bentoLarge { padding: 32px 24px; min-height: 280px; }
+  .bentoSmall { padding: 24px; }
+  .painCard { padding: 24px 20px; }
 }
 
