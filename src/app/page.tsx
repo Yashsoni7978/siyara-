@@ -70,6 +70,10 @@ export default function HomePage() {
           HERO
       ============================================================ */}
       <section className={styles.hero} aria-label="Hero section">
+        {/* Futuristic Animations */}
+        <div className={styles.futuristicGrid} />
+        <div className={styles.laserBeam} />
+
         <div className={styles.heroGrid}     aria-hidden="true" />
         <div className={styles.heroGlow}     aria-hidden="true" />
         <div className={styles.heroGoldGlow} aria-hidden="true" />
