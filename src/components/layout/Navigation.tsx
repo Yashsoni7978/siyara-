@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { WA_LINKS } from '@/lib/constants'
@@ -73,8 +74,11 @@ export function Navigation() {
         onMouseLeave={() => setActiveGroup(null)}
       >
         <Link href="/" className={styles.logo} aria-label="Siyara Innovations Home">
-          <span className={styles.logoMain}>Siyara</span>
-          <span className={styles.logoSub}>Innovations</span>
+          <Image src="/apple-touch-icon.png" alt="Siyara Innovations Logo" width={32} height={32} style={{ borderRadius: '6px' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            <span className={styles.logoMain}>Siyara</span>
+            <span className={styles.logoSub}>Innovations</span>
+          </div>
         </Link>
 
         <ul className={styles.links} role="list">

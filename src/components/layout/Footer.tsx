@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { BRAND, WA_LINKS } from '@/lib/constants'
 import styles from './Footer.module.css'
 
@@ -39,9 +40,12 @@ export function Footer() {
       <div className={styles.main}>
         {/* Brand column */}
         <div className={styles.brand}>
-          <Link href="/" aria-label="Siyara Innovations Home" className={styles.logoWrap}>
-            <span className={styles.logoMain}>Siyara</span>
-            <span className={styles.logoSub}>Innovations</span>
+          <Link href="/" aria-label="Siyara Innovations Home" className={styles.logoWrap} style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+            <Image src="/apple-touch-icon.png" alt="Siyara Innovations Logo" width={36} height={36} style={{ borderRadius: '6px' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+              <span className={styles.logoMain}>Siyara</span>
+              <span className={styles.logoSub}>Innovations</span>
+            </div>
           </Link>
           <p className={styles.tagline}>
             &ldquo;We don&apos;t just build your digital presence.<br />
