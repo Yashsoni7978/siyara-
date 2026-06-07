@@ -6,6 +6,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
 import styles from './portfolio.module.css'
+import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -37,7 +38,7 @@ export default function PortfolioPage() {
             {RATING_STATS.map((stat, i) => (
               <Reveal key={stat.platform} delay={i * 0.1} className={styles.ratingItem}>
                 <div className={styles.ratingPlatform}>
-                  <span className={styles.platformIcon}>{stat.icon}</span>
+                  <span className={styles.platformIcon}>{IconMap[stat.icon]}</span>
                   <div className={styles.stars}>
                     {'★'.repeat(Math.floor(stat.rating))}
                     {stat.rating % 1 !== 0 && '★'}

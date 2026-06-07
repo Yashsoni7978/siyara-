@@ -8,6 +8,7 @@ import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
 import styles from './blog.module.css'
 import sharedStyles from '../contact/contact.module.css'
+import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Insights',
@@ -39,7 +40,7 @@ export default function BlogPage() {
             {RATING_STATS.map((stat, i) => (
               <Reveal key={stat.platform} delay={i * 0.1} className={sharedStyles.ratingItem}>
                 <div className={sharedStyles.ratingPlatform}>
-                  <span className={sharedStyles.platformIcon}>{stat.icon}</span>
+                  <span className={sharedStyles.platformIcon}>{IconMap[stat.icon]}</span>
                   <div className={sharedStyles.stars}>
                     {'★'.repeat(Math.floor(stat.rating))}
                     {stat.rating % 1 !== 0 && '★'}

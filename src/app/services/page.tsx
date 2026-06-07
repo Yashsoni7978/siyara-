@@ -6,6 +6,7 @@ import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
 import styles from './services.module.css'
+import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -103,7 +104,7 @@ export default function ServicesPage() {
                     <a href={WA_LINKS[svc.waLink]} target="_blank" rel="noopener noreferrer" className={styles.svcCard} aria-label={`Enquire about ${svc.name}`}>
                       <div className={styles.svcTop}>
                         <span className={styles.svcNum}>{svc.num}</span>
-                        <span className={styles.svcIcon}>{svc.icon}</span>
+                        <span className={styles.svcIcon}>{IconMap[svc.icon]}</span>
                       </div>
                       <h3 className={styles.svcName}>{svc.name}</h3>
                       <p className={styles.svcDesc}>{svc.desc}</p>

@@ -5,6 +5,7 @@ import { RATING_STATS, CLIENT_TESTIMONIALS } from '@/lib/social-proof'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import styles from './contact.module.css'
+import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -64,7 +65,7 @@ export default function ContactPage() {
             {RATING_STATS.map((stat, i) => (
               <Reveal key={stat.platform} delay={i * 0.1} className={styles.ratingItem}>
                 <div className={styles.ratingPlatform}>
-                  <span className={styles.platformIcon}>{stat.icon}</span>
+                  <span className={styles.platformIcon}>{IconMap[stat.icon]}</span>
                   <div className={styles.stars}>
                     {'★'.repeat(Math.floor(stat.rating))}
                     {stat.rating % 1 !== 0 && '★'}

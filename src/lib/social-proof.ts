@@ -104,10 +104,10 @@ export const TESTIMONIALS = [
 export const CLIENT_TESTIMONIALS = TESTIMONIALS
 
 export const PLATFORM_STATS = [
-  { platform: 'Google', rating: 4.9, reviews: 47, logo: '🔵', icon: '🔵' },
-  { platform: 'Instagram', rating: 5.0, reviews: 128, logo: '📸', icon: '📸' },
-  { platform: 'LinkedIn', rating: 4.8, reviews: 34, logo: '💼', icon: '💼' },
-  { platform: 'WhatsApp', rating: 5.0, reviews: 91, logo: '💬', icon: '💬' },
+  { platform: 'Google', rating: 4.9, reviews: 47, logo: 'google', icon: 'google' },
+  { platform: 'Instagram', rating: 5.0, reviews: 128, logo: 'instagram', icon: 'instagram' },
+  { platform: 'LinkedIn', rating: 4.8, reviews: 34, logo: 'linkedin', icon: 'linkedin' },
+  { platform: 'WhatsApp', rating: 5.0, reviews: 91, logo: 'whatsapp', icon: 'whatsapp' },
 ]
 
 export const RATING_STATS = PLATFORM_STATS

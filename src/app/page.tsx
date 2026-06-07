@@ -7,6 +7,7 @@ import styles from './Home.module.css'
 import sharedStyles from './contact/contact.module.css'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
+import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -160,7 +161,7 @@ export default function HomePage() {
             {RATING_STATS.map((stat, i) => (
               <Reveal key={stat.platform} delay={i * 0.1} className={sharedStyles.ratingItem}>
                 <div className={sharedStyles.ratingPlatform}>
-                  <span className={sharedStyles.platformIcon}>{stat.icon}</span>
+                  <span className={sharedStyles.platformIcon}>{IconMap[stat.icon]}</span>
                   <div className={sharedStyles.stars}>
                     {'★'.repeat(Math.floor(stat.rating))}
                     {stat.rating % 1 !== 0 && '★'}
@@ -319,7 +320,7 @@ export default function HomePage() {
                 <Reveal delay={i * 0.08} className={styles.svcCard}>
                   <div className={styles.svcCardTop}>
                     <span className={styles.svcNum}>{svc.num}</span>
-                    <span className={styles.svcIcon} aria-hidden="true">{svc.icon}</span>
+                    <span className={styles.svcIcon} aria-hidden="true">{IconMap[svc.icon]}</span>
                   </div>
                   <h3 className={styles.svcName}>{svc.name}</h3>
                   <p className={styles.svcFix}>Fixes: {svc.fix}</p>

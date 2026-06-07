@@ -7,6 +7,7 @@ import { Reveal } from '@/components/ui/Reveal'
 // Reusing contact module css for shared social proof elements
 import styles from '../contact/contact.module.css'
 import pricingStyles from './pricing.module.css'
+import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Pricing & Packages',
@@ -74,7 +75,7 @@ export default function PricingPage() {
             {RATING_STATS.map((stat, i) => (
               <Reveal key={stat.platform} delay={i * 0.1} className={styles.ratingItem}>
                 <div className={styles.ratingPlatform}>
-                  <span className={styles.platformIcon}>{stat.icon}</span>
+                  <span className={styles.platformIcon}>{IconMap[stat.icon]}</span>
                   <div className={styles.stars}>
                     {'★'.repeat(Math.floor(stat.rating))}
                     {stat.rating % 1 !== 0 && '★'}
