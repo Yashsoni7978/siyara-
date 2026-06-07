@@ -126,6 +126,59 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* What You're Actually Buying */}
+      <section className={pricingStyles.roiSection} aria-label="ROI Focus">
+        <div className="section-wrap">
+          <div className={pricingStyles.roiGrid}>
+            <Reveal className={pricingStyles.roiLeft}>
+              <h2 className={pricingStyles.roiTitle}>You aren&apos;t buying a website or an ad campaign.</h2>
+              <p className={pricingStyles.roiDesc}>
+                You are buying a systematic, predictable machine designed to capture attention, build trust, and generate revenue.
+              </p>
+              <p className={pricingStyles.roiDesc}>
+                Most agencies charge for their time or their outputs. We price our services based on the value they create. When you partner with us, you are investing in a competitive advantage that compounds over time.
+              </p>
+            </Reveal>
+            <div className={pricingStyles.roiRight}>
+              {[
+                { title: 'Predictable Growth', desc: 'Stop relying on referrals. We build systems that generate inquiries consistently.' },
+                { title: 'Premium Positioning', desc: 'When your digital presence looks expensive, you can command higher prices.' },
+                { title: 'Time Leverage', desc: 'We handle the execution so you can focus on fulfilling the new business we generate.' }
+              ].map((item, i) => (
+                <Reveal key={item.title} delay={i * 0.1} className={pricingStyles.roiItem}>
+                  <h3 className={pricingStyles.roiItemTitle}>{item.title}</h3>
+                  <p className={pricingStyles.roiItemDesc}>{item.desc}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing FAQ */}
+      <section className={pricingStyles.faqSection} aria-label="Pricing FAQ">
+        <div className="section-wrap">
+          <Reveal>
+            <h2 className="section-title" style={{ textAlign: 'center' }}>
+              Common Questions About Investment
+            </h2>
+          </Reveal>
+          <div className={pricingStyles.faqGrid}>
+            {[
+              { q: 'Why are your prices higher than freelancers?', a: 'Because we are not freelancers. We are a team of specialists—strategists, designers, developers, and media buyers—working in unison. A freelancer can build a website; we build a business asset.' },
+              { q: 'Are there any hidden costs?', a: 'Zero. Every proposal we send includes a detailed breakdown of costs. If you need third-party software (like Shopify or a CRM), we tell you upfront.' },
+              { q: 'Do you offer payment plans?', a: 'For project-based work (like web development), we split the payment across project milestones (typically 50/25/25). Retainers are billed monthly in advance.' },
+              { q: 'Can you work with a smaller budget?', a: 'We occasionally offer consulting-only engagements or phased rollouts for ambitious brands with tighter budgets. Book a call, and we will see what is possible.' }
+            ].map(({ q, a }, i) => (
+              <Reveal key={q} delay={i * 0.08} className={pricingStyles.faqItem}>
+                <h3 className={pricingStyles.faqQ}>{q}</h3>
+                <p className={pricingStyles.faqA}>{a}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials - Dense Content */}
       <section className={styles.testimonialsSection} aria-label="Client testimonials">
         <div className="section-wrap">

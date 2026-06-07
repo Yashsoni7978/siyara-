@@ -149,6 +149,66 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Service Synergy — How services compound */}
+      <section className={styles.synergySection} aria-label="Service synergy">
+        <div className="section-wrap">
+          <div className={styles.valuesHeader}>
+            <Reveal as="span" className="eyebrow">The Compound Effect</Reveal>
+            <Reveal as="h2" delay={0.1} className={styles.categoryTitle}>When services work together,<br />results multiply.</Reveal>
+            <Reveal as="p" delay={0.2} className={styles.synergySubtext}>
+              Most agencies sell services in isolation. A website here, some ads there, a social media package somewhere else. The result? Nothing compounds. With Siyara, every service feeds into every other service — creating a digital ecosystem where growth accelerates over time.
+            </Reveal>
+          </div>
+          <div className={styles.synergyGrid}>
+            {[
+              { combo: 'Website + SEO', effect: 'Your site ranks. Your traffic grows organically. Every page is built with keywords and technical SEO from day one — not bolted on as an afterthought.', multiplier: '3.2x' },
+              { combo: 'SEO + Content', effect: 'Every blog post, every landing page is a strategic asset designed to capture search intent and build topical authority in your market.', multiplier: '2.8x' },
+              { combo: 'Ads + Website', effect: 'Paid traffic lands on pages engineered for conversion. Not a generic homepage — a specific, targeted landing page that matches the ad\'s promise.', multiplier: '4.1x' },
+              { combo: 'Social + Branding', effect: 'Your social presence feels cohesive, premium, and unmistakably yours. Every post reinforces your brand positioning.', multiplier: '2.5x' },
+              { combo: 'AI + Operations', effect: 'Your lead follow-up is instant. Your customer support is 24/7. Manual processes are automated. Your team focuses on what humans do best.', multiplier: '5x' },
+              { combo: 'GEO + SEO', effect: 'You dominate both traditional Google search and the new AI-powered search engines. When ChatGPT recommends businesses in your industry, you are mentioned.', multiplier: '∞' },
+            ].map(({ combo, effect, multiplier }, i) => (
+              <Reveal key={combo} delay={i * 0.08} className={styles.synergyCard}>
+                <div className={styles.synergyTop}>
+                  <span className={styles.synergyCombo}>{combo}</span>
+                  <span className={styles.synergyMultiplier}>{multiplier} ROI</span>
+                </div>
+                <p className={styles.synergyEffect}>{effect}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deep Process */}
+      <section className={styles.deepProcessSection} aria-label="How we work">
+        <div className="section-wrap">
+          <div className={styles.valuesHeader}>
+            <Reveal as="span" className="eyebrow">How We Deliver</Reveal>
+            <Reveal as="h2" delay={0.1} className={styles.categoryTitle}>From first call to<br />measurable results.</Reveal>
+          </div>
+          <div className={styles.deepProcessGrid}>
+            {[
+              { num: '01', title: 'Free Strategy Call', time: '30 min', desc: 'We listen to your goals, audit your current state, and tell you honestly what you need — and what you don\'t. No obligation, no pitch deck.' },
+              { num: '02', title: 'Custom Proposal', time: '3–5 days', desc: 'You receive a detailed proposal with recommended services, timeline, deliverables, and transparent pricing. No surprises, ever.' },
+              { num: '03', title: 'Discovery & Research', time: 'Week 1', desc: 'We deep-dive into your market, competitors, and customers. We study what is working, what is broken, and where the biggest opportunities are.' },
+              { num: '04', title: 'Strategy & Roadmap', time: 'Week 2', desc: 'We present a prioritised, phased roadmap. You know exactly what happens, when, and why. Every recommendation is tied to a business outcome.' },
+              { num: '05', title: 'Build & Execute', time: 'Weeks 3–6', desc: 'Our specialists execute the plan. Design, development, content, campaigns — all built to our quality standard. Nothing goes live without your approval.' },
+              { num: '06', title: 'Launch & Optimise', time: 'Ongoing', desc: 'We deploy, monitor, and refine. Monthly reports show exactly what\'s working. We optimise relentlessly. Your investment compounds every month.' },
+            ].map(({ num, title, time, desc }, i) => (
+              <Reveal key={num} delay={i * 0.08} className={styles.deepProcessStep}>
+                <div className={styles.deepProcessHeader}>
+                  <span className={styles.deepProcessNum}>{num}</span>
+                  <span className={styles.deepProcessTime}>{time}</span>
+                </div>
+                <h3 className={styles.deepProcessTitle}>{title}</h3>
+                <p className={styles.deepProcessDesc}>{desc}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials slice */}
       <section className={styles.testimonialsSection} aria-label="Client testimonials">
         <div className="section-wrap">
@@ -157,7 +217,7 @@ export default function ServicesPage() {
             <Reveal as="h2" delay={0.1} className={styles.categoryTitle}>Rated 4.9★ across all platforms.</Reveal>
           </div>
           <div className={styles.testimonialsGrid}>
-            {TESTIMONIALS.slice(0, 4).map(({ id, name, role, company, avatar, rating, platform, text }) => (
+            {TESTIMONIALS.slice(0, 6).map(({ id, name, role, company, avatar, rating, platform, text }) => (
               <Reveal key={id} delay={(id % 2) * 0.12} className={styles.testimonialCard}>
                 <div className={styles.testimonialTop}>
                   <div className={styles.testimonialAvatar}><span>{avatar}</span></div>
@@ -186,7 +246,11 @@ export default function ServicesPage() {
             <Reveal as="h2" delay={0.1} className={styles.categoryTitle}>Common questions answered.</Reveal>
           </div>
           <div className={styles.faqList}>
-            {SERVICES_FAQ.map(({ q, a }, i) => (
+            {[...SERVICES_FAQ,
+              { q: 'What industries do you specialise in?', a: 'We have deep expertise in restaurants & food, fashion & clothing, real estate & interiors, e-commerce & D2C, and events & weddings. However, our methodology works across industries.' },
+              { q: 'Do you offer a free consultation?', a: 'Yes. We offer a free 30-minute strategy call where we will honestly assess what your brand needs. No pitch, no pressure — just a real conversation.' },
+              { q: 'How do I know which services I need?', a: 'That is exactly what the strategy call is for. After understanding your goals, we recommend the specific services you need — and tell you which ones you do not. We never upsell.' },
+            ].map(({ q, a }, i) => (
               <Reveal key={q} delay={i * 0.08} className={styles.faqItem}>
                 <h3 className={styles.faqQ}>{q}</h3>
                 <p className={styles.faqA}>{a}</p>

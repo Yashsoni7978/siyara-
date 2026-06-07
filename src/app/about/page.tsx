@@ -182,6 +182,37 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Philosophy on Talent */}
+      <section className={styles.talentSection} aria-label="Our philosophy on talent">
+        <div className="section-wrap">
+          <div className={styles.talentGrid}>
+            <Reveal className={styles.talentLeft}>
+              <h2 className={styles.talentTitle}>We hire the top 1%.<br />You get the top 1%.</h2>
+              <p className={styles.talentDesc}>
+                Most agencies operate on a pyramid model: a senior partner sells you the dream, and then hands the execution off to junior staff or outsourced contractors. We completely reject this model.
+              </p>
+              <p className={styles.talentDesc}>
+                At Siyara, there is no B-team. We keep our team small intentionally. Every person who touches your brand is a senior specialist with a track record of winning. We hire for obsession, taste, and a relentless focus on ROI. When you hire Siyara, you are hiring the execution machine that most brands spend years trying to build in-house.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1} className={styles.talentRight}>
+              <div className={styles.talentBox}>
+                <h3 className={styles.talentBoxTitle}>Zero Outsourcing</h3>
+                <p className={styles.talentBoxDesc}>We do not white-label. We do not use offshore sweatshops. Every line of code, every design, every strategy is built by our core team in Jaipur.</p>
+              </div>
+              <div className={styles.talentBox}>
+                <h3 className={styles.talentBoxTitle}>Senior Execution</h3>
+                <p className={styles.talentBoxDesc}>The specialists who pitch your strategy are the exact same specialists who execute it. No bait and switch.</p>
+              </div>
+              <div className={styles.talentBox}>
+                <h3 className={styles.talentBoxTitle}>Skin in the Game</h3>
+                <p className={styles.talentBoxDesc}>Our reputation is tied to your results. We turn down 40% of the projects that come our way if we do not believe we can generate massive ROI.</p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className={styles.testimonialsSection} aria-label="Client testimonials">
         <div className="section-wrap">

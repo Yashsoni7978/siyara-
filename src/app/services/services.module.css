@@ -264,6 +264,80 @@
 .checkYes { color: var(--accent-green); }
 .checkNo { color: rgba(var(--text-primary-rgb), 0.2); }
 
+/* ---- Synergy ---- */
+.synergySection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.synergySubtext { font-family: var(--font-ui); font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 600px; margin-top: 16px; }
+
+.synergyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.synergyCard {
+  background: var(--bg-primary);
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 16px;
+  transition: background 0.3s;
+}
+
+.synergyCard:hover { background: var(--bg-tertiary); }
+
+.synergyTop { display: flex; justify-content: space-between; align-items: flex-start; }
+
+.synergyCombo {
+  font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--text-primary);
+}
+
+.synergyMultiplier {
+  font-family: var(--font-ui); font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-green);
+  border: 1px solid rgba(var(--accent-green-rgb), 0.2); padding: 4px 10px; border-radius: 4px;
+}
+
+.synergyEffect {
+  font-family: var(--font-ui); font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+}
+
+/* ---- Deep Process ---- */
+.deepProcessSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+
+.deepProcessGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.deepProcessStep {
+  background: var(--bg-secondary);
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 12px;
+  border-top: 2px solid transparent; transition: border-top-color 0.3s, background 0.3s;
+}
+
+.deepProcessStep:hover { border-top-color: var(--accent-primary); background: var(--bg-tertiary); }
+
+.deepProcessHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+
+.deepProcessNum {
+  font-family: var(--font-display); font-size: 32px; font-weight: 600; color: rgba(var(--accent-primary-rgb), 0.15); line-height: 1;
+}
+
+.deepProcessTime {
+  font-family: var(--font-ui); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted);
+}
+
+.deepProcessTitle {
+  font-family: var(--font-display); font-size: 20px; font-weight: 600; color: var(--text-primary); line-height: 1.2;
+}
+
+.deepProcessDesc {
+  font-family: var(--font-ui); font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+}
+
 /* ---- Testimonials ---- */
 .testimonialsSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
 
@@ -362,6 +436,8 @@
   .comparisonCol:last-child { display: none; }
   .comparisonCell:last-child { display: none; }
   .testimonialsGrid { grid-template-columns: 1fr; }
+  .synergyGrid { grid-template-columns: repeat(2, 1fr); }
+  .deepProcessGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 700px) {
@@ -369,4 +445,6 @@
   .servicesGrid { grid-template-columns: 1fr; }
   .ratingStrip { padding: 0 24px; }
   .faqItem { grid-template-columns: 1fr; gap: 16px; padding: 32px 28px; }
+  .synergyGrid { grid-template-columns: 1fr; }
+  .deepProcessGrid { grid-template-columns: 1fr; }
 }

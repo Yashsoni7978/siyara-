@@ -406,6 +406,63 @@
   color: rgba(var(--accent-primary-rgb), 0.7);
 }
 
+/* ---- Talent ---- */
+.talentSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); padding: 80px 0; }
+
+.talentGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.talentTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.talentDesc {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.talentRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.talentBox {
+  background: var(--bg-secondary);
+  padding: 32px;
+  border-left: 2px solid var(--accent-primary);
+  transition: background 0.3s;
+}
+
+.talentBox:hover { background: var(--bg-tertiary); }
+
+.talentBoxTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.talentBoxDesc {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
 /* ---- Testimonials ---- */
 .testimonialsSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
 
@@ -543,6 +600,7 @@
   .resultsGrid { grid-template-columns: repeat(2, 1fr); }
   .valuesGrid { grid-template-columns: repeat(2, 1fr); }
   .testimonialsGrid { grid-template-columns: 1fr; }
+  .talentGrid { grid-template-columns: 1fr; gap: 48px; }
 }
 
 @media (max-width: 700px) {
@@ -553,4 +611,5 @@
   .teamGrid { grid-template-columns: 1fr; }
   .timelineItem { grid-template-columns: 72px 1px 1fr; }
   .ratingsBar { padding: 0 24px; }
+  .talentGrid { gap: 32px; }
 }
