@@ -278,17 +278,15 @@ export default function HomePage() {
                 key={id}
                 delay={i * 0.08}
               >
-                <a
-                  href={WA_LINKS[waLink]}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={`/industries/${id}`}
                   className={styles.industryCard}
-                  aria-label={name}
+                  aria-label={`Learn more about ${name} industry`}
                 >
-                  <span className={styles.industryIcon} aria-hidden="true">{icon}</span>
+                  <span className={styles.industryIcon} aria-hidden="true">{IconMap[icon]}</span>
                   <span className={styles.industryName}>{name}</span>
                   <span className={styles.industryArrow} aria-hidden="true">→</span>
-                </a>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -309,12 +307,10 @@ export default function HomePage() {
           </div>
           <div className={styles.servicesGrid}>
             {SERVICES.slice(0, 6).map((svc, i) => (
-              <a 
+              <Link 
                 key={svc.id} 
-                href={WA_LINKS[svc.waLink]} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label={`Inquire about ${svc.name} on WhatsApp`} 
+                href={`/services/${svc.id}`}
+                aria-label={`Learn more about ${svc.name}`} 
                 style={{ display: 'block' }}
               >
                 <Reveal delay={i * 0.08} className={styles.svcCard}>
@@ -325,7 +321,7 @@ export default function HomePage() {
                   <h3 className={styles.svcName}>{svc.name}</h3>
                   <p className={styles.svcFix}>Fixes: {svc.fix}</p>
                 </Reveal>
-              </a>
+              </Link>
             ))}
           </div>
           <Reveal delay={0.2} className={styles.servicesFooter}>

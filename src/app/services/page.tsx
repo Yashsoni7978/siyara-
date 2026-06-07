@@ -101,7 +101,7 @@ export default function ServicesPage() {
               <div className={styles.servicesGrid}>
                 {catServices.map((svc, i) => (
                   <Reveal key={svc.id} delay={i * 0.1}>
-                    <a href={WA_LINKS[svc.waLink]} target="_blank" rel="noopener noreferrer" className={styles.svcCard} aria-label={`Enquire about ${svc.name}`}>
+                    <Link href={`/services/${svc.id}`} className={styles.svcCard} aria-label={`Learn more about ${svc.name}`}>
                       <div className={styles.svcTop}>
                         <span className={styles.svcNum}>{svc.num}</span>
                         <span className={styles.svcIcon}>{IconMap[svc.icon]}</span>
@@ -109,8 +109,8 @@ export default function ServicesPage() {
                       <h3 className={styles.svcName}>{svc.name}</h3>
                       <p className={styles.svcDesc}>{svc.desc}</p>
                       <div className={styles.svcFix}><span>Fixes:</span> {svc.fix}</div>
-                      <span className={styles.svcCta}>Enquire on WhatsApp →</span>
-                    </a>
+                      <span className={styles.svcCta}>View Details →</span>
+                    </Link>
                   </Reveal>
                 ))}
               </div>
