@@ -1,0 +1,556 @@
+/* ============================================================
+   ABOUT PAGE — Dense, Full Content
+============================================================ */
+
+/* ---- Ratings Bar ---- */
+.ratingsBar {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 56px;
+}
+
+.ratingsInner {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-left: 1px solid var(--border-color);
+}
+
+.ratingItem {
+  padding: 28px 32px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ratingPlatformIcon { font-size: 20px; line-height: 1; margin-bottom: 4px; }
+
+.ratingStars { display: flex; gap: 2px; }
+.star { color: var(--accent-primary); font-size: 14px; }
+
+.ratingValue {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ratingPlatform {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(var(--text-primary-rgb), 0.4);
+  letter-spacing: 0.06em;
+}
+
+/* ---- Mission ---- */
+.missionSection {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.missionInner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.missionLeft { position: sticky; top: 100px; }
+
+.missionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.5vw, 50px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+
+.missionQuote {
+  padding: 24px 28px;
+  border-left: 2px solid var(--accent-primary);
+  background: rgba(var(--accent-primary-rgb), 0.04);
+  position: relative;
+}
+
+.missionQuoteMark {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 600;
+  color: rgba(var(--accent-primary-rgb), 0.2);
+  line-height: 0.6;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.missionQuote p {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.missionRight { display: flex; flex-direction: column; gap: 0; }
+
+.missionBody {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.missionStats {
+  display: flex;
+  gap: 0;
+  margin-top: 40px;
+  border: 1px solid var(--border-color);
+}
+
+.missionStat {
+  flex: 1;
+  padding: 24px 28px;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.missionStat:last-child { border-right: none; }
+
+.missionStatNum {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.missionStatLabel {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(var(--text-primary-rgb), 0.4);
+  letter-spacing: 0.08em;
+}
+
+/* ---- Results ---- */
+.resultsSection {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.resultCard {
+  background: var(--bg-secondary);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.resultCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-green));
+  transition: width 0.45s var(--ease-out);
+}
+
+.resultCard:hover { background: var(--bg-tertiary); }
+.resultCard:hover::before { width: 100%; }
+
+.resultMetric {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.resultLabel {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.resultSub {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(var(--text-primary-rgb), 0.35);
+  letter-spacing: 0.06em;
+}
+
+/* ---- Values ---- */
+.valuesSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.valuesHeader { margin-bottom: 56px; }
+
+.valuesTitle {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-top: 16px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.valueCard {
+  background: var(--bg-primary);
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-green));
+  transition: width 0.45s var(--ease-out);
+}
+
+.valueCard:hover { background: var(--bg-tertiary); }
+.valueCard:hover::before { width: 100%; }
+
+.valueIcon { font-size: 26px; color: var(--accent-primary); line-height: 1; }
+.valueTitle {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.valueBody {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.78;
+}
+
+/* ---- Timeline ---- */
+.timelineSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border-color);
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 100px 1px 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s;
+}
+
+.timelineItem:last-child { border-bottom: none; }
+.timelineItem:hover { background: var(--bg-secondary); }
+
+.timelineYear {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.timelineLine {
+  width: 1px;
+  background: var(--border-color);
+  position: relative;
+}
+
+.timelineLine::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  border: 2px solid var(--bg-primary);
+}
+
+.timelineContent {
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timelineTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.timelineDesc {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.72;
+}
+
+/* ---- Team ---- */
+.teamSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.teamCard {
+  background: var(--bg-primary);
+  padding: 40px 36px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  transition: background 0.3s;
+}
+
+.teamCard:hover { background: var(--bg-tertiary); }
+
+.teamAvatar {
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(var(--accent-primary-rgb), 0.06);
+}
+
+.teamAvatar span {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.teamInfo { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+.teamRole {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.teamDesc {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.teamSkills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+
+.teamSkill {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
+  color: rgba(var(--accent-primary-rgb), 0.7);
+}
+
+/* ---- Testimonials ---- */
+.testimonialsSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.testimonialCard {
+  background: var(--bg-secondary);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonialCard::after {
+  content: '"';
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 600;
+  color: rgba(var(--accent-primary-rgb), 0.06);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonialCard:hover { background: var(--bg-tertiary); }
+
+.testimonialTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.testimonialAvatar {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(var(--accent-primary-rgb), 0.05);
+}
+
+.testimonialAvatar span {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.testimonialName {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.testimonialCompany {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(var(--text-primary-rgb), 0.4);
+  margin-top: 2px;
+}
+
+.testimonialPlatform {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-left: auto;
+  flex-shrink: 0;
+  border: 1px solid rgba(var(--accent-green-rgb), 0.25);
+  padding: 4px 10px;
+}
+
+.testimonialStars {
+  display: flex;
+  gap: 3px;
+}
+
+.testimonialStars span { color: var(--accent-primary); font-size: 14px; }
+
+.testimonialText {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- CTA ---- */
+.ctaSection { background: var(--bg-secondary); position: relative; overflow: hidden; }
+
+.ctaGlow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 800px; height: 500px;
+  background: radial-gradient(ellipse, rgba(var(--accent-primary-rgb), 0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.5vw, 62px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1100px) {
+  .ratingsInner { grid-template-columns: repeat(2, 1fr); }
+  .ratingItem:nth-child(2) { border-right: none; }
+  .ratingItem:nth-child(3) { border-top: 1px solid var(--border-color); }
+  .missionInner { grid-template-columns: 1fr; gap: 48px; }
+  .missionLeft { position: static; }
+  .resultsGrid { grid-template-columns: repeat(2, 1fr); }
+  .valuesGrid { grid-template-columns: repeat(2, 1fr); }
+  .testimonialsGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .ratingsInner { grid-template-columns: 1fr; }
+  .ratingItem { border-right: none; border-bottom: 1px solid var(--border-color); }
+  .resultsGrid { grid-template-columns: 1fr; }
+  .valuesGrid { grid-template-columns: 1fr; }
+  .teamGrid { grid-template-columns: 1fr; }
+  .timelineItem { grid-template-columns: 72px 1px 1fr; }
+  .ratingsBar { padding: 0 24px; }
+}

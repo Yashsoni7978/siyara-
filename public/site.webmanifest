@@ -1,0 +1,17 @@
+{
+  "name": "Siyara Innovations",
+  "short_name": "Siyara",
+  "description": "Jaipur's premium digital growth agency. We build brands that dominate.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#C9A84C",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

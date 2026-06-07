@@ -1,0 +1,215 @@
+/* ============================================================
+   PORTFOLIO PAGE
+============================================================ */
+
+.filterSection {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0 56px;
+  overflow-x: auto;
+}
+
+.filterWrap {
+  display: flex;
+  gap: 0;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+.filterChip {
+  padding: 18px 24px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(var(--text-primary-rgb), 0.4);
+  border-right: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: color 0.25s, background 0.25s;
+  white-space: nowrap;
+  font-family: var(--font-ui);
+}
+
+.filterChip:hover { color: var(--accent-primary); background: rgba(var(--accent-primary-rgb), 0.04); }
+.filterActive { color: var(--accent-primary) !important; border-bottom: 2px solid var(--accent-primary); }
+
+/* ---- Portfolio Grid ---- */
+.portfolioSection {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.card {
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  transition: background 0.3s;
+  overflow: hidden;
+  group: true;
+}
+
+.card:hover { background: var(--bg-tertiary); }
+
+.cardVisual {
+  position: relative;
+  height: 200px;
+  background: var(--bg-tertiary);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cardPattern {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(var(--accent-primary-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--accent-primary-rgb), 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cardInitials {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 600;
+  color: rgba(var(--accent-primary-rgb), 0.18);
+  z-index: 1;
+  position: relative;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.card:hover .cardInitials { transform: scale(1.1); color: rgba(var(--accent-primary-rgb), 0.3); }
+
+.cardViewLabel {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  opacity: 0;
+  transform: translateX(8px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.card:hover .cardViewLabel { opacity: 1; transform: translateX(0); }
+
+.cardBody {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardIndustry {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.72;
+}
+
+/* ---- CTA ---- */
+.ctaSection {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaGlow {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 800px; height: 500px;
+  background: radial-gradient(ellipse, rgba(var(--accent-primary-rgb), 0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.ctaSub {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 460px;
+  margin: 0 auto;
+  line-height: 1.78;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .filterSection { padding: 0 28px; }
+}
+
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; }
+  .filterSection { padding: 0 24px; }
+  .testiGrid { grid-template-columns: 1fr; }
+  .ratingsGrid { grid-template-columns: 1fr; }
+  .ratingItem { border-right: none; border-bottom: 1px solid var(--border-color); }
+}
+
+/* ---- Ratings Strip (Shared) ---- */
+.ratingsStrip { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.ratingsGrid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--border-color); border: 1px solid var(--border-color); }
+.ratingItem { background: var(--bg-primary); padding: 32px; display: flex; flex-direction: column; gap: 8px; border-right: 1px solid var(--border-color); transition: background 0.3s; }
+.ratingItem:last-child { border-right: none; }
+.ratingItem:hover { background: var(--bg-secondary); }
+.ratingPlatform { display: flex; align-items: center; justify-content: space-between; }
+.platformIcon { font-size: 24px; line-height: 1; }
+.stars { color: var(--accent-primary); font-size: 14px; letter-spacing: 2px; }
+.ratingScore { display: flex; flex-direction: column; gap: 4px; }
+.scoreNum { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--text-primary); line-height: 1; }
+.scoreLabel { font-family: var(--font-ui); font-size: 11px; font-weight: 500; color: rgba(var(--text-primary-rgb), 0.4); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ---- Testimonials (Shared) ---- */
+.testimonialsSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.testiHeader { margin-bottom: 56px; }
+.testiTitle { font-family: var(--font-display); font-size: clamp(30px, 3.5vw, 48px); font-weight: 600; color: var(--text-primary); line-height: 1.1; margin-top: 16px; }
+.testiGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border-color); border: 1px solid var(--border-color); }
+.testiCard { background: var(--bg-secondary); padding: 40px 36px; display: flex; flex-direction: column; gap: 16px; transition: background 0.3s; position: relative; overflow: hidden; }
+.testiCard::after { content: '"'; position: absolute; top: 16px; right: 24px; font-family: var(--font-display); font-size: 100px; font-weight: 600; color: rgba(var(--accent-primary-rgb), 0.06); line-height: 1; pointer-events: none; }
+.testiCard:hover { background: var(--bg-tertiary); }
+.testiTop { display: flex; align-items: flex-start; gap: 16px; }
+.testiAvatar { width: 44px; height: 44px; border: 1px solid rgba(var(--accent-primary-rgb), 0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: rgba(var(--accent-primary-rgb), 0.05); font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--accent-primary); }
+.testiAuthor { display: block; font-family: var(--font-display); font-size: 17px; font-weight: 600; color: var(--text-primary); line-height: 1.2; }
+.testiRole { display: block; font-family: var(--font-ui); font-size: 11px; font-weight: 500; color: rgba(var(--text-primary-rgb), 0.4); margin-top: 2px; }
+.testiPlatform { font-family: var(--font-ui); font-size: 9.5px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-green); margin-left: auto; flex-shrink: 0; border: 1px solid rgba(var(--accent-green-rgb), 0.25); padding: 4px 10px; }
+.testiQuote { font-family: var(--font-ui); font-size: 14px; font-weight: 400; color: var(--text-muted); line-height: 1.8; position: relative; z-index: 1; }

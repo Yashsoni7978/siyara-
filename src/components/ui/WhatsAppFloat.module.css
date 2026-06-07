@@ -1,0 +1,30 @@
+.float {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 8000;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+}
+
+.float svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff;
+}
+
+.float:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 36px rgba(37, 211, 102, 0.45);
+}
+
+@media (max-width: 900px) {
+  .float { display: flex; }
+}

@@ -1,0 +1,192 @@
+/* ============================================================
+   BLOG POST PAGE
+============================================================ */
+
+.article {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.articleInner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: var(--space-12) var(--space-6);
+  align-items: start;
+}
+
+/* ---- Sidebar ---- */
+.sidebar {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebarCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebarLabel {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(var(--text-primary-rgb), 0.35);
+}
+
+.shareBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.35);
+  padding: 12px 18px;
+  transition: background 0.25s, color 0.25s;
+}
+
+.shareBtn:hover {
+  background: rgba(var(--accent-primary-rgb), 0.08);
+  color: var(--accent-secondary);
+}
+
+/* ---- Content ---- */
+.content {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 720px;
+}
+
+.content p {
+  margin-bottom: 24px;
+}
+
+.content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 48px 0 20px;
+}
+
+.content ul, .content ol {
+  margin: 0 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content li {
+  color: var(--text-muted);
+}
+
+.content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.content a {
+  color: var(--accent-primary);
+  border-bottom: 1px solid rgba(var(--accent-primary-rgb), 0.3);
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.content a:hover {
+  color: var(--accent-green);
+  border-color: var(--accent-green);
+}
+
+.comingSoon {
+  padding: 40px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-primary);
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ---- Related ---- */
+.relatedSection {
+  background: var(--bg-secondary);
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.relatedCard {
+  background: var(--bg-primary);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.relatedCard:hover { background: var(--bg-tertiary); }
+
+.relatedCategory {
+  font-family: var(--font-ui);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.relatedTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  flex: 1;
+}
+
+.relatedRead {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(var(--text-primary-rgb), 0.3);
+  transition: color 0.25s;
+}
+
+.relatedCard:hover .relatedRead { color: var(--accent-primary); }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 1100px) {
+  .articleInner { grid-template-columns: 1fr; }
+  .sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+  .sidebarCard { flex: 1; min-width: 240px; }
+}
+
+@media (max-width: 700px) {
+  .relatedGrid { grid-template-columns: 1fr; }
+  .sidebar { flex-direction: column; }
+  .sidebarCard { min-width: unset; }
+}

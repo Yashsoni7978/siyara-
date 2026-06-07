@@ -1,0 +1,117 @@
+.showcaseContainer {
+  padding: 80px 0;
+}
+
+.showcaseInner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+}
+
+@media (min-width: 900px) {
+  .showcaseInner {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+}
+
+.visualCol {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectImage {
+  object-fit: cover;
+}
+
+.cardPattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(45deg, var(--bg-tertiary) 25%, transparent 25%), 
+    linear-gradient(-45deg, var(--bg-tertiary) 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, var(--bg-tertiary) 75%), 
+    linear-gradient(-45deg, transparent 75%, var(--bg-tertiary) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  opacity: 0.3;
+}
+
+.cardInitials {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 8rem;
+  color: var(--text-primary);
+  opacity: 0.1;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.projectTitle {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.projectIndustry {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.projectDesc {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.divider {
+  height: 1px;
+  background: var(--border-color);
+  width: 100%;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.featureIcon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
