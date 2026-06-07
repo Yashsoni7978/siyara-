@@ -394,6 +394,181 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
+          FOUNDER'S MANIFESTO
+      ============================================================ */}
+      <section className={styles.manifestoSection} aria-label="Founder manifesto">
+        <div className="section-wrap">
+          <div className={styles.manifestoInner}>
+            <Reveal className={styles.manifestoLeft}>
+              <span className="eyebrow">A Letter From The Founder</span>
+              <h2 className={styles.manifestoTitle}>
+                Why I started Siyara — and why<br />
+                <span className="gold-shimmer">generic agencies fail.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.15} className={styles.manifestoRight}>
+              <blockquote className={styles.manifestoQuote}>
+                <span className={styles.manifestoQuoteMark}>&ldquo;</span>
+                <p>I watched great Jaipur businesses — restaurants serving food that would rival Mumbai&apos;s finest, fashion houses with craftsmanship that shames international labels — lose customers to competitors with half their quality but twice their digital presence.</p>
+                <p>And I watched the agencies they hired fail them. Copy-paste strategies. Generic templates. Junior teams pretending to be senior. Work that looked cheap because it was cheap.</p>
+                <p>The gap between what these businesses actually are and how they show up online was costing them crores in revenue, reputation, and growth every single year.</p>
+                <p>So I built the agency I wished existed when I was on the other side. One that treats every client&apos;s brand like its own. One where strategy comes before execution, always. One where the work we release has a standard — and that standard is non-negotiable.</p>
+                <p>We are not the cheapest. We are not the fastest. But when you see the work, and when you see the results — you will understand exactly why businesses choose Siyara and never leave.</p>
+                <footer className={styles.manifestoFooter}>
+                  <span className={styles.manifestoAuthor}>— Founder, Siyara Innovations</span>
+                  <span className={styles.manifestoRole}>Jaipur, Rajasthan</span>
+                </footer>
+              </blockquote>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          DEEP METHODOLOGY - 6 STEPS
+      ============================================================ */}
+      <section className={styles.methodologySection} aria-label="Our methodology">
+        <div className="section-wrap">
+          <div className="section-header">
+            <Reveal as="span" className="eyebrow">The Siyara Method</Reveal>
+            <Reveal as="h2" delay={0.1} className="section-title">
+              Six phases.<br />
+              <em>Zero shortcuts.</em>
+            </Reveal>
+            <Reveal as="p" delay={0.2} className={styles.methodologySub}>
+              Every engagement follows the same rigorous methodology. This is how we consistently deliver results that other agencies promise but never achieve.
+            </Reveal>
+          </div>
+
+          <div className={styles.methodologyGrid}>
+            {[
+              {
+                phase: '01',
+                title: 'Deep Discovery',
+                duration: 'Week 1',
+                desc: 'We don\'t start with deliverables — we start with questions. Who is your customer? What makes them choose you over a competitor? Where are you losing them? What does winning look like in 6 months? We study your market, your competitors, and your current digital footprint to build a complete picture.',
+                outputs: ['Competitor audit', 'Customer persona mapping', 'Current state assessment', 'Opportunity gap analysis'],
+              },
+              {
+                phase: '02',
+                title: 'Strategic Roadmap',
+                duration: 'Week 2',
+                desc: 'Based on our discovery, we build a custom strategic roadmap. Not a template. Not a copy-paste plan. A specific, sequenced roadmap that tells you exactly which services you need, in what order, and why each one matters for your specific business goals.',
+                outputs: ['Prioritised service recommendations', 'Phased timeline', 'Budget allocation strategy', 'KPI framework'],
+              },
+              {
+                phase: '03',
+                title: 'Foundation Build',
+                duration: 'Weeks 3–6',
+                desc: 'This is where the real work starts. We build the core assets your brand needs — whether that is a website, a brand identity, an ad system, or all of the above. Every deliverable is reviewed internally before you see it, and nothing goes live until both sides are satisfied.',
+                outputs: ['Design systems & brand assets', 'Website/app development', 'Content & copy creation', 'Campaign architecture'],
+              },
+              {
+                phase: '04',
+                title: 'Launch & Activate',
+                duration: 'Week 6–7',
+                desc: 'We deploy everything with surgical precision. Websites go live after thorough QA. Campaigns launch with tracking in place. Content calendars begin executing. SEO changes are indexed. Everything is connected and talking to each other from day one.',
+                outputs: ['Deployment & QA', 'Campaign activation', 'Analytics & tracking setup', 'Performance benchmarking'],
+              },
+              {
+                phase: '05',
+                title: 'Optimise & Iterate',
+                duration: 'Ongoing',
+                desc: 'Data starts flowing immediately. We monitor performance daily and optimise weekly. A/B tests on ads. Content adjustments based on engagement. SEO tweaks based on rankings. This is where the gap between us and every other agency becomes obvious — we do not set and forget.',
+                outputs: ['Weekly performance reviews', 'A/B testing cycles', 'Content calendar refinement', 'Budget reallocation based on data'],
+              },
+              {
+                phase: '06',
+                title: 'Scale & Compound',
+                duration: 'Month 3+',
+                desc: 'Once the foundation is proven and the system is generating predictable results, we scale. More budget to what works. New channels added strategically. Your investment begins to compound — every month building on the last. This is the stage where businesses start saying "I wish I had done this sooner."',
+                outputs: ['Channel expansion', 'Revenue scaling strategy', 'Advanced automation', 'Quarterly strategic reviews'],
+              },
+            ].map(({ phase, title, duration, desc, outputs }, i) => (
+              <Reveal key={phase} delay={i * 0.08} className={styles.methodologyStep}>
+                <div className={styles.methodologyStepHeader}>
+                  <span className={styles.methodologyPhase}>{phase}</span>
+                  <span className={styles.methodologyDuration}>{duration}</span>
+                </div>
+                <h3 className={styles.methodologyStepTitle}>{title}</h3>
+                <p className={styles.methodologyStepDesc}>{desc}</p>
+                <div className={styles.methodologyOutputs}>
+                  <span className={styles.methodologyOutputsLabel}>Key Outputs:</span>
+                  <ul>
+                    {outputs.map(o => <li key={o}>{o}</li>)}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          THE SIYARA STANDARD - What We Refuse To Do
+      ============================================================ */}
+      <section className={styles.standardSection} aria-label="The Siyara Standard">
+        <div className="section-wrap">
+          <div className="section-header">
+            <Reveal as="span" className="eyebrow">The Siyara Standard</Reveal>
+            <Reveal as="h2" delay={0.1} className="section-title">
+              What we refuse to do.<br />
+              <em>And why it matters.</em>
+            </Reveal>
+          </div>
+          <div className={styles.standardGrid}>
+            {[
+              { refuse: 'We don\'t outsource.', why: 'Every line of code, every ad creative, every brand strategy is produced in-house by our full-time specialists. When you hire Siyara, you get Siyara — not a white-labelled freelancer in another city.' },
+              { refuse: 'We don\'t use templates.', why: 'Templates are for agencies that don\'t know how to design. Every website, every brand identity, every campaign we produce is built from scratch specifically for your business, your market, and your customer.' },
+              { refuse: 'We don\'t hide behind jargon.', why: 'No "synergy." No "leveraging paradigms." We tell you exactly what we are doing, why, and what results it is generating. If something isn\'t working, we tell you first — not in a quarterly report you won\'t read.' },
+              { refuse: 'We don\'t chase vanity metrics.', why: 'Likes and followers mean nothing if they don\'t translate to revenue. Every report we share tracks business outcomes — leads, conversions, revenue. The metrics that actually pay your bills.' },
+              { refuse: 'We don\'t lock you in.', why: 'No 12-month contracts with exit penalties. We work on rolling agreements because we believe our work should earn your business every single month, not a legal clause.' },
+              { refuse: 'We don\'t do generic work. Ever.', why: 'We have turned down clients whose expectations didn\'t match our standards. We would rather do fewer projects at the highest quality than dilute our work with volume. Every piece that leaves our team represents us.' },
+            ].map(({ refuse, why }, i) => (
+              <Reveal key={refuse} delay={i * 0.08} className={styles.standardCard}>
+                <h3 className={styles.standardRefuse}>{refuse}</h3>
+                <p className={styles.standardWhy}>{why}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          COMPREHENSIVE FAQ
+      ============================================================ */}
+      <section className={styles.faqSection} aria-label="Frequently asked questions">
+        <div className="section-wrap">
+          <div className="section-header">
+            <Reveal as="span" className="eyebrow">FAQ</Reveal>
+            <Reveal as="h2" delay={0.1} className="section-title">
+              Every question.<br />
+              <em>Answered honestly.</em>
+            </Reveal>
+          </div>
+          <div className={styles.faqGrid}>
+            {[
+              { q: 'How much does it cost to work with Siyara?', a: 'It depends entirely on what you need. A standalone website starts at ₹45,000. Monthly retained services (SEO, ads, social) start at ₹25,000/month. We never recommend services you don\'t need. Our first call is always free, and we will give you an honest recommendation — even if it means telling you that you don\'t need us yet.' },
+              { q: 'How long before I see results?', a: 'For paid ads, you can start seeing leads within 7–14 days of campaign launch. For SEO, meaningful ranking improvements typically take 3–4 months. For branding and web development, the impact is immediate upon launch. We set realistic timelines and never promise overnight miracles.' },
+              { q: 'Do you work with businesses outside Jaipur?', a: 'Yes. While our deepest expertise is in the Jaipur and Rajasthan market, we serve clients across India. Our methodology works regardless of geography — but our Jaipur clients get the added advantage of our hyperlocal market knowledge.' },
+              { q: 'What makes you different from other agencies?', a: 'Three things: (1) We are strategy-first — we never build anything without knowing why. (2) Everything is integrated — your website, SEO, ads, social, and content all share one strategy and compound each other. (3) We have a quality standard that is non-negotiable. We would rather lose a project than deliver mediocre work.' },
+              { q: 'Can I start with just one service?', a: 'Absolutely. While our services are designed to compound when combined, we offer every service individually. Many clients start with a website or SEO and expand to other services as they see results. There is no minimum commitment.' },
+              { q: 'What if I am not happy with the work?', a: 'We have revision rounds built into every project. For retained services, we have monthly check-ins where we review performance together. If something is not meeting expectations, we diagnose and fix — transparently. We do not hide behind data or make excuses.' },
+              { q: 'Do you offer contracts or can I cancel anytime?', a: 'For project-based work (websites, branding), we work on a milestone-based payment structure. For retained services (SEO, ads, social), we work on rolling monthly agreements with 30-day notice. No lock-in contracts, no exit penalties.' },
+              { q: 'How do you report on progress?', a: 'Every retained client receives a monthly performance report covering all active services — complete with data, insights, and next steps. We also offer WhatsApp access to your account manager for real-time updates between reports.' },
+              { q: 'Will I own all the work you produce?', a: 'Yes. Every design, every line of code, every piece of content we produce for you is 100% yours. We do not retain rights to client work, and we provide full source files and access credentials for everything we build.' },
+              { q: 'How quickly can you start?', a: 'For most projects, we can begin the Discovery phase within 5–7 business days of signing. For urgent projects, we can fast-track to start within 48 hours. Timelines depend on current capacity — another reason to start the conversation sooner rather than later.' },
+            ].map(({ q, a }, i) => (
+              <Reveal key={q} delay={i * 0.05} className={styles.faqItem}>
+                <h3 className={styles.faqQ}>{q}</h3>
+                <p className={styles.faqA}>{a}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
           LATEST INSIGHTS (BLOG PREVIEW)
       ============================================================ */}
       <section id="insights" className={styles.blogPreviewSection} aria-label="Latest Insights">
@@ -433,7 +608,7 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          TESTIMONIALS - DENSE CONTENT
+          TESTIMONIALS - DENSE CONTENT (EXPANDED)
       ============================================================ */}
       <section className={sharedStyles.testimonialsSection} aria-label="Client testimonials">
         <div className="section-wrap">
@@ -445,7 +620,7 @@ export default function HomePage() {
           </div>
           
           <div className={sharedStyles.testiGrid}>
-            {CLIENT_TESTIMONIALS.slice(0, 4).map((testi, i) => (
+            {CLIENT_TESTIMONIALS.slice(0, 8).map((testi, i) => (
               <Reveal key={testi.author} delay={i * 0.1} className={sharedStyles.testiCard}>
                 <div className={sharedStyles.testiTop}>
                   <div className={sharedStyles.testiAvatar}>{testi.author.split(' ').map(n=>n[0]).join('')}</div>
