@@ -3,21 +3,30 @@
 ============================================================ */
 .nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1200px;
   z-index: 1000;
-  height: var(--nav-h);
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 48px;
-  transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
+  padding: 0 28px;
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--bg-primary) 50%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
 }
 
 .nav.scrolled {
-  background: color-mix(in srgb, var(--bg-primary) 88%, transparent);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--bg-primary) 75%, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
 /* Logo */
@@ -180,6 +189,7 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
+  border-radius: 100px;
   transition: background 0.3s, transform 0.3s;
 }
 
@@ -304,5 +314,9 @@
   .links { display: none; }
   .cta  { display: none; }
   .hamburger { display: flex; }
-  .nav  { padding: 0 24px; }
+  .nav { 
+    top: 12px;
+    padding: 0 20px;
+    height: 60px;
+  }
 }
