@@ -174,6 +174,37 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
+          SERVICES SECTION
+      ============================================================ */}
+      <section className={styles.servicesSection} aria-label="Our services">
+        <div className="section-wrap">
+          <div className="section-header">
+            <Reveal as="span" className="eyebrow">What We Do</Reveal>
+            <Reveal as="h2" delay={0.1} className="section-title">
+              14 services.<br />
+              <span className="gold-shimmer">One unified growth strategy.</span>
+            </Reveal>
+          </div>
+          
+          <div className={styles.servicesGrid}>
+            {SERVICES.map((svc, i) => (
+              <Reveal key={svc.id} delay={(i % 3) * 0.1}>
+                <Link href={`/services/${svc.id}`} className={styles.serviceCard}>
+                  <div className={styles.serviceHoverBorder} />
+                  <span className={styles.serviceBgNum}>{svc.num}</span>
+                  <div className={styles.serviceTop}>
+                    <span className={styles.serviceIcon}>{IconMap[svc.icon]}</span>
+                  </div>
+                  <h3 className={styles.serviceName}>{svc.name}</h3>
+                  <div className={styles.serviceFix}>FIXES: {svc.fix.toUpperCase()}</div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
           PROBLEM SECTION
       ============================================================ */}
       <section className={styles.problemSection} aria-label="Problems we solve">
