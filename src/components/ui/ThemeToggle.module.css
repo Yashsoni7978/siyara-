@@ -1,0 +1,53 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--border-glow);
+  border: 1px solid var(--accent-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.toggle:hover {
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  transform: scale(1.05);
+}
+
+.iconWrap {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.sun, .moon {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* When dark is active: Sun is visible, Moon rotates and fades out */
+.isDark .sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+.isDark .moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+/* When light is active: Moon is visible, Sun rotates and fades out */
+.isLight .moon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+.isLight .sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
