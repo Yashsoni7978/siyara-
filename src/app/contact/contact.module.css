@@ -200,6 +200,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .contactInner { grid-template-columns: 1fr; }
+  .formCol { padding: 32px 24px; }
+  .infoCol { padding: 32px 24px; }
+}
+
 /* ============================================================
    CONTACT PAGE SPECIFIC STYLES
 ============================================================ */

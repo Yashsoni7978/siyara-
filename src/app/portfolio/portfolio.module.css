@@ -186,6 +186,12 @@
   .ratingItem { border-right: none; border-bottom: 1px solid var(--border-color); }
 }
 
+@media (max-width: 600px) {
+  .cardBody { padding: 24px 20px; }
+  .testiCard { padding: 28px 24px; }
+  .ratingItem { padding: 24px 20px; }
+}
+
 /* ---- Ratings Strip (Shared) ---- */
 .ratingsStrip { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
 .ratingsGrid { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--border-color); border: 1px solid var(--border-color); }

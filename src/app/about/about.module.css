@@ -613,3 +613,12 @@
   .ratingsBar { padding: 0 24px; }
   .talentGrid { gap: 32px; }
 }
+
+@media (max-width: 600px) {
+  .teamCard { padding: 28px 24px; }
+  .timelineContent { padding: 24px 20px; }
+  .valueCard { padding: 32px 24px; }
+  .talentCard { padding: 32px 24px; }
+  .heroStat { padding: 24px 20px; }
+  .heroStats { grid-template-columns: 1fr; }
+}

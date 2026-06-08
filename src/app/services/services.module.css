@@ -449,3 +449,11 @@
   .synergyGrid { grid-template-columns: 1fr; }
   .deepProcessGrid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 600px) {
+  .categoryCard { padding: 32px 24px; }
+  .svcCard { padding: 32px 24px; }
+  .testiCard { padding: 32px 24px; }
+  .synergyCard { padding: 32px 24px; }
+  .processCard { padding: 32px 24px; }
+}
