@@ -33,6 +33,8 @@ const NAV_GROUPS = [
     href: '/about',
     children: [
       { href: '/about',              label: 'About Us',             sub: 'Our story & mission' },
+      { href: '/careers',            label: 'Careers',              sub: 'Join our team' },
+      { href: '/faq',                label: 'FAQ',                  sub: 'Questions answered' },
       { href: '/blog',               label: 'Insights',             sub: 'Strategy & thinking' },
       { href: '/contact',            label: 'Contact Us',           sub: 'Let\'s talk' },
     ],

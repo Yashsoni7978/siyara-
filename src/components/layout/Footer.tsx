@@ -24,12 +24,11 @@ const INDUSTRY_LINKS = [
 
 const COMPANY_LINKS = [
   { href: '/about',        label: 'About Siyara'      },
+  { href: '/careers',      label: 'Careers'           },
   { href: '/#process',     label: 'Our Process'       },
   { href: '/portfolio',    label: 'Case Studies'      },
-  { href: '/portfolio',    label: 'Results & ROI'     },
-  { href: '/portfolio',    label: 'Portfolio'         },
   { href: '/pricing',      label: 'Pricing'           },
-  { href: '/services',     label: 'FAQ'               },
+  { href: '/faq',          label: 'FAQ'               },
   { href: '/blog',         label: 'Insights'          },
   { href: '/contact',      label: 'Contact Us'        },
 ]
