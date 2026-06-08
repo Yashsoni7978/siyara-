@@ -114,6 +114,14 @@ img, video, svg {
   padding: 0 4vw;
 }
 
+.section-header {
+  margin-bottom: 64px;
+}
+
+.section-header .eyebrow {
+  margin-bottom: 18px;
+}
+
 .eyebrow {
   display: inline-block;
   font-family: var(--font-ui);
