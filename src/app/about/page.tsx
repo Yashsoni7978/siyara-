@@ -98,6 +98,10 @@ export default function AboutPage() {
               </div>
             </Reveal>
           </div>
+
+          <Reveal delay={0.2} style={{ marginTop: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' }}>
+            <img src="/images/about_office.png" alt="Siyara Innovations Office" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </Reveal>
         </div>
       </section>
 

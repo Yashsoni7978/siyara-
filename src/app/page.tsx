@@ -110,9 +110,14 @@ export default function HomePage() {
                   </svg>
                   Build My Brand
                 </Link>
-                <Link href="#services" className="btn-outline">See All Services &nbsp;→</Link>
+                <Link href="/services" className="btn-outline">See All Services &nbsp;→</Link>
               </div>
             </div>
+
+            {/* Dashboard Mockup */}
+            <Reveal delay={0.4} className={styles.heroMockupWrap}>
+              <Image src="/images/home_dashboard.png" alt="Siyara Innovations Dashboard" width={1000} height={600} className={styles.heroMockup} priority />
+            </Reveal>
 
             <div className={styles.heroVisual}>
               <Image

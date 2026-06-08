@@ -156,6 +156,10 @@ export default function ContactPage() {
               <span className={styles.infoValue}>Within 4 hours (WhatsApp)</span>
             </Reveal>
           </div>
+
+          <Reveal delay={0.4} style={{ marginTop: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', textAlign: 'center' }}>
+            <img src="/images/contact_location.png" alt="Siyara Digital Agency Jaipur Office Location" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </Reveal>
         </div>
       </section>
 

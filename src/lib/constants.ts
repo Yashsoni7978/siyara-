@@ -81,7 +81,7 @@ export const PORTFOLIO = [
     name: 'Velara Worldwide',
     industry: 'Events & Weddings',
     desc: 'A robust, high-performance platform for a leading global wedding planning brand. Engineered for massive scale, rich visual storytelling, and seamless user experience.',
-    image: '/portfolio/the-knot.png',
+    image: '/images/portfolio_fashion.png',
     demoLink: '/showcase/velara',
   },
   { 
@@ -89,7 +89,7 @@ export const PORTFOLIO = [
     name: 'Marigold Events',
     industry: 'Events & Weddings',
     desc: 'A premium showcase for Jaipur\'s finest wedding planners. We built a stunning, lead-generating digital presence that matches the elegance of the weddings they design.',
-    image: '/portfolio/fiestro.png',
+    image: '/images/portfolio_restaurant.png',
     demoLink: '/showcase/marigold',
   },
   { 

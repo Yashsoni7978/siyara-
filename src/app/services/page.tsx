@@ -159,6 +159,11 @@ export default function ServicesPage() {
               Most agencies sell services in isolation. A website here, some ads there, a social media package somewhere else. The result? Nothing compounds. With Siyara, every service feeds into every other service — creating a digital ecosystem where growth accelerates over time.
             </Reveal>
           </div>
+
+          <Reveal delay={0.3} style={{ marginBottom: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', textAlign: 'center' }}>
+            <img src="/images/services_3d.png" alt="Siyara Digital Services Synergy" style={{ width: '100%', maxWidth: '800px', height: 'auto', display: 'inline-block' }} />
+          </Reveal>
+
           <div className={styles.synergyGrid}>
             {[
               { combo: 'Website + SEO', effect: 'Your site ranks. Your traffic grows organically. Every page is built with keywords and technical SEO from day one — not bolted on as an afterthought.', multiplier: '3.2x' },

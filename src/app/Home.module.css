@@ -436,6 +436,34 @@
 
 .bentoLarge:hover { background: var(--bg-tertiary); }
 
+.heroSub {
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.heroMockupWrap {
+  margin-top: 80px;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  z-index: 2;
+  border-radius: 12px;
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.heroMockup {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .bentoStat {
   font-family: var(--font-display); font-size: 80px; font-weight: 600;
   color: var(--accent-primary); line-height: 1; margin-bottom: 16px; opacity: 0.7;
