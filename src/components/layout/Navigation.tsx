@@ -8,40 +8,17 @@ import { WA_LINKS } from '@/lib/constants'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import styles from './Navigation.module.css'
 
-const NAV_GROUPS = [
-  {
-    label: 'Services',
-    href: '/services',
-    children: [
-      { href: '/services',           label: 'All Services',         sub: '14 digital services' },
-      { href: '/services#chosen',    label: 'Get Chosen',           sub: 'Web, brand & design' },
-      { href: '/services#found',     label: 'Get Found',            sub: 'SEO, GEO & marketing' },
-    ],
-  },
-  {
-    label: 'Work',
-    href: '/portfolio',
-    children: [
-      { href: '/portfolio',          label: 'Portfolio',            sub: 'Our case studies' },
-      { href: '/about',              label: 'Why Choose Siyara',    sub: 'Strategy-led execution' },
-      { href: '/contact',            label: 'Start a Project',      sub: 'Let\'s build together' },
-    ],
-  },
-  {
-    label: 'Company',
-    href: '/about',
-    children: [
-      { href: '/about',              label: 'About Us',             sub: 'Our story & mission' },
-      { href: '/careers',            label: 'Careers',              sub: 'Join our team' },
-      { href: '/blog',               label: 'Insights',             sub: 'Strategy & thinking' },
-    ],
-  },
+const NAV_LINKS = [
+  { label: 'Services', href: '/services' },
+  { label: 'Work', href: '/portfolio' },
+  { label: 'Company', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export function Navigation() {
   const [scrolled, setScrolled]       = useState(false)
   const [menuOpen, setMenuOpen]       = useState(false)
-  const [activeGroup, setActiveGroup] = useState<number | null>(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -52,7 +29,6 @@ export function Navigation() {
 
   useEffect(() => {
     setMenuOpen(false)
-    setActiveGroup(null)
     document.body.style.overflow = ''
   }, [pathname])
 
@@ -70,7 +46,6 @@ export function Navigation() {
         className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}
         role="navigation"
         aria-label="Main navigation"
-        onMouseLeave={() => setActiveGroup(null)}
       >
         <Link href="/" className={styles.logo} aria-label="Siyara Innovations Home">
           <Image src="/apple-touch-icon.png" alt="Siyara Innovations Logo" width={32} height={32} style={{ borderRadius: '6px' }} />
@@ -81,36 +56,14 @@ export function Navigation() {
         </Link>
 
         <ul className={styles.links} role="list">
-          {NAV_GROUPS.map((group, gi) => (
-            <li
-              key={group.label}
-              className={styles.navItem}
-              onMouseEnter={() => setActiveGroup(gi)}
-            >
+          {NAV_LINKS.map(link => (
+            <li key={link.label} className={styles.navItem}>
               <Link
-                href={group.href}
-                className={`${styles.link} ${pathname === group.href || pathname.startsWith(group.href + '/') ? styles.active : ''}`}
+                href={link.href}
+                className={`${styles.link} ${pathname === link.href || pathname.startsWith(link.href + '/') ? styles.active : ''}`}
               >
-                {group.label}
-                <svg className={styles.chevron} viewBox="0 0 12 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M1 1l5 5 5-5" />
-                </svg>
+                {link.label}
               </Link>
-
-              {/* Dropdown */}
-              <div className={`${styles.dropdown} ${activeGroup === gi ? styles.dropdownOpen : ''}`} role="menu">
-                {group.children.map(child => (
-                  <Link
-                    key={child.label}
-                    href={child.href}
-                    className={`${styles.dropItem} ${pathname === child.href ? styles.dropItemActive : ''}`}
-                    role="menuitem"
-                  >
-                    <span className={styles.dropLabel}>{child.label}</span>
-                    <span className={styles.dropSub}>{child.sub}</span>
-                  </Link>
-                ))}
-              </div>
             </li>
           ))}
         </ul>
@@ -148,16 +101,13 @@ export function Navigation() {
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        {NAV_GROUPS.map(group => (
-          <div key={group.label} className={styles.mobileGroup}>
-            <span className={styles.mobileGroupLabel}>{group.label}</span>
-            {group.children.map(child => (
-              <Link key={child.label} href={child.href} className={styles.mobileLink}>
-                {child.label}
-              </Link>
-            ))}
-          </div>
-        ))}
+        <div className={styles.mobileGroup}>
+          {NAV_LINKS.map(link => (
+            <Link key={link.label} href={link.href} className={styles.mobileLink}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
         <Link
           href={WA_LINKS.default}
           className={styles.mobileCta}
