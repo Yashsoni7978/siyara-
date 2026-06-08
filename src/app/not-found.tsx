@@ -8,9 +8,9 @@ export default function NotFound() {
       <div className="hero-grid-bg" aria-hidden="true" />
       <div className={styles.content}>
         <h1 className={styles.code}>404</h1>
-        <h2 className={styles.title}>Page Not Found</h2>
+        <h2 className={styles.title}>Looks like you&apos;re lost.</h2>
         <p className={styles.desc}>
-          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+          You must have wandered down the wrong lane in the Pink City... Let&apos;s get you back to the main road.
         </p>
         <Link href="/" className="btn-primary">
           Return Home →

@@ -45,6 +45,9 @@ export function Footer() {
             <span className="gold-shimmer">We build brands that dominate.</span>
           </p>
           <a href={`mailto:${BRAND.email}`} className={styles.email}>{BRAND.email}</a>
+          <p style={{ marginTop: '16px', fontSize: '0.95rem', color: 'rgba(var(--text-primary-rgb), 0.7)', maxWidth: '280px', lineHeight: 1.5 }}>
+            Proudly building world-class digital experiences from the Pink City. If you&apos;re in Jaipur, drop by for a chai and a strategy session.
+          </p>
 
           <div className={styles.social} aria-label="Social media links">
             <a href={BRAND.instagram} className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">

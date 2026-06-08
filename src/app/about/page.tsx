@@ -89,7 +89,7 @@ export default function AboutPage() {
               </div>
             </Reveal>
             <Reveal delay={0.15} className={styles.missionRight}>
-              <p className={styles.missionBody}>Jaipur has some of the most incredible businesses in India — restaurants with food that would impress Mumbai, fashion brands with craftsmanship that rivals international labels, real estate projects of genuine quality.</p>
+              <p className={styles.missionBody}>Jaipur has some of the most incredible businesses in India — restaurants in C-Scheme with food that would impress Mumbai, fashion brands from Sitapura with craftsmanship that rivals international labels, real estate projects across the city of genuine quality.</p>
               <p className={styles.missionBody}>But most of them are invisible. Their digital presence doesn&apos;t match the quality of what they actually offer. That gap — between who they are and how they show up online — costs them customers, revenue, and credibility every single day.</p>
               <p className={styles.missionBody}>That&apos;s the problem we exist to solve. We build the digital presence these businesses deserve — one that makes their competitors nervous, their customers trust them instantly, and their revenue grow predictably.</p>
               <div className={styles.missionStats}>

@@ -42,7 +42,7 @@ const CONTACT_OPTIONS = [
 ]
 
 const FAQ = [
-  { q: 'Where are you based?', a: 'We are based in Jaipur, Rajasthan, and work with businesses across India.' },
+  { q: 'Where are you based?', a: 'Our office is located right here in the Pink City. If you are in Jaipur, let\'s grab a coffee. If not, we work seamlessly with businesses across India.' },
   { q: 'How quickly do you respond?', a: 'We typically respond to WhatsApp messages within 4 hours during weekdays (Mon–Sat, 9am–7pm IST).' },
   { q: 'Do you work with businesses outside Jaipur?', a: 'Yes. While we specialise in Jaipur-based businesses, we work with clients across India.' },
   { q: 'What is the minimum engagement?', a: "There's no minimum — we work on one-off projects and long-term retainers alike. The right fit depends on your goals." },
@@ -55,7 +55,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Get In Touch"
         title={<>Let&apos;s build something<br /><span className="gold-shimmer">worth talking about.</span></>}
-        subtitle="No pitch decks. No sales calls. Just an honest conversation about your business and what it actually needs."
+        subtitle="Whether it's a quick message over WhatsApp or a strategy session over coffee in C-Scheme, we're ready to talk growth. No pitch decks. Just an honest conversation."
         breadcrumb={[{ label: 'Contact' }]}
       />
 

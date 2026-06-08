@@ -354,8 +354,62 @@ export default async function ServicePage({ params }: { params: Promise<{ id: st
   const deep = SERVICE_DEEP_CONTENT[svc.id] || DEFAULT_DEEP
   const related = (deep.relatedServices || []).map(id => SERVICES.find(s => s.id === id)).filter(Boolean)
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: svc.name,
+    description: svc.desc,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: BRAND.name,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Jaipur',
+        addressRegion: 'Rajasthan',
+        addressCountry: 'IN'
+      }
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Jaipur'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${svc.name} Deliverables`,
+      itemListElement: deep.deliverables.map((d, i) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: d
+        },
+        position: i + 1
+      }))
+    }
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: deep.faq.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a
+      }
+    }))
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <PageHero
         eyebrow="Our Services"
         title={
