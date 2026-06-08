@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { WA_LINKS, BRAND } from '@/lib/constants'
 import { RATING_STATS, CLIENT_TESTIMONIALS } from '@/lib/social-proof'
 import { PageHero } from '@/components/ui/PageHero'
@@ -157,8 +158,8 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.4} style={{ marginTop: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', textAlign: 'center' }}>
-            <img src="/images/contact_location.png" alt="Siyara Digital Agency Jaipur Office Location" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          <Reveal delay={0.4} style={{ marginTop: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', textAlign: 'center', position: 'relative', width: '100%', height: 'auto', aspectRatio: '21/9' }}>
+            <Image src="/images/contact_location.png" alt="Siyara Digital Agency Jaipur Office Location" fill style={{ objectFit: 'cover' }} sizes="100vw" />
           </Reveal>
         </div>
       </section>

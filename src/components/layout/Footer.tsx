@@ -5,13 +5,10 @@ import styles from './Footer.module.css'
 
 const SERVICES_LINKS = [
   { href: WA_LINKS.webDev,             label: 'Web Development'           , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.branding,           label: 'Branding & Identity'        , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.ads,                label: 'Performance Marketing'      , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.seo,                label: 'SEO Optimisation'           , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.geo,                label: 'GEO Optimisation'           , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.aiAuto,             label: 'AI Automation'              , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.social,             label: 'Social Media Management'    , target: '_blank', rel: 'noopener noreferrer' },
-  { href: '/services',                 label: 'View All 12 Services →'     , target: undefined, rel: undefined },
+  { href: WA_LINKS.branding,           label: 'Branding & Identity'       , target: '_blank', rel: 'noopener noreferrer' },
+  { href: WA_LINKS.seo,                label: 'SEO & GEO Optimisation'    , target: '_blank', rel: 'noopener noreferrer' },
+  { href: WA_LINKS.aiAuto,             label: 'AI Automation'             , target: '_blank', rel: 'noopener noreferrer' },
+  { href: '/services',                 label: 'View All Services →'       , target: undefined, rel: undefined },
 ]
 
 const INDUSTRY_LINKS = [
@@ -23,14 +20,11 @@ const INDUSTRY_LINKS = [
 ]
 
 const COMPANY_LINKS = [
-  { href: '/about',        label: 'About Siyara'      },
-  { href: '/careers',      label: 'Careers'           },
-  { href: '/#process',     label: 'Our Process'       },
-  { href: '/portfolio',    label: 'Case Studies'      },
-  { href: '/pricing',      label: 'Pricing'           },
-  { href: '/faq',          label: 'FAQ'               },
-  { href: '/blog',         label: 'Insights'          },
-  { href: '/contact',      label: 'Contact Us'        },
+  { href: '/about',        label: 'Why Siyara'      },
+  { href: '/portfolio',    label: 'Case Studies'    },
+  { href: '/careers',      label: 'Careers'         },
+  { href: '/blog',         label: 'Insights'        },
+  { href: '/contact',      label: 'Contact'         },
 ]
 
 export function Footer() {
@@ -39,16 +33,16 @@ export function Footer() {
       <div className={styles.main}>
         {/* Brand column */}
         <div className={styles.brand}>
-          <Link href="/" aria-label="Siyara Innovations Home" className={styles.logoWrap} style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-            <Image src="/apple-touch-icon.png" alt="Siyara Innovations Logo" width={36} height={36} style={{ borderRadius: '6px' }} />
+          <Link href="/" aria-label="Siyara Innovations Home" className={styles.logoWrap}>
+            <Image src="/apple-touch-icon.png" alt="Siyara Innovations Logo" width={48} height={48} style={{ borderRadius: '8px' }} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
               <span className={styles.logoMain}>Siyara</span>
               <span className={styles.logoSub}>Innovations</span>
             </div>
           </Link>
           <p className={styles.tagline}>
-            &ldquo;We don&apos;t just build your digital presence.<br />
-            We build brands that dominate.&rdquo;
+            We don&apos;t just build your digital presence.<br />
+            <span className="gold-shimmer">We build brands that dominate.</span>
           </p>
           <a href={`mailto:${BRAND.email}`} className={styles.email}>{BRAND.email}</a>
 
@@ -102,21 +96,26 @@ export function Footer() {
           </ul>
         </div>
 
-        {/* Company column */}
+        {/* Company & Newsletter column */}
         <div>
           <span className={styles.colTitle}>Company</span>
           <ul className={styles.linkList}>
-            {COMPANY_LINKS.map(({ href, label }) => (
-              <li key={label}><Link href={href} className={styles.footerLink}>{label}</Link></li>
+            {COMPANY_LINKS.map(s => (
+              <li key={s.label}>
+                <Link href={s.href} className={styles.footerLink}>{s.label}</Link>
+              </li>
             ))}
           </ul>
-          <div className={styles.contactBlock}>
-            <span className={styles.colTitle}>Location</span>
-            <p className={styles.contactText}>
-              {BRAND.location}<br />
-              <a href={`mailto:${BRAND.email}`} className={styles.contactEmail}>{BRAND.email}</a><br />
-              <span className={styles.contactNote}>Replies within 4 hours</span>
-            </p>
+
+          <div className={styles.newsletterBlock}>
+            <span className={styles.colTitle} style={{ marginTop: '32px' }}>Stay Sharp</span>
+            <p className={styles.newsletterText}>Get one strategy-led insight delivered weekly. No fluff.</p>
+            <form className={styles.newsletterForm}>
+              <input type="email" placeholder="Enter your email" className={styles.newsletterInput} aria-label="Email for newsletter" />
+              <button type="button" className={styles.newsletterBtn} aria-label="Subscribe">
+                →
+              </button>
+            </form>
           </div>
         </div>
       </div>

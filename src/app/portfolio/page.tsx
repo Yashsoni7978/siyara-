@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { PORTFOLIO, WA_LINKS, BRAND } from '@/lib/constants'
 import { RATING_STATS, CLIENT_TESTIMONIALS } from '@/lib/social-proof'
 import { PageHero } from '@/components/ui/PageHero'
@@ -78,13 +79,18 @@ export default function PortfolioPage() {
                   className={styles.card}
                   aria-label={`View ${item.name} project`}
                 >
-                  {/* Visual placeholder */}
+                  {/* Visual Image */}
                   <div className={styles.cardVisual}>
-                    <div className={styles.cardPattern} aria-hidden="true" />
-                    <span className={styles.cardInitials}>
-                      {item.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
-                    </span>
-                    <span className={styles.cardViewLabel}>View Project →</span>
+                    <Image 
+                      src={item.image} 
+                      alt={`${item.name} Showcase`} 
+                      fill 
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={styles.cardImg} 
+                    />
+                    <div className={styles.cardOverlay}>
+                      <span className={styles.cardViewLabel}>View Case Study →</span>
+                    </div>
                   </div>
 
                   <div className={styles.cardBody}>

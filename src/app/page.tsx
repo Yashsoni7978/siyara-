@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { WA_LINKS, BRAND, SERVICES, INDUSTRIES } from '@/lib/constants'
+import { WA_LINKS, BRAND, SERVICES, INDUSTRIES, PORTFOLIO } from '@/lib/constants'
 import { RATING_STATS, CLIENT_TESTIMONIALS } from '@/lib/social-proof'
 import styles from './Home.module.css'
 import sharedStyles from './contact/contact.module.css'
@@ -208,7 +208,8 @@ export default function HomePage() {
           PROBLEM SECTION
       ============================================================ */}
       <section className={styles.problemSection} aria-label="Problems we solve">
-        <div className="section-wrap">
+        <div className={styles.problemRadar} aria-hidden="true" />
+        <div className="section-wrap" style={{ position: 'relative', zIndex: 2 }}>
           <div className={styles.problemInner}>
             <div className={styles.problemLeft}>
               <Reveal as="span" className="eyebrow">The Problem</Reveal>
@@ -319,38 +320,43 @@ export default function HomePage() {
       </section>
 
       {/* ============================================================
-          SERVICES OVERVIEW
+          FEATURED WORK / PORTFOLIO
       ============================================================ */}
-      <section id="services" className={styles.servicesSection} aria-label="Services overview">
+      <section id="work" className={styles.workSection} aria-label="Featured case studies">
         <div className="section-wrap">
           <div className="section-header">
-            <Reveal as="span" className="eyebrow">What We Do</Reveal>
+            <Reveal as="span" className="eyebrow">Featured Work</Reveal>
             <Reveal as="h2" delay={0.1} className="section-title">
-              12 services.<br />
-              <em>One unified growth strategy.</em>
+              Our standard is <span className="gold-shimmer">non-negotiable.</span><br />
+              <em>See the difference.</em>
             </Reveal>
           </div>
-          <div className={styles.servicesGrid}>
-            {SERVICES.slice(0, 6).map((svc, i) => (
-              <Link 
-                key={svc.id} 
-                href={`/services/${svc.id}`}
-                aria-label={`Learn more about ${svc.name}`} 
-                style={{ display: 'block' }}
-              >
-                <Reveal delay={i * 0.08} className={styles.svcCard}>
-                  <div className={styles.svcCardTop}>
-                    <span className={styles.svcNum}>{svc.num}</span>
-                    <span className={styles.svcIcon} aria-hidden="true">{IconMap[svc.icon]}</span>
+          <div className={styles.workGrid}>
+            {PORTFOLIO.slice(0, 3).map((item, i) => (
+              <Reveal key={item.id} delay={i * 0.15} className={styles.workCardWrap}>
+                <Link href={item.demoLink} className={styles.workCard}>
+                  <div className={styles.workImageWrap}>
+                    <Image 
+                      src={item.image} 
+                      alt={`${item.name} Showcase`} 
+                      fill 
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className={styles.workImg} 
+                    />
+                    <div className={styles.workOverlay}>
+                      <span className={styles.workBtn}>View Case Study →</span>
+                    </div>
                   </div>
-                  <h3 className={styles.svcName}>{svc.name}</h3>
-                  <p className={styles.svcFix}>Fixes: {svc.fix}</p>
-                </Reveal>
-              </Link>
+                  <div className={styles.workMeta}>
+                    <span className={styles.workIndustry}>{item.industry}</span>
+                    <h3 className={styles.workName}>{item.name}</h3>
+                  </div>
+                </Link>
+              </Reveal>
             ))}
           </div>
-          <Reveal delay={0.2} className={styles.servicesFooter}>
-            <Link href="#services" className="btn-outline">View All 12 Services →</Link>
+          <Reveal delay={0.2} className={styles.workFooter}>
+            <Link href="/portfolio" className="btn-outline">View All Case Studies →</Link>
           </Reveal>
         </div>
       </section>

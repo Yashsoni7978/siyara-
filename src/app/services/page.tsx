@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { SERVICES, WA_LINKS, BRAND } from '@/lib/constants'
 import { TESTIMONIALS, PLATFORM_STATS } from '@/lib/social-proof'
 import { PageHero } from '@/components/ui/PageHero'
@@ -10,11 +11,11 @@ import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Our Services',
-  description: 'Explore all 12 digital services by Siyara Innovations — web development, branding, AI automation, SEO, performance marketing, and more. Rated 4.9★ on Google by 47+ Jaipur businesses.',
+  description: 'Explore all 14 digital services by Siyara Innovations — web development, branding, AI automation, SEO, performance marketing, and more. Rated 4.9★ on Google by 47+ Jaipur businesses.',
   alternates: { canonical: `${BRAND.siteUrl}/services` },
   openGraph: {
     title: `Our Services | ${BRAND.name}`,
-    description: 'Explore all 12 digital services by Siyara Innovations — web development, branding, AI automation, SEO, performance marketing, and more. Rated 4.9★ on Google by 47+ Jaipur businesses.',
+    description: 'Explore all 14 digital services by Siyara Innovations — web development, branding, AI automation, SEO, performance marketing, and more. Rated 4.9★ on Google by 47+ Jaipur businesses.',
     url: `${BRAND.siteUrl}/services`,
   },
 }
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 const CATEGORIES = [
   { id: 'chosen',    label: 'Get Chosen',    icon: '◈', desc: 'Build the brand people trust on sight.', count: 4 },
   { id: 'found',     label: 'Get Found',     icon: '🔍', desc: 'Dominate search — Google, Maps & AI.', count: 3 },
-  { id: 'revenue',   label: 'Get Revenue',   icon: '📈', desc: 'Turn your audience into paying customers.', count: 3 },
+  { id: 'revenue',   label: 'Get Revenue',   icon: '📈', desc: 'Turn your audience into paying customers.', count: 5 },
   { id: 'efficient', label: 'Get Efficient', icon: '⚡', desc: 'Automate and scale without the overhead.', count: 2 },
 ]
 
@@ -50,7 +51,7 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="What We Do"
-        title={<>12 services.<br /><em style={{ fontStyle: 'italic', color: 'var(--accent-primary)' }}>One unified strategy.</em></>}
+        title={<>14 services.<br /><em style={{ fontStyle: 'italic', color: 'var(--accent-primary)' }}>One unified strategy.</em></>}
         subtitle="Every service is designed to work together. When your website, SEO, ads, and social all share one strategy — they compound. That's the Siyara difference."
         breadcrumb={[{ label: 'Services' }]}
       />
@@ -100,17 +101,19 @@ export default function ServicesPage() {
               </div>
               <div className={styles.servicesGrid}>
                 {catServices.map((svc, i) => (
-                  <Reveal key={svc.id} delay={i * 0.1}>
-                    <Link href={`/services/${svc.id}`} className={styles.svcCard} aria-label={`Learn more about ${svc.name}`}>
-                      <div className={styles.svcTop}>
-                        <span className={styles.svcNum}>{svc.num}</span>
-                        <span className={styles.svcIcon}>{IconMap[svc.icon]}</span>
-                      </div>
+                  <Reveal key={svc.id} delay={i * 0.1} className={styles.svcCard}>
+                    <div className={styles.svcHeader}>
+                      <span className={styles.svcNum}>{svc.num}</span>
+                      <span className={styles.svcIcon}>{IconMap[svc.icon]}</span>
+                    </div>
+                    <div className={styles.svcContent}>
                       <h3 className={styles.svcName}>{svc.name}</h3>
+                      <p className={styles.svcFix}>Fixes: {svc.fix}</p>
                       <p className={styles.svcDesc}>{svc.desc}</p>
-                      <div className={styles.svcFix}><span>Fixes:</span> {svc.fix}</div>
-                      <span className={styles.svcCta}>View Details →</span>
-                    </Link>
+                      <Link href={WA_LINKS[svc.waLink as keyof typeof WA_LINKS] || WA_LINKS.services} target="_blank" rel="noopener noreferrer" className={styles.svcLink}>
+                        Discuss this service →
+                      </Link>
+                    </div>
                   </Reveal>
                 ))}
               </div>
@@ -160,8 +163,8 @@ export default function ServicesPage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.3} style={{ marginBottom: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', textAlign: 'center' }}>
-            <img src="/images/services_3d.png" alt="Siyara Digital Services Synergy" style={{ width: '100%', maxWidth: '800px', height: 'auto', display: 'inline-block' }} />
+          <Reveal delay={0.3} style={{ marginBottom: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', textAlign: 'center', position: 'relative', width: '100%', maxWidth: '800px', margin: '0 auto 80px', height: 'auto', aspectRatio: '16/9' }}>
+            <Image src="/images/services_3d.png" alt="Siyara Digital Services Synergy" fill style={{ objectFit: 'contain' }} sizes="(max-width: 800px) 100vw, 800px" />
           </Reveal>
 
           <div className={styles.synergyGrid}>

@@ -208,7 +208,34 @@
 }
 
 /* ---- PROBLEM ---- */
-.problemSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.problemSection { 
+  background: var(--bg-primary); 
+  border-bottom: 1px solid var(--border-color); 
+  position: relative;
+  overflow: hidden;
+}
+
+.problemRadar {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: 
+    radial-gradient(circle, transparent 60%, rgba(var(--accent-primary-rgb), 0.05) 100%),
+    repeating-radial-gradient(circle, transparent, transparent 40px, rgba(var(--accent-primary-rgb), 0.03) 41px, transparent 42px);
+  border-radius: 50%;
+  animation: pulseRadar 10s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes pulseRadar {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+}
 
 .problemInner {
   display: grid; grid-template-columns: 1fr 1.8fr; gap: 80px; align-items: start;
@@ -224,16 +251,25 @@
 
 .problemSub { font-size: 14px; font-weight: 600; color: var(--text-muted); line-height: 1.7; }
 
-.problemCards { display: flex; flex-direction: column; gap: 2px; }
+.problemCards { display: flex; flex-direction: column; gap: 24px; perspective: 1000px; }
 
 .painCard {
-  padding: 28px 32px; background: var(--bg-secondary);
-  border: 1px solid var(--border-color); border-left: 2px solid transparent;
+  padding: 36px 40px; background: rgba(var(--bg-secondary-rgb), 0.8);
+  border: 1px solid var(--border-color);
   display: flex; flex-direction: column; gap: 12px;
-  transition: border-left-color 0.35s, background 0.35s, transform 0.3s;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 2;
 }
 
-.painCard:hover { border-left-color: var(--accent-primary); background: var(--bg-tertiary); transform: translateX(8px); }
+.painCard:hover { 
+  background: rgba(var(--bg-tertiary-rgb), 0.95);
+  border-color: rgba(var(--accent-primary-rgb), 0.5);
+  transform: rotateX(2deg) translateY(-6px); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(var(--accent-primary-rgb), 0.2);
+}
 
 .painCardTop { display: flex; align-items: baseline; gap: 16px; }
 
@@ -334,52 +370,101 @@
 
 .industryCard:hover .industryArrow { opacity: 1; transform: translateX(0); }
 
-/* ---- SERVICES OVERVIEW ---- */
-.servicesSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+/* /* ---- FEATURED WORK / PORTFOLIO ---- */
+.workSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
 
-.servicesGrid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px; background: var(--border-color); border: 1px solid var(--border-color);
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
 }
 
-.svcCard {
-  background: var(--bg-primary); padding: 36px 32px;
-  display: flex; flex-direction: column; gap: 12px;
-  transition: background 0.35s; position: relative; overflow: hidden;
+.workCardWrap {
+  perspective: 1000px;
 }
 
-.svcCard::after {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 2px; height: 0; background: var(--accent-primary);
-  transition: height 0.45s var(--ease-out);
+.workCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-decoration: none;
+  group: hover;
 }
 
-.svcCard:hover { background: var(--bg-tertiary); }
-.svcCard:hover::after { height: 100%; }
-
-.svcCardTop { display: flex; align-items: center; justify-content: space-between; }
-
-.svcNum {
-  font-family: var(--font-display); font-size: 36px;
-  font-weight: 600; color: rgba(var(--accent-primary-rgb), 0.12); line-height: 1;
-  transition: color 0.35s, transform 0.35s;
+.workImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0;
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.1);
 }
 
-.svcCard:hover .svcNum { color: rgba(var(--accent-primary-rgb), 0.3); transform: scale(1.1); }
-
-.svcIcon { font-size: 20px; }
-
-.svcName {
-  font-family: var(--font-display); font-size: 21px; font-weight: 600;
-  color: var(--text-primary); line-height: 1.2;
+.workImg {
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.svcFix {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.24em;
-  text-transform: uppercase; color: rgba(var(--accent-primary-rgb), 0.5);
+.workCard:hover .workImg {
+  transform: scale(1.05);
 }
 
-.servicesFooter { margin-top: 40px; text-align: center; }
+.workOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.workCard:hover .workOverlay {
+  opacity: 1;
+}
+
+.workBtn {
+  background: var(--accent-primary);
+  color: #060606;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  transform: translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workCard:hover .workBtn {
+  transform: translateY(0);
+}
+
+.workMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.workIndustry {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.workName {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.workFooter { margin-top: 56px; text-align: center; }
 
 /* ---- WHY SIYARA ---- */
 .whySection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }

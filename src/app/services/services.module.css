@@ -141,7 +141,14 @@
 .svcCard:hover { background: var(--bg-tertiary); }
 .svcCard:hover::after { height: 100%; }
 
-.svcTop { display: flex; justify-content: space-between; align-items: center; }
+.svcHeader { display: flex; justify-content: space-between; align-items: center; }
+
+.svcContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 14px;
+}
 
 .svcNum {
   font-family: var(--font-display);
@@ -184,7 +191,7 @@
 
 .svcFix span { color: rgba(var(--text-primary-rgb), 0.3); }
 
-.svcCta {
+.svcLink {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -192,9 +199,11 @@
   color: var(--accent-primary);
   opacity: 0; transform: translateX(-8px); transition: opacity 0.3s, transform 0.3s;
   font-family: var(--font-ui); margin-top: 8px;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.svcCard:hover .svcCta { opacity: 1; transform: translateX(0); }
+.svcCard:hover .svcLink { opacity: 1; transform: translateX(0); }
 
 /* ---- Comparison Table ---- */
 .comparisonSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
