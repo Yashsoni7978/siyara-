@@ -93,8 +93,8 @@ export default function FAQPage() {
 
       <CTA 
         title="Still have questions?" 
-        subtitle="We're here to help. Reach out to our team directly." 
-        btnText="Contact Us" 
+        description="We're here to help. Reach out to our team directly." 
+        primaryBtn={{ text: 'Contact Us', href: '/contact', isExternal: false }} 
       />
     </main>
   )

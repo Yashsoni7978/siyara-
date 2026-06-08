@@ -129,8 +129,8 @@ export default function CareersPage() {
       ============================================================ */}
       <CTA 
         title="Don't see a fit?" 
-        subtitle="We are always looking for exceptional talent. Send us your portfolio and let's talk." 
-        btnText="Email Us" 
+        description="We are always looking for exceptional talent. Send us your portfolio and let's talk." 
+        primaryBtn={{ text: 'Email Us', href: `mailto:${BRAND.email}`, isExternal: false }} 
       />
     </main>
   )
