@@ -71,6 +71,7 @@
 .testimonialsSection {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .testiHeader {
@@ -167,6 +168,7 @@
 .ctaSection {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .ctaTitle {
@@ -213,6 +215,7 @@
 .optionsSection {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .optionsGrid {
@@ -270,6 +273,7 @@
 .infoSection {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .infoGrid {
@@ -320,6 +324,7 @@
 .faqSection {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .faqHeader { margin-bottom: 48px; }

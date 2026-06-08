@@ -49,6 +49,7 @@
 .missionSection {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .missionInner {
@@ -143,6 +144,7 @@
 .resultsSection {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .resultsGrid {
@@ -201,7 +203,8 @@
 }
 
 /* ---- Values ---- */
-.valuesSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.valuesSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 .valuesHeader { margin-bottom: 56px; }
 
 .valuesTitle {
@@ -262,7 +265,8 @@
 }
 
 /* ---- Timeline ---- */
-.timelineSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.timelineSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 
 .timeline {
   display: flex;
@@ -335,7 +339,8 @@
 }
 
 /* ---- Team ---- */
-.teamSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.teamSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 
 .teamGrid {
   display: grid;
@@ -464,7 +469,8 @@
 }
 
 /* ---- Testimonials ---- */
-.testimonialsSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.testimonialsSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 
 .testimonialsGrid {
   display: grid;
@@ -573,7 +579,8 @@
 }
 
 /* ---- CTA ---- */
-.ctaSection { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.ctaSection { background: var(--bg-secondary); position: relative; overflow: hidden;   padding: var(--section-padding);
+}
 
 .ctaGlow {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);

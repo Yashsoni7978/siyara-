@@ -41,6 +41,7 @@
 .postsSection {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .postsGrid {
@@ -133,6 +134,7 @@
 .ctaSection {
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
 }
 
 .ctaTitle {

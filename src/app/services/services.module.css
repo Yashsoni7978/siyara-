@@ -34,7 +34,8 @@
 .ratingCount { font-family: var(--font-ui); font-size: 12px; font-weight: 400; color: var(--text-muted); }
 
 /* ---- Category Overview ---- */
-.categoriesSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.categoriesSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 
 .categoriesGrid {
   display: grid;
@@ -101,7 +102,8 @@
 .categoryLink:hover .categoryArrow { opacity: 1; transform: translateY(0); }
 
 /* ---- Category Section ---- */
-.categorySection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.categorySection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 .categorySection:nth-child(odd) { background: var(--bg-primary); }
 
 .categoryHeader { margin-bottom: 56px; }
@@ -206,7 +208,8 @@
 .svcCard:hover .svcLink { opacity: 1; transform: translateX(0); }
 
 /* ---- Comparison Table ---- */
-.comparisonSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.comparisonSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 .valuesHeader { margin-bottom: 56px; }
 
 .comparisonTable {
@@ -275,7 +278,8 @@
 .checkNo { color: rgba(var(--text-primary-rgb), 0.2); }
 
 /* ---- Synergy ---- */
-.synergySection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.synergySection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 .synergySubtext { font-family: var(--font-ui); font-size: 15px; color: var(--text-muted); line-height: 1.8; max-width: 600px; margin-top: 16px; }
 
 .synergyGrid {
@@ -311,7 +315,8 @@
 }
 
 /* ---- Deep Process ---- */
-.deepProcessSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.deepProcessSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 
 .deepProcessGrid {
   display: grid;
@@ -349,7 +354,8 @@
 }
 
 /* ---- Testimonials ---- */
-.testimonialsSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.testimonialsSection { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 
 .testimonialsGrid {
   display: grid;
@@ -405,7 +411,8 @@
 }
 
 /* ---- FAQ ---- */
-.faqSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); }
+.faqSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color);   padding: var(--section-padding);
+}
 
 .faqList {
   display: flex; flex-direction: column; gap: 2px; border: 1px solid var(--border-color);
@@ -422,7 +429,8 @@
 .faqA { font-family: var(--font-ui); font-size: 15px; font-weight: 400; color: var(--text-muted); line-height: 1.8; }
 
 /* ---- CTA ---- */
-.ctaSection { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.ctaSection { background: var(--bg-secondary); position: relative; overflow: hidden;   padding: var(--section-padding);
+}
 
 .ctaGlow {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);

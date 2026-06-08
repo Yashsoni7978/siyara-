@@ -126,6 +126,7 @@
 /* ---- Related ---- */
 .relatedSection {
   background: var(--bg-secondary);
+  padding: var(--section-padding);
 }
 
 .relatedGrid {
