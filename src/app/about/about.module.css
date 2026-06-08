@@ -18,7 +18,7 @@
 }
 
 .ratingItem {
-  padding: 28px 32px;
+  padding: var(--card-padding);
   border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -71,7 +71,7 @@
 }
 
 .missionQuote {
-  padding: 24px 28px;
+  padding: var(--card-padding);
   border-left: 2px solid var(--accent-primary);
   background: rgba(var(--accent-primary-rgb), 0.04);
   position: relative;
@@ -115,7 +115,7 @@
 
 .missionStat {
   flex: 1;
-  padding: 24px 28px;
+  padding: var(--card-padding);
   border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -155,7 +155,7 @@
 
 .resultCard {
   background: var(--bg-secondary);
-  padding: 40px 36px;
+  padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -223,7 +223,7 @@
 
 .valueCard {
   background: var(--bg-primary);
-  padding: 44px 40px;
+  padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -287,7 +287,7 @@
   font-size: 32px;
   font-weight: 600;
   color: var(--accent-primary);
-  padding: 32px 28px;
+  padding: var(--card-padding);
   display: flex;
   align-items: center;
   opacity: 0.7;
@@ -313,7 +313,7 @@
 }
 
 .timelineContent {
-  padding: 32px 40px;
+  padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -347,7 +347,7 @@
 
 .teamCard {
   background: var(--bg-primary);
-  padding: 40px 36px;
+  padding: var(--card-padding);
   display: flex;
   gap: 24px;
   align-items: flex-start;
@@ -407,7 +407,7 @@
 }
 
 /* ---- Talent ---- */
-.talentSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); padding: 80px 0; }
+.talentSection { background: var(--bg-primary); border-bottom: 1px solid var(--border-color); padding: var(--section-padding); }
 
 .talentGrid {
   display: grid;
@@ -441,7 +441,7 @@
 
 .talentBox {
   background: var(--bg-secondary);
-  padding: 32px;
+  padding: var(--card-padding);
   border-left: 2px solid var(--accent-primary);
   transition: background 0.3s;
 }
@@ -476,7 +476,7 @@
 
 .testimonialCard {
   background: var(--bg-secondary);
-  padding: 40px 36px;
+  padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -615,10 +615,10 @@
 }
 
 @media (max-width: 600px) {
-  .teamCard { padding: 28px 24px; }
-  .timelineContent { padding: 24px 20px; }
-  .valueCard { padding: 32px 24px; }
-  .talentCard { padding: 32px 24px; }
-  .heroStat { padding: 24px 20px; }
+  .teamCard { padding: var(--card-padding); }
+  .timelineContent { padding: var(--card-padding); }
+  .valueCard { padding: var(--card-padding); }
+  .talentCard { padding: var(--card-padding); }
+  .heroStat { padding: var(--card-padding); }
   .heroStats { grid-template-columns: 1fr; }
 }

@@ -19,7 +19,7 @@
 
 .ratingStripItem {
   flex: 1;
-  padding: 24px 32px;
+  padding: var(--card-padding);
   border-right: 1px solid var(--border-color);
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@
 .categoryCard:hover::before { width: 100%; }
 
 .categoryLink {
-  display: flex; flex-direction: column; gap: 12px; padding: 40px 32px;
+  display: flex; flex-direction: column; gap: 12px; padding: var(--card-padding);
   height: 100%; text-decoration: none;
 }
 
@@ -126,7 +126,7 @@
 
 .svcCard {
   background: var(--bg-secondary);
-  padding: 44px 40px;
+  padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 14px;
   position: relative; overflow: hidden;
   transition: background 0.35s; text-decoration: none;
@@ -224,7 +224,7 @@
 }
 
 .comparisonFeature {
-  padding: 24px 32px;
+  padding: var(--card-padding);
   font-family: var(--font-ui);
   font-size: 15px;
   font-weight: 500;
@@ -233,7 +233,7 @@
 }
 
 .comparisonCol {
-  padding: 24px 32px;
+  padding: var(--card-padding);
   border-left: 1px solid var(--border-color);
   display: flex; flex-direction: column; gap: 4px;
 }
@@ -288,7 +288,7 @@
 
 .synergyCard {
   background: var(--bg-primary);
-  padding: 36px 32px;
+  padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 16px;
   transition: background 0.3s;
 }
@@ -323,7 +323,7 @@
 
 .deepProcessStep {
   background: var(--bg-secondary);
-  padding: 36px 32px;
+  padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 12px;
   border-top: 2px solid transparent; transition: border-top-color 0.3s, background 0.3s;
 }
@@ -361,7 +361,7 @@
 
 .testimonialCard {
   background: var(--bg-primary);
-  padding: 44px 40px;
+  padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 16px;
   transition: background 0.3s; position: relative; overflow: hidden;
 }
@@ -454,15 +454,15 @@
   .categoriesGrid { grid-template-columns: 1fr; }
   .servicesGrid { grid-template-columns: 1fr; }
   .ratingStrip { padding: 0 24px; }
-  .faqItem { grid-template-columns: 1fr; gap: 16px; padding: 32px 28px; }
+  .faqItem { grid-template-columns: 1fr; gap: 16px; padding: var(--card-padding); }
   .synergyGrid { grid-template-columns: 1fr; }
   .deepProcessGrid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
-  .categoryCard { padding: 32px 24px; }
-  .svcCard { padding: 32px 24px; }
-  .testiCard { padding: 32px 24px; }
-  .synergyCard { padding: 32px 24px; }
-  .processCard { padding: 32px 24px; }
+  .categoryCard { padding: var(--card-padding); }
+  .svcCard { padding: var(--card-padding); }
+  .testiCard { padding: var(--card-padding); }
+  .synergyCard { padding: var(--card-padding); }
+  .processCard { padding: var(--card-padding); }
 }

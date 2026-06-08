@@ -1,5 +1,5 @@
 .showcaseContainer {
-  padding: 80px 0;
+  padding: var(--section-padding);
 }
 
 .showcaseInner {

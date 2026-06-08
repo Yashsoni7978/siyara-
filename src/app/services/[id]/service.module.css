@@ -17,7 +17,7 @@
 }
 
 .container {
-  padding: 80px 0;
+  padding: var(--section-padding);
   position: relative;
   z-index: 1;
 }

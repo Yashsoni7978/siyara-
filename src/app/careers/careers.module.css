@@ -11,7 +11,7 @@
 
 .cultureSection {
   background: var(--bg-secondary);
-  padding: 120px 0;
+  padding: var(--section-padding);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -63,7 +63,7 @@
 /* Open Positions */
 .jobsSection {
   background: var(--bg-primary);
-  padding: 120px 0;
+  padding: var(--section-padding);
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -78,7 +78,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr auto;
   align-items: center;
-  padding: 32px 40px;
+  padding: var(--card-padding);
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   transition: transform 0.3s, border-color 0.3s, background 0.3s;
@@ -143,9 +143,9 @@
 
 @media (max-width: 700px) {
   .cultureGrid { grid-template-columns: 1fr; }
-  .jobCard { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; }
+  .jobCard { grid-template-columns: 1fr; gap: 16px; padding: var(--card-padding); }
 }
 
 @media (max-width: 600px) {
-  .cultureCard { padding: 32px 24px; }
+  .cultureCard { padding: var(--card-padding); }
 }

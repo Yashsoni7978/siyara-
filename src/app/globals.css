@@ -30,6 +30,10 @@
   /* Typography */
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-ui: 'Outfit', system-ui, sans-serif;
+
+  /* Spacing */
+  --section-padding: 120px 0;
+  --card-padding: 40px 32px;
 }
 
 [data-theme='light'] {
@@ -568,3 +572,13 @@ img, video, svg {
 /* Padding line 568 */
 /* Padding line 569 */
 /* Padding line 570 */
+
+/* ============================================================
+   RESPONSIVE SPACING
+============================================================ */
+@media (max-width: 900px) {
+  :root {
+    --section-padding: 80px 0;
+    --card-padding: 24px 20px;
+  }
+}

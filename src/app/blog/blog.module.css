@@ -53,7 +53,7 @@
 
 .postCard {
   background: var(--bg-secondary);
-  padding: 40px 36px;
+  padding: var(--card-padding);
   display: flex;
   flex-direction: column;
   gap: 16px;

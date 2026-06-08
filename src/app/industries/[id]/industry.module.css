@@ -12,7 +12,7 @@
 }
 .heroIcon > svg { width: 40px; height: 40px; }
 
-.container { padding: 80px 0; position: relative; z-index: 1; }
+.container { padding: var(--section-padding); position: relative; z-index: 1; }
 
 /* ---- STATS STRIP ---- */
 .statsStrip { background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); padding: 48px 0; }

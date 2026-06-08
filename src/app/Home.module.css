@@ -157,7 +157,7 @@
 }
 
 .heroStat {
-  padding: 32px 28px; border-right: 1px solid var(--border-color);
+  padding: var(--card-padding); border-right: 1px solid var(--border-color);
   display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center;
 }
 
@@ -254,7 +254,7 @@
 .problemCards { display: flex; flex-direction: column; gap: 24px; perspective: 1000px; }
 
 .painCard {
-  padding: 36px 40px; background: rgba(var(--bg-secondary-rgb), 0.8);
+  padding: var(--card-padding); background: rgba(var(--bg-secondary-rgb), 0.8);
   border: 1px solid var(--border-color);
   display: flex; flex-direction: column; gap: 12px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -305,7 +305,7 @@
 
 .geoScreen {
   background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px;
-  padding: 24px; box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  padding: var(--card-padding); box-shadow: 0 24px 48px rgba(0,0,0,0.4);
   transform: rotateY(5deg) rotateX(2deg); transition: transform 0.5s ease;
 }
 
@@ -347,7 +347,7 @@
 }
 
 .industryCard {
-  background: var(--bg-secondary); padding: 36px 28px;
+  background: var(--bg-secondary); padding: var(--card-padding);
   display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
   transition: background 0.35s, transform 0.35s;
   position: relative; overflow: hidden;
@@ -529,7 +529,7 @@
 .bentoRight { display: flex; flex-direction: column; gap: 1px; }
 
 .bentoSmall {
-  background: var(--bg-primary); padding: 32px 40px;
+  background: var(--bg-primary); padding: var(--card-padding);
   flex: 1; display: flex; flex-direction: column; gap: 10px;
   transition: background 0.35s;
 }
@@ -580,7 +580,7 @@
 .blogGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-color); border: 1px solid var(--border-color); }
 
 .blogCard {
-  background: var(--bg-secondary); padding: 36px 32px;
+  background: var(--bg-secondary); padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 16px; min-height: 240px;
   transition: background 0.35s;
 }
@@ -695,7 +695,7 @@
 .methodologyGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-color); border: 1px solid var(--border-color); margin-top: 64px; }
 
 .methodologyStep {
-  background: var(--bg-primary); padding: 36px 32px;
+  background: var(--bg-primary); padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 12px;
   transition: background 0.35s;
 }
@@ -719,7 +719,7 @@
 .standardGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-color); border: 1px solid var(--border-color); }
 
 .standardCard {
-  background: var(--bg-secondary); padding: 36px 32px;
+  background: var(--bg-secondary); padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 14px;
   transition: background 0.35s; border-left: 2px solid transparent;
 }
@@ -733,7 +733,7 @@
 .faqGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border-color); border: 1px solid var(--border-color); }
 
 .faqItem {
-  background: var(--bg-primary); padding: 32px;
+  background: var(--bg-primary); padding: var(--card-padding);
   display: flex; flex-direction: column; gap: 12px;
   transition: background 0.35s;
 }
@@ -764,7 +764,7 @@
   flex-direction: column;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  padding: 40px;
+  padding: var(--card-padding);
   overflow: hidden;
   text-decoration: none;
   transition: all 0.4s var(--ease-out);
@@ -898,8 +898,8 @@
   .processGrid { grid-template-columns: 1fr; }
   .blogGrid { grid-template-columns: 1fr; }
   .faqGrid { grid-template-columns: 1fr; }
-  .bentoLarge { padding: 32px 24px; min-height: 280px; }
-  .bentoSmall { padding: 24px; }
-  .painCard { padding: 24px 20px; }
+  .bentoLarge { padding: var(--card-padding); min-height: 280px; }
+  .bentoSmall { padding: var(--card-padding); }
+  .painCard { padding: var(--card-padding); }
 }
 

@@ -1,7 +1,7 @@
 .ctaSection {
   position: relative;
   background: var(--bg-primary);
-  padding: 120px 0;
+  padding: var(--section-padding);
   border-top: 1px solid var(--border-color);
   overflow: hidden;
 }
@@ -68,6 +68,6 @@
 
 @media (max-width: 768px) {
   .ctaSection {
-    padding: 80px 0;
+    padding: var(--section-padding);
   }
 }
