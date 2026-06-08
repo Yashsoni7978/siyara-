@@ -13,10 +13,9 @@ const NAV_GROUPS = [
     label: 'Services',
     href: '/services',
     children: [
-      { href: '/services',           label: 'All Services',         sub: '12 digital services' },
+      { href: '/services',           label: 'All Services',         sub: '14 digital services' },
       { href: '/services#chosen',    label: 'Get Chosen',           sub: 'Web, brand & design' },
-      { href: '/services#found',     label: 'Get Found',            sub: 'SEO, GEO & Maps' },
-      { href: '/services#revenue',   label: 'Get Revenue',          sub: 'Social, ads & content' },
+      { href: '/services#found',     label: 'Get Found',            sub: 'SEO, GEO & marketing' },
     ],
   },
   {
@@ -34,9 +33,7 @@ const NAV_GROUPS = [
     children: [
       { href: '/about',              label: 'About Us',             sub: 'Our story & mission' },
       { href: '/careers',            label: 'Careers',              sub: 'Join our team' },
-      { href: '/faq',                label: 'FAQ',                  sub: 'Questions answered' },
       { href: '/blog',               label: 'Insights',             sub: 'Strategy & thinking' },
-      { href: '/contact',            label: 'Contact Us',           sub: 'Let\'s talk' },
     ],
   },
 ]
