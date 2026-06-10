@@ -67,16 +67,16 @@ const POSTS = [
 export default function HomePage() {
   return (
     <>
+      <div className={styles.ambientBlobsWrap} aria-hidden="true">
+        <div className={`${styles.ambientBlob} ${styles.blob1}`} />
+        <div className={`${styles.ambientBlob} ${styles.blob2}`} />
+        <div className={`${styles.ambientBlob} ${styles.blob3}`} />
+      </div>
       <CursorSpotlight />
       {/* ============================================================
           HERO
       ============================================================ */}
       <section className={styles.hero} aria-label="Hero section">
-        <div className={styles.ambientBlobsWrap} aria-hidden="true">
-          <div className={`${styles.ambientBlob} ${styles.blob1}`} />
-          <div className={`${styles.ambientBlob} ${styles.blob2}`} />
-          <div className={`${styles.ambientBlob} ${styles.blob3}`} />
-        </div>
         <div className={styles.heroContentWrapper}>
           <div className={styles.heroInner}>
             <div className={styles.heroLeft}>
