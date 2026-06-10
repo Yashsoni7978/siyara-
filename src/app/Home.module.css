@@ -38,15 +38,21 @@
 }
 
 .orb {
-  position: absolute; border-radius: 50%; pointer-events: none;
-  animation: orbFloat 10s ease-in-out infinite;
-  filter: blur(80px);
+  position: absolute; pointer-events: none;
+  animation: orbFloat 15s ease-in-out infinite alternate, morph 12s ease-in-out infinite;
+  filter: blur(100px);
   z-index: 1;
 }
 
-.orb1 { width: 400px; height: 400px; top: 10%; left: -10%; background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.15) 0%, transparent 70%); }
-.orb2 { width: 500px; height: 500px; top: 20%; right: -15%; background: radial-gradient(circle, rgba(var(--accent-green-rgb), 0.15) 0%, transparent 70%); animation-delay: 4s; animation-duration: 14s; }
-.orb3 { width: 350px; height: 350px; bottom: 10%; left: 30%; background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.1) 0%, transparent 70%); animation-delay: 2s; animation-duration: 12s; }
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.orb1 { width: 500px; height: 500px; top: 5%; left: -10%; background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.2) 0%, transparent 70%); }
+.orb2 { width: 650px; height: 650px; top: 15%; right: -15%; background: radial-gradient(circle, rgba(var(--accent-green-rgb), 0.25) 0%, transparent 70%); animation-delay: 4s; animation-duration: 18s; }
+.orb3 { width: 450px; height: 450px; bottom: 5%; left: 25%; background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.15) 0%, transparent 70%); animation-delay: 2s; animation-duration: 14s; }
 
 @keyframes orbFloat {
   0%, 100% { transform: scale(1) translate(0,0); }
@@ -256,14 +262,12 @@
 .problemCards { display: flex; flex-direction: column; gap: 24px; perspective: 1000px; }
 
 .painCard {
-  padding: var(--card-padding); background: rgba(var(--bg-secondary-rgb), 0.8);
-  border: 1px solid var(--border-color);
+  padding: var(--card-padding); 
   display: flex; flex-direction: column; gap: 12px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   position: relative;
   z-index: 2;
+  border-radius: 4px;
 }
 
 .painCard:hover { 
@@ -350,13 +354,13 @@
 }
 
 .industryCard {
-  background: var(--bg-secondary); padding: var(--card-padding);
+  padding: var(--card-padding);
   display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
-  transition: background 0.35s, transform 0.35s;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   position: relative; overflow: hidden;
 }
 
-.industryCard:hover { background: var(--bg-tertiary); transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); z-index: 2; border-radius: 4px; border: 1px solid var(--border-color); }
+.industryCard:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); z-index: 2; border-radius: 4px; }
 
 .industryIcon { font-size: 32px; line-height: 1; }
 
@@ -775,13 +779,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
   padding: var(--card-padding);
   text-decoration: none;
   transition: all 0.4s var(--ease-out);
   /* Sharp, boxy feel as requested */
-  border-radius: 0;
+  border-radius: 4px;
   z-index: 1;
 }
 

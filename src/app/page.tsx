@@ -8,6 +8,7 @@ import sharedStyles from './contact/contact.module.css'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
 import { IconMap } from '@/components/ui/Icons'
+import { CursorSpotlight } from '@/components/ui/CursorSpotlight'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -66,6 +67,7 @@ const POSTS = [
 export default function HomePage() {
   return (
     <>
+      <CursorSpotlight />
       {/* ============================================================
           HERO
       ============================================================ */}
@@ -189,7 +191,7 @@ export default function HomePage() {
           <div className={styles.servicesGrid}>
             {SERVICES.map((svc, i) => (
               <Reveal key={svc.id} delay={(i % 3) * 0.1}>
-                <Link href={`/services/${svc.id}`} className={styles.serviceCard}>
+                <Link href={`/services/${svc.id}`} className={`${styles.serviceCard} glass-card`}>
                   <div className={styles.serviceHoverBorder} />
                   <span className={styles.serviceBgNum}>{svc.num}</span>
                   <div className={styles.serviceTop}>
@@ -223,7 +225,7 @@ export default function HomePage() {
             </div>
             <div className={styles.problemCards}>
               {PAIN_POINTS.map(({ num, title, body }, i) => (
-                <Reveal key={num} delay={i * 0.15} className={styles.painCard}>
+                <Reveal key={num} delay={i * 0.15} className={`${styles.painCard} glass-card`}>
                   <div className={styles.painCardTop}>
                     <span className={styles.painNum}>{num}</span>
                     <h3 className={styles.painTitle}>{title}</h3>
@@ -306,7 +308,7 @@ export default function HomePage() {
               >
                 <Link
                   href={`/industries/${id}`}
-                  className={styles.industryCard}
+                  className={`${styles.industryCard} glass-card`}
                   aria-label={`Learn more about ${name} industry`}
                 >
                   <span className={styles.industryIcon} aria-hidden="true">{IconMap[icon]}</span>
@@ -375,7 +377,7 @@ export default function HomePage() {
           </div>
           <div className={styles.bentoGrid}>
             {/* Large feature card */}
-            <Reveal className={styles.bentoLarge}>
+            <Reveal className={`${styles.bentoLarge} glass-card`}>
               <span className={styles.bentoStat}>100%</span>
               <h3 className={styles.bentoTitle}>Strategy-led execution</h3>
               <p className={styles.bentoBody}>
@@ -385,7 +387,7 @@ export default function HomePage() {
             {/* Right column */}
             <div className={styles.bentoRight}>
               {WHY_SIYARA.map(({ label, body }, i) => (
-                <Reveal key={label} delay={(i + 1) * 0.1} className={styles.bentoSmall}>
+                <Reveal key={label} delay={(i + 1) * 0.1} className={`${styles.bentoSmall} glass-card`}>
                   <h3 className={styles.bentoSmallTitle}>{label}</h3>
                   <p className={styles.bentoSmallBody}>{body}</p>
                 </Reveal>

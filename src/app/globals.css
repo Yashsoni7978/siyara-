@@ -8,19 +8,19 @@
 ============================================================ */
 :root {
   /* Night Mode (Default) */
-  --bg-primary: #060606;
-  --bg-primary-rgb: 6, 6, 6;
-  --bg-secondary: #111111;
-  --bg-secondary-rgb: 17, 17, 17;
+  --bg-primary: #0A0A0A;
+  --bg-primary-rgb: 10, 10, 10;
+  --bg-secondary: #1C1C1C;
+  --bg-secondary-rgb: 28, 28, 28;
   
   --accent-primary: #C9A84C; /* Gold Accent */
   --accent-primary-rgb: 201, 168, 76;
-  --accent-green: #1A5C3A; /* Satin Green */
-  --accent-green-rgb: 26, 92, 58;
+  --accent-green: #1A5C35; /* Rolex Green */
+  --accent-green-rgb: 26, 92, 53;
   
-  --text-primary: #F2EEE5; /* Ivory Text */
-  --text-primary-rgb: 242, 238, 229;
-  --text-inverse: #0A0A08;
+  --text-primary: #F5F0E8; /* Royal Ivory Text */
+  --text-primary-rgb: 245, 240, 232;
+  --text-inverse: #0A0A0A;
 
   /* Alpha tokens */
   --text-muted: rgba(var(--text-primary-rgb), 0.65);
@@ -38,19 +38,19 @@
 
 [data-theme='light'] {
   /* Day Mode */
-  --bg-primary: #FAFAF7; /* Ivory bg */
-  --bg-primary-rgb: 250, 250, 247;
-  --bg-secondary: #FFFFFF; /* White card */
-  --bg-secondary-rgb: 255, 255, 255;
+  --bg-primary: #E4D9C0; /* Cream bg */
+  --bg-primary-rgb: 228, 217, 192;
+  --bg-secondary: #F5F0E8; /* Ivory card */
+  --bg-secondary-rgb: 245, 240, 232;
   
   --accent-primary: #C9A84C; /* Same Gold */
   --accent-primary-rgb: 201, 168, 76;
-  --accent-green: #1A5C3A; /* Same Green */
-  --accent-green-rgb: 26, 92, 58;
+  --accent-green: #1A5C35; /* Same Green */
+  --accent-green-rgb: 26, 92, 53;
   
-  --text-primary: #0A0A08; /* Dark Text */
-  --text-primary-rgb: 10, 10, 8;
-  --text-inverse: #F2EEE5;
+  --text-primary: #2E2E2E; /* Charcoal Text */
+  --text-primary-rgb: 46, 46, 46;
+  --text-inverse: #F5F0E8;
 
   /* Alpha tokens */
   --text-muted: rgba(var(--text-primary-rgb), 0.65);
@@ -153,6 +153,20 @@ img, video, svg {
   color: var(--text-primary);
   margin-bottom: 32px;
   letter-spacing: -0.01em;
+}
+
+/* Glassmorphism Utility */
+.glass-card {
+  background: rgba(var(--bg-secondary-rgb), 0.6);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+[data-theme='light'] .glass-card {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(var(--accent-primary-rgb), 0.25);
+  box-shadow: 0 4px 30px rgba(var(--text-primary-rgb), 0.05);
 }
 
 /* ============================================================
