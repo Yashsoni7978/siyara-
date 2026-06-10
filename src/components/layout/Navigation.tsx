@@ -48,9 +48,22 @@ export function Navigation() {
         aria-label="Main navigation"
       >
         <Link href="/" className={styles.logo} aria-label="Siyara Innovations Home">
-          <Image src="/apple-touch-icon.png" alt="Siyara Innovations Logo" width={32} height={32} style={{ borderRadius: '6px' }} />
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-            <span className={styles.logoMain}>Siyara</span>
+          <div style={{ 
+            display: 'flex', alignItems: 'center', justifyContent: 'center', 
+            width: '36px', height: '36px', 
+            background: 'linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary, #D4AF37) 100%)', 
+            borderRadius: '8px', 
+            boxShadow: '0 4px 16px rgba(var(--accent-primary-rgb), 0.4)' 
+          }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="7" r="4" />
+              <line x1="12" y1="11" x2="12" y2="22" />
+              <line x1="9" y1="16" x2="15" y2="16" />
+              <line x1="8" y1="7" x2="16" y2="7" />
+            </svg>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0, marginLeft: '4px' }}>
+            <span className={`${styles.logoMain} gold-shimmer`}>Siyara</span>
             <span className={styles.logoSub}>Innovations</span>
           </div>
         </Link>
