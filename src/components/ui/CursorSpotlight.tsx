@@ -1,6 +1,6 @@
 'use client'
 
-import { m, useMotionValue, useSpring } from 'framer-motion'
+import { m, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 export function CursorSpotlight() {
@@ -13,6 +13,9 @@ export function CursorSpotlight() {
   const springConfig = { damping: 25, stiffness: 150 }
   const smoothX = useSpring(mouseX, springConfig)
   const smoothY = useSpring(mouseY, springConfig)
+
+  const background = useMotionTemplate`radial-gradient(600px circle at ${smoothX}px ${smoothY}px, rgba(var(--accent-primary-rgb), 0.05), transparent 40%)`
+  const maskImage = useMotionTemplate`radial-gradient(400px circle at ${smoothX}px ${smoothY}px, black, transparent 50%)`
 
   useEffect(() => {
     setIsMounted(true)
@@ -30,9 +33,7 @@ export function CursorSpotlight() {
   return (
     <m.div
       className="cursor-spotlight pointer-events-none fixed inset-0 z-50"
-      style={{
-        background: `radial-gradient(600px circle at var(--x) var(--y), rgba(var(--accent-primary-rgb), 0.05), transparent 40%)`
-      }}
+      style={{ background }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -45,12 +46,8 @@ export function CursorSpotlight() {
           width: '100vw',
           height: '100vh',
           background: 'transparent',
-          maskImage: 'radial-gradient(400px circle at var(--x) var(--y), black, transparent 50%)',
-          WebkitMaskImage: 'radial-gradient(400px circle at var(--x) var(--y), black, transparent 50%)',
-        }}
-        onUpdate={() => {
-          document.documentElement.style.setProperty('--x', `${smoothX.get()}px`)
-          document.documentElement.style.setProperty('--y', `${smoothY.get()}px`)
+          maskImage,
+          WebkitMaskImage: maskImage,
         }}
       />
     </m.div>
