@@ -72,11 +72,6 @@ export default function HomePage() {
           HERO
       ============================================================ */}
       <section className={styles.hero} aria-label="Hero section">
-        <div className={styles.heroGridLines} aria-hidden="true" />
-        <div className={`${styles.orb} ${styles.orb1}`} aria-hidden="true" />
-        <div className={`${styles.orb} ${styles.orb2}`} aria-hidden="true" />
-        <div className={`${styles.orb} ${styles.orb3}`} aria-hidden="true" />
-
         <div className={styles.heroContentWrapper}>
           <div className={styles.heroInner}>
             <div className={styles.heroLeft}>

@@ -13,51 +13,7 @@
   background: var(--bg-primary);
 }
 
-/* Futuristic Grid Background */
-.heroGridLines {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: 
-    linear-gradient(rgba(var(--accent-primary-rgb), 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--accent-primary-rgb), 0.03) 1px, transparent 1px);
-  background-size: 80px 80px;
-  background-position: center center;
-  transform: perspective(1000px) rotateX(45deg) translateY(-20%) scale(2);
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 0;
-  animation: gridMove 30s linear infinite;
-  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-}
-
-@keyframes gridMove {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 80px; }
-}
-
-.orb {
-  position: absolute; pointer-events: none;
-  animation: orbFloat 15s ease-in-out infinite alternate, morph 12s ease-in-out infinite;
-  filter: blur(100px);
-  z-index: 1;
-}
-
-@keyframes morph {
-  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-}
-
-.orb1 { width: 1000px; height: 1000px; top: -10%; left: -20%; background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.5) 0%, transparent 60%); }
-.orb2 { width: 1200px; height: 1200px; top: 20%; right: -25%; background: radial-gradient(circle, rgba(var(--accent-green-rgb), 0.6) 0%, transparent 60%); animation-delay: 4s; animation-duration: 18s; }
-.orb3 { width: 900px; height: 900px; bottom: -10%; left: 10%; background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.4) 0%, transparent 60%); animation-delay: 2s; animation-duration: 14s; }
-
-@keyframes orbFloat {
-  0%, 100% { transform: scale(1) translate(0,0); }
-  33% { transform: scale(1.1) translate(20px, -30px); }
-  66% { transform: scale(0.9) translate(-20px, 20px); }
-}
+/* Minimalist Negative Space Hero - Orbs & Grids removed */
 
 .heroContentWrapper {
   flex: 1;
@@ -124,12 +80,14 @@
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-/* H1 */
+/* Exaggerated Minimalist H1 */
 .h1 {
   font-family: var(--font-display);
-  font-size: clamp(48px, 6vw, 86px);
-  font-weight: 600; line-height: 1.05;
-  letter-spacing: -0.02em; margin-bottom: 32px;
+  font-size: var(--type-giant);
+  font-weight: var(--type-weight); 
+  line-height: 0.9;
+  letter-spacing: -0.05em; 
+  margin-bottom: var(--spacing-huge);
   display: flex; flex-direction: column; gap: 0;
 }
 

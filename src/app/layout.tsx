@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Outfit } from 'next/font/google'
+import { Bodoni_Moda, Jost } from 'next/font/google'
 import './globals.css'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
@@ -11,18 +11,18 @@ import { defaultMetadata, localBusinessSchema, organizationSchema, websiteSchema
 import { SkipNav } from '@/components/ui/SkipNav'
 
 /* ── Google Fonts via next/font (zero CLS, self-hosted at edge) ── */
-const cormorant = Cormorant_Garamond({
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['400', '500', '600', '700', '900'],
   style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
   preload: true,
 })
 
-const outfit = Outfit({
+const jost = Jost({
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600'],
+  weight: ['300', '400', '500', '600'],
   variable: '--font-ui',
   display: 'swap',
   preload: true,
@@ -33,7 +33,7 @@ export const metadata: Metadata = defaultMetadata
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${outfit.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${bodoni.variable} ${jost.variable}`} suppressHydrationWarning>
       <head>
         {/* JSON-LD Structured Data */}
         <script

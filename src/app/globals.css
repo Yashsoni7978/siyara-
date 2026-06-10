@@ -28,8 +28,13 @@
   --border-glow: rgba(var(--accent-primary-rgb), 0.1);
 
   /* Typography */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-ui: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Bodoni Moda', serif;
+  --font-ui: 'Jost', sans-serif;
+
+  /* Exaggerated Minimalism Variables */
+  --type-giant: clamp(4rem, 12vw, 15rem);
+  --type-weight: 900;
+  --spacing-huge: 8rem;
 
   /* Spacing */
   --section-padding: 120px 0;
@@ -155,37 +160,22 @@ img, video, svg {
   letter-spacing: -0.01em;
 }
 
-/* Liquid Glassmorphism Utility */
+/* Exaggerated Minimalist Card */
 .glass-card {
-  background: rgba(var(--bg-secondary-rgb), 0.15);
-  backdrop-filter: blur(24px) saturate(200%);
-  -webkit-backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.4),
-    inset 0 0 0 1px rgba(var(--accent-primary-rgb), 0.1);
+  background: var(--bg-primary);
+  border: 1px solid rgba(var(--text-primary-rgb), 0.1);
+  box-shadow: none;
   z-index: 10;
   position: relative;
-  border-radius: 12px;
+  border-radius: 0px; /* Sharp corners for brutal minimal style */
+  transition: all 0.4s ease;
 }
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
-  pointer-events: none;
-  z-index: -1;
-  border-radius: inherit;
+.glass-card:hover {
+  border-color: var(--accent-primary);
 }
 [data-theme='light'] .glass-card {
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.07),
-    inset 0 0 0 1px rgba(var(--accent-primary-rgb), 0.2);
-}
-[data-theme='light'] .glass-card::before {
-  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+  background: var(--bg-primary);
+  border: 1px solid rgba(var(--text-primary-rgb), 0.15);
 }
 
 /* ============================================================
