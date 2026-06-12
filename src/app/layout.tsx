@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {/* Skip navigation — accessibility */}
         <SkipNav />
         <ThemeProvider>

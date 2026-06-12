@@ -82,7 +82,7 @@ export default function PortfolioPage() {
                   {/* Visual Image */}
                   <div className={styles.cardVisual}>
                     <Image 
-                      src={item.image} 
+                      src={item.image || '/images/portfolio_fashion.png'} 
                       alt={`${item.name} Showcase`} 
                       fill 
                       sizes="(max-width: 768px) 100vw, 50vw"

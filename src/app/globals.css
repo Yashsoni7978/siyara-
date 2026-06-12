@@ -8,33 +8,28 @@
 ============================================================ */
 :root {
   /* Night Mode (Default) */
-  --bg-primary: #0A0A0A;
-  --bg-primary-rgb: 10, 10, 10;
-  --bg-secondary: #1C1C1C;
-  --bg-secondary-rgb: 28, 28, 28;
+  --bg-primary: #060606;
+  --bg-primary-rgb: 6, 6, 6;
+  --bg-secondary: #111111;
+  --bg-secondary-rgb: 17, 17, 17;
   
   --accent-primary: #C9A84C; /* Gold Accent */
   --accent-primary-rgb: 201, 168, 76;
-  --accent-green: #1A5C35; /* Rolex Green */
-  --accent-green-rgb: 26, 92, 53;
+  --accent-green: #1A5C3A; /* Satin Green */
+  --accent-green-rgb: 26, 92, 58;
   
-  --text-primary: #F5F0E8; /* Royal Ivory Text */
-  --text-primary-rgb: 245, 240, 232;
-  --text-inverse: #0A0A0A;
+  --text-primary: #F2EEE5; /* Ivory Text */
+  --text-primary-rgb: 242, 238, 229;
+  --text-inverse: #0A0A08;
 
   /* Alpha tokens */
   --text-muted: rgba(var(--text-primary-rgb), 0.65);
-  --border-color: rgba(var(--accent-primary-rgb), 0.2);
+  --border-color: rgba(var(--accent-primary-rgb), 0.15);
   --border-glow: rgba(var(--accent-primary-rgb), 0.1);
 
   /* Typography */
-  --font-display: 'Bodoni Moda', serif;
-  --font-ui: 'Jost', sans-serif;
-
-  /* Exaggerated Minimalism Variables */
-  --type-giant: clamp(4rem, 12vw, 15rem);
-  --type-weight: 900;
-  --spacing-huge: 8rem;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Outfit', system-ui, sans-serif;
 
   /* Spacing */
   --section-padding: 120px 0;
@@ -43,24 +38,24 @@
 
 [data-theme='light'] {
   /* Day Mode */
-  --bg-primary: #E4D9C0; /* Cream bg */
-  --bg-primary-rgb: 228, 217, 192;
-  --bg-secondary: #F5F0E8; /* Ivory card */
-  --bg-secondary-rgb: 245, 240, 232;
+  --bg-primary: #FAFAF7; /* Ivory bg */
+  --bg-primary-rgb: 250, 250, 247;
+  --bg-secondary: #FFFFFF; /* White card */
+  --bg-secondary-rgb: 255, 255, 255;
   
   --accent-primary: #C9A84C; /* Same Gold */
   --accent-primary-rgb: 201, 168, 76;
-  --accent-green: #1A5C35; /* Same Green */
-  --accent-green-rgb: 26, 92, 53;
+  --accent-green: #1A5C3A; /* Same Green */
+  --accent-green-rgb: 26, 92, 58;
   
-  --text-primary: #2E2E2E; /* Charcoal Text */
-  --text-primary-rgb: 46, 46, 46;
-  --text-inverse: #F5F0E8;
+  --text-primary: #0A0A08; /* Dark Text */
+  --text-primary-rgb: 10, 10, 8;
+  --text-inverse: #F2EEE5;
 
   /* Alpha tokens */
   --text-muted: rgba(var(--text-primary-rgb), 0.65);
-  --border-color: rgba(var(--accent-primary-rgb), 0.25);
-  --border-glow: rgba(var(--accent-primary-rgb), 0.15);
+  --border-color: rgba(var(--text-primary-rgb), 0.15);
+  --border-glow: rgba(var(--accent-primary-rgb), 0.1);
 }
 
 /* ============================================================

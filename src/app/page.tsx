@@ -67,16 +67,18 @@ const POSTS = [
 export default function HomePage() {
   return (
     <>
-      <div className={styles.ambientBlobsWrap} aria-hidden="true">
-        <div className={`${styles.ambientBlob} ${styles.blob1}`} />
-        <div className={`${styles.ambientBlob} ${styles.blob2}`} />
-        <div className={`${styles.ambientBlob} ${styles.blob3}`} />
-      </div>
       <CursorSpotlight />
       {/* ============================================================
           HERO
       ============================================================ */}
       <section className={styles.hero} aria-label="Hero section">
+        <div className={styles.heroGrid}     aria-hidden="true" />
+        <div className={styles.heroGlow}     aria-hidden="true" />
+        <div className={styles.heroGoldGlow} aria-hidden="true" />
+        <div className={`${styles.orb} ${styles.orb1}`} aria-hidden="true" />
+        <div className={`${styles.orb} ${styles.orb2}`} aria-hidden="true" />
+        <div className={`${styles.orb} ${styles.orb3}`} aria-hidden="true" />
+
         <div className={styles.heroContentWrapper}>
           <div className={styles.heroInner}>
             <div className={styles.heroLeft}>
@@ -85,42 +87,45 @@ export default function HomePage() {
                 <span>Premium Digital Agency · Jaipur</span>
               </Reveal>
 
-              <Reveal as="h1" delay={0.2} className={styles.h1}>
-                We don&apos;t just build your digital presence &mdash;<br />
-                We build brands that <span className="gold-shimmer">dominate.</span>
-              </Reveal>
+              <h1 className={styles.h1}>
+                <Reveal as="span" delay={0.2} className={styles.h1Line1}>We don&apos;t just build</Reveal>
+                <Reveal as="span" delay={0.3} className={styles.h1Line2}>your digital presence.</Reveal>
+                <Reveal as="span" delay={0.4} className={styles.h1Line3}>
+                  We build brands that <span className="gold-shimmer">dominate.</span>
+                </Reveal>
+              </h1>
 
-              <Reveal as="p" delay={0.3} className={styles.heroSub}>
+              <Reveal as="p" delay={0.5} className={styles.heroSub}>
                 Full-service digital growth agency for ambitious businesses.
                 Web. Brand. AI. SEO. Ads. Social. Content. Everything under one roof.
                 <em> One strategy. Everything compounding.</em>
               </Reveal>
 
-              <Reveal delay={0.4} className={styles.heroCtas}>
+              <Reveal delay={0.6} className={styles.heroCtas}>
                 <Link href={WA_LINKS.hero} target="_blank" rel="noopener noreferrer" className="btn-primary">
                   <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                   </svg>
-                  Message on WhatsApp
+                  Build My Brand
                 </Link>
-                <Link href="/services" className="btn-outline">Explore Services</Link>
+                <Link href="#services" className="btn-outline">See All Services &nbsp;→</Link>
               </Reveal>
             </div>
 
             <div className={styles.heroRight}>
-              <Reveal delay={0.5} className={styles.heroVisualWrap}>
-                <Image src="/images/home_dashboard.png" alt="Siyara Innovations Dashboard" width={1000} height={600} className={styles.heroVisualImg} priority />
+              <Reveal delay={0.7} className={styles.heroVisualWrap}>
+                <Image src="/hero_dashboard.png" alt="Premium Dashboard UI Mockup" width={800} height={600} className={styles.heroVisualImg} priority />
               </Reveal>
             </div>
           </div>
         </div>
 
-        <Reveal delay={0.6} className={styles.heroStats} role="list" aria-label="Agency statistics">
+        <Reveal delay={0.8} className={styles.heroStats} role="list" aria-label="Agency statistics">
           {[
-            { num: '14+', label: 'Services' },
-            { num: '5',   label: 'Industries' },
-            { num: '₹2Cr+',label: 'Revenue Generated' },
-            { num: '100%', label: 'Strategy-led' },
+            { num: '12+', label: 'Digital services' },
+            { num: '5',   label: 'Industries served' },
+            { num: '1',   label: 'Unified strategy' },
+            { num: '0',   label: 'Generic work. Ever.' },
           ].map(({ num, label }) => (
             <div key={label} className={styles.heroStat} role="listitem">
               <span className={styles.heroStatNum}>{num}</span>
@@ -129,7 +134,7 @@ export default function HomePage() {
           ))}
         </Reveal>
 
-        <Reveal delay={0.8}>
+        <Reveal delay={0.9}>
           <div className="scroll-indicator" aria-hidden="true" />
         </Reveal>
       </section>
