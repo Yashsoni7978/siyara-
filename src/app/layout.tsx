@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Bodoni_Moda, Jost } from 'next/font/google'
+import { Young_Serif, Instrument_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
@@ -10,19 +11,22 @@ import { ThemeProvider } from '@/components/ui/ThemeProvider'
 import { defaultMetadata, localBusinessSchema, organizationSchema, websiteSchema } from '@/lib/seo'
 import { SkipNav } from '@/components/ui/SkipNav'
 
-/* ── Google Fonts via next/font (zero CLS, self-hosted at edge) ── */
-const bodoni = Bodoni_Moda({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-display',
+const blackChancery = localFont({
+  src: '../fonts/blackchancery/blackchancery.ttf',
+  variable: '--font-chancery',
   display: 'swap',
-  preload: true,
 })
 
-const jost = Jost({
+const youngSerif = Young_Serif({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['400'],
+  variable: '--font-young-serif',
+  display: 'swap',
+})
+
+const instrumentSans = Instrument_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-ui',
   display: 'swap',
   preload: true,
@@ -33,7 +37,7 @@ export const metadata: Metadata = defaultMetadata
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bodoni.variable} ${jost.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${youngSerif.variable} ${instrumentSans.variable} ${blackChancery.variable}`} suppressHydrationWarning>
       <head>
         {/* JSON-LD Structured Data */}
         <script

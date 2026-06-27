@@ -5,27 +5,36 @@
 
 /* ---- RATINGS STRIP ---- */
 .ratingsStrip {
-  background: var(--bg-primary);
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  background: rgba(90, 166, 138, 0.02);
+  border: none;
+  backdrop-filter: blur(12px);
 }
 
 .ratingsGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .ratingItem {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  padding: 20px 24px;
-  border-right: 1px solid var(--border-color);
+  padding: 32px;
+  flex: 1;
+  position: relative;
 }
 
-.ratingItem:last-child {
-  border-right: none;
+.ratingItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 48px;
+  width: 1px;
+  background: rgba(90, 166, 138, 0.15);
 }
 
 .ratingPlatform {

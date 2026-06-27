@@ -130,7 +130,9 @@ export function Footer() {
           <Link href="/terms" className={styles.legalLink}>Terms of Service</Link>
           <Link href="/sitemap.xml" className={styles.legalLink}>Sitemap</Link>
         </div>
-        <p className={styles.made}>We build brands that <span>dominate.</span></p>
+        <div className={styles.made}>
+          All Systems Operational <span className={styles.madeDot} aria-hidden="true" />
+        </div>
       </div>
     </footer>
   )

@@ -1,6 +1,6 @@
 .footer {
-  background: rgba(var(--bg-primary-rgb), 0.95);
-  border-top: 1px solid var(--border-color);
+  background: rgba(90, 166, 138, 0.02);
+  border-top: 1px solid rgba(90, 166, 138, 0.08);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   position: relative;
@@ -54,7 +54,7 @@
 .email {
   font-size: 12.5px;
   font-weight: 300;
-  color: var(--accent-primary);
+  color: var(--accent-green);
   opacity: 0.75;
   transition: opacity 0.28s;
 }
@@ -79,24 +79,26 @@
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--bg-primary);
-  background: var(--accent-primary);
+  color: #04100B;
+  background: linear-gradient(135deg, #C9A84C, #a8782a);
   padding: 10px 20px;
   text-decoration: none;
-  transition: background 0.3s;
+  border-radius: 4px;
+  transition: opacity 0.3s;
 }
 
-.waBtn:hover { background: var(--accent-secondary); }
+.waBtn:hover { opacity: 0.85; }
 
 
 /* Column */
 .colTitle {
   display: block;
-  font-size: 9.5px;
+  font-family: var(--font-ui);
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(var(--text-primary-rgb), 0.28);
+  color: rgba(240, 245, 242, 0.3);
   margin-bottom: 24px;
 }
 
@@ -124,7 +126,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: var(--accent-primary);
+  background: var(--accent-green);
   transform: scaleX(0);
   transition: transform 0.3s ease;
   transform-origin: left;
@@ -160,7 +162,7 @@
 }
 
 .newsletterForm:focus-within {
-  border-color: var(--accent-primary);
+  border-color: var(--accent-green);
 }
 
 .newsletterInput {
@@ -181,7 +183,7 @@
 .newsletterBtn {
   background: transparent;
   border: none;
-  color: var(--accent-primary);
+  color: var(--accent-green);
   font-size: 18px;
   cursor: pointer;
   padding: 0 8px;
@@ -236,12 +238,25 @@
 }
 
 .made {
-  font-size: 11.5px;
-  font-weight: 300;
-  color: rgba(var(--text-primary-rgb), 0.22);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(240, 245, 242, 0.4);
 }
 
-.made span { color: rgba(var(--accent-primary-rgb), 0.5); }
+.madeDot {
+  width: 7px;
+  height: 7px;
+  background-color: #6ead98;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(90, 166, 138, 0.8);
+  animation: pulse 2s ease-in-out infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
 
 .legalLinks {
   display: flex;
@@ -257,7 +272,7 @@
   transition: color 0.28s;
 }
 
-.legalLink:hover { color: rgba(var(--accent-primary-rgb), 0.6); }
+.legalLink:hover { color: rgba(90, 166, 138, 0.6); }
 
 /* Responsive */
 @media (max-width: 1100px) {

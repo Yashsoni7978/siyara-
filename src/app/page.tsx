@@ -9,6 +9,8 @@ import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
 import { IconMap } from '@/components/ui/Icons'
 import { CursorSpotlight } from '@/components/ui/CursorSpotlight'
+import { MagicBento } from '@/components/ui/MagicBento'
+import { FlowingMenu } from '@/components/ui/FlowingMenu'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -30,17 +32,17 @@ const MARQUEE_ITEMS = [
 ]
 
 const PAIN_POINTS = [
-  { num: '01', title: "Your website looks like it's from 2016.",  body: "And your customers notice. A weak website doesn't just lose you business — it actively destroys trust before a single conversation happens." },
-  { num: '02', title: "You're invisible on Google.", body: "Your competitors are showing up every time someone searches for your service in Jaipur. You're not. That's not bad luck. That's a fixable problem." },
-  { num: '03', title: "You're wasting money on ads that don't work.", body: "Bad creative. No targeting strategy. No follow-up system. Money spent on ads without a proper strategy is just money spent." },
-  { num: '04', title: "You have 4 vendors and zero strategy.", body: "A social media guy who doesn't talk to the website guy. An ad agency that's never seen your brand guide. Nothing connected. Nothing compounding." },
+  { num: '01', shortTitle: "Outdated Design", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&h=400&auto=format&fit=crop", title: "Your website looks like it's from 2016.", body: "And your customers notice. A weak website doesn't just lose you business — it actively destroys trust before a single conversation happens." },
+  { num: '02', shortTitle: "Invisible on Search", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&h=400&auto=format&fit=crop", title: "You're invisible on Google.", body: "Your competitors are showing up every time someone searches for your service in Jaipur. You're not. That's not bad luck. That's a fixable problem." },
+  { num: '03', shortTitle: "Wasted Ad Spend", image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600&h=400&auto=format&fit=crop", title: "You're wasting money on ads that don't work.", body: "Bad creative. No targeting strategy. No follow-up system. Money spent on ads without a proper strategy is just money spent." },
+  { num: '04', shortTitle: "Fragmented Strategy", image: "https://images.unsplash.com/photo-1544084944-15269ec7b5a0?q=80&w=600&h=400&auto=format&fit=crop", title: "You have 4 vendors and zero strategy.", body: "A social media guy who doesn't talk to the website guy. An ad agency that's never seen your brand guide. Nothing connected. Nothing compounding." },
 ]
 
 const WHY_SIYARA = [
-  { label: 'Jaipur-first',             body: 'We know this market. We know how local businesses win here and how they expand across India from here.' },
+  { label: 'Jaipur-first', body: 'We know this market. We know how local businesses win here and how they expand across India from here.' },
   { label: 'One team, full ecosystem', body: 'No disconnected vendors. Every service talks to every other service. One strategy, everything compounding.' },
   { label: 'Strategy before execution', body: "We don't build things without knowing why. Every design, campaign, and page serves a clear business objective." },
-  { label: 'Premium, always',           body: 'We have a standard. Work that leaves our team looks expensive, feels premium, and performs. No exceptions.' },
+  { label: 'Premium, always', body: 'We have a standard. Work that leaves our team looks expensive, feels premium, and performs. No exceptions.' },
 ]
 
 const POSTS = [
@@ -71,73 +73,68 @@ export default function HomePage() {
       {/* ============================================================
           HERO
       ============================================================ */}
-      <section className={styles.hero} aria-label="Hero section">
-        <div className={styles.heroGrid}     aria-hidden="true" />
-        <div className={styles.heroGlow}     aria-hidden="true" />
-        <div className={styles.heroGoldGlow} aria-hidden="true" />
+      <div className={styles.heroStickyContainer}>
+        <section className={styles.hero} aria-label="Hero section">
+        <div className={styles.heroCurtain} aria-hidden="true" />
+        <div className={styles.heroRays} aria-hidden="true" />
         <div className={`${styles.orb} ${styles.orb1}`} aria-hidden="true" />
         <div className={`${styles.orb} ${styles.orb2}`} aria-hidden="true" />
         <div className={`${styles.orb} ${styles.orb3}`} aria-hidden="true" />
 
         <div className={styles.heroContentWrapper}>
           <div className={styles.heroInner}>
-            <div className={styles.heroLeft}>
-              <Reveal delay={0.1} className={styles.heroBadge}>
-                <span className="pulse-dot" aria-hidden="true" />
-                <span>Premium Digital Agency · Jaipur</span>
-              </Reveal>
+            <div className={styles.heroLeft} style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
+              <div className={styles.heroBadge}>
+                <span className={styles.heroBadgeDot} aria-hidden="true" style={{ background: '#6ead98', boxShadow: '0 0 8px rgba(90,166,138,0.8)' }} />
+                <span>Now Accepting Projects</span>
+              </div>
 
               <h1 className={styles.h1}>
-                <Reveal as="span" delay={0.2} className={styles.h1Line1}>We don&apos;t just build</Reveal>
-                <Reveal as="span" delay={0.3} className={styles.h1Line2}>your digital presence.</Reveal>
-                <Reveal as="span" delay={0.4} className={styles.h1Line3}>
-                  We build brands that <span className="gold-shimmer">dominate.</span>
-                </Reveal>
+                <span className={styles.h1Line1} style={{ fontSize: 'clamp(60px, 8vw, 110px)', whiteSpace: 'nowrap' }}>We build brands</span>
+                <span className={styles.h1Line2} style={{ fontSize: 'clamp(50px, 6vw, 90px)', margin: '10px 0' }}>that</span>
+                <span className={styles.h1Line3} style={{
+                  fontSize: 'clamp(80px, 12vw, 180px)',
+                  fontWeight: '900',
+                  background: 'linear-gradient(135deg, #6ead98, #C9A84C)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  WebkitTextStroke: '3px transparent',
+                  backgroundClip: 'text',
+                  lineHeight: '1',
+                  padding: '10px 0'
+                }}>
+                  dominate.
+                </span>
               </h1>
 
-              <Reveal as="p" delay={0.5} className={styles.heroSub}>
-                Full-service digital growth agency for ambitious businesses.
-                Web. Brand. AI. SEO. Ads. Social. Content. Everything under one roof.
-                <em> One strategy. Everything compounding.</em>
-              </Reveal>
 
-              <Reveal delay={0.6} className={styles.heroCtas}>
-                <Link href={WA_LINKS.hero} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                  </svg>
-                  Build My Brand
-                </Link>
-                <Link href="#services" className="btn-outline">See All Services &nbsp;→</Link>
-              </Reveal>
-            </div>
 
-            <div className={styles.heroRight}>
-              <Reveal delay={0.7} className={styles.heroVisualWrap}>
-                <Image src="/hero_dashboard.png" alt="Premium Dashboard UI Mockup" width={800} height={600} className={styles.heroVisualImg} priority />
-              </Reveal>
             </div>
           </div>
         </div>
 
-        <Reveal delay={0.8} className={styles.heroStats} role="list" aria-label="Agency statistics">
+
+
+        <div>
+          <div className="scroll-indicator" aria-hidden="true" />
+        </div>
+      </section>
+      </div>
+
+      <main className={styles.pageContent}>
+        <div className={styles.heroStats} role="list" aria-label="Agency statistics">
           {[
             { num: '12+', label: 'Digital services' },
-            { num: '5',   label: 'Industries served' },
-            { num: '1',   label: 'Unified strategy' },
-            { num: '0',   label: 'Generic work. Ever.' },
+            { num: '5', label: 'Industries served' },
+            { num: '1', label: 'Unified strategy' },
+            { num: '0', label: 'Generic work. Ever.' },
           ].map(({ num, label }) => (
             <div key={label} className={styles.heroStat} role="listitem">
               <span className={styles.heroStatNum}>{num}</span>
               <span className={styles.heroStatLabel}>{label}</span>
             </div>
           ))}
-        </Reveal>
-
-        <Reveal delay={0.9}>
-          <div className="scroll-indicator" aria-hidden="true" />
-        </Reveal>
-      </section>
+        </div>
 
       {/* ============================================================
           MARQUEE
@@ -145,40 +142,17 @@ export default function HomePage() {
       <Reveal as="section" className={styles.marqueeSection} aria-label="Services marquee" aria-hidden="true">
         <div className={styles.marqueeTrack}>
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} className={styles.marqueeItem}>
-              {item}
+            <div key={i} className={styles.marqueeItem}>
+              <span className={styles.marqueeValue}>{item}</span>
               <span className={styles.marqueeDot} />
-            </span>
+            </div>
           ))}
         </div>
       </Reveal>
 
-      {/* ============================================================
-          RATINGS STRIP - SOCIAL PROOF
-      ============================================================ */}
-      <section className={sharedStyles.ratingsStrip} aria-label="Platform Ratings">
-        <div className="section-wrap">
-          <div className={sharedStyles.ratingsGrid}>
-            {RATING_STATS.map((stat, i) => (
-              <Reveal key={stat.platform} delay={i * 0.1} className={sharedStyles.ratingItem}>
-                <div className={sharedStyles.ratingPlatform}>
-                  <span className={sharedStyles.platformIcon}>{IconMap[stat.icon]}</span>
-                  <div className={sharedStyles.stars}>
-                    {'★'.repeat(Math.floor(stat.rating))}
-                    {stat.rating % 1 !== 0 && '★'}
-                  </div>
-                </div>
-                <div className={sharedStyles.ratingScore}>
-                  <span className={sharedStyles.scoreNum}>{stat.rating}</span>
-                  <span className={sharedStyles.scoreLabel}>
-                    {stat.platform} · {stat.reviews} reviews
-                  </span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
+
 
       {/* ============================================================
           SERVICES SECTION
@@ -192,22 +166,25 @@ export default function HomePage() {
               <span className="gold-shimmer">One unified growth strategy.</span>
             </Reveal>
           </div>
-          
-          <div className={styles.servicesGrid}>
-            {SERVICES.map((svc, i) => (
-              <Reveal key={svc.id} delay={(i % 3) * 0.1}>
-                <Link href={`/services/${svc.id}`} className={`${styles.serviceCard} glass-card`}>
-                  <div className={styles.serviceHoverBorder} />
-                  <span className={styles.serviceBgNum}>{svc.num}</span>
-                  <div className={styles.serviceTop}>
-                    <span className={styles.serviceIcon}>{IconMap[svc.icon]}</span>
-                  </div>
-                  <h3 className={styles.serviceName}>{svc.name}</h3>
-                  <div className={styles.serviceFix}>FIXES: {svc.fix.toUpperCase()}</div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+
+          <MagicBento 
+            items={SERVICES.map(svc => ({
+              id: svc.id,
+              num: svc.num,
+              name: svc.name,
+              fix: svc.fix,
+              description: svc.desc,
+              features: (svc as any).features,
+              icon: IconMap[svc.icon as keyof typeof IconMap]
+            }))}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            glowColor="201, 168, 76"
+          />
         </div>
       </section>
 
@@ -228,16 +205,15 @@ export default function HomePage() {
                 It&apos;s not lack of effort. It&apos;s the absence of a real digital strategy.
               </Reveal>
             </div>
-            <div className={styles.problemCards}>
-              {PAIN_POINTS.map(({ num, title, body }, i) => (
-                <Reveal key={num} delay={i * 0.15} className={`${styles.painCard} glass-card`}>
-                  <div className={styles.painCardTop}>
-                    <span className={styles.painNum}>{num}</span>
-                    <h3 className={styles.painTitle}>{title}</h3>
-                  </div>
-                  <p className={styles.painBody}>{body}</p>
-                </Reveal>
-              ))}
+            <div className={styles.problemCards} style={{ height: '400px' }}>
+              <FlowingMenu 
+                items={PAIN_POINTS.map(pt => ({
+                  text: pt.shortTitle,
+                  marqueeText: pt.title,
+                  image: pt.image,
+                  link: '#',
+                }))}
+              />
             </div>
           </div>
         </div>
@@ -343,12 +319,12 @@ export default function HomePage() {
               <Reveal key={item.id} delay={i * 0.15} className={styles.workCardWrap}>
                 <Link href={item.demoLink} className={styles.workCard}>
                   <div className={styles.workImageWrap}>
-                    <Image 
-                      src={item.image} 
-                      alt={`${item.name} Showcase`} 
-                      fill 
+                    <Image
+                      src={item.image}
+                      alt={`${item.name} Showcase`}
+                      fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className={styles.workImg} 
+                      className={styles.workImg}
                     />
                     <div className={styles.workOverlay}>
                       <span className={styles.workBtn}>View Case Study →</span>
@@ -416,10 +392,10 @@ export default function HomePage() {
           </div>
           <div className={styles.processGrid}>
             {[
-              { n: '01', name: 'Discovery Call',       desc: "We start by understanding your business, market, and what winning looks like for you. No templates." },
-              { n: '02', name: 'Strategy & Roadmap',   desc: "We map exactly which services you need, in which order, and why. Every recommendation tied to a real outcome." },
-              { n: '03', name: 'Build & Execute',      desc: "Design, development, campaigns, content — all built with precision and reviewed before anything goes live." },
-              { n: '04', name: 'Measure & Scale',      desc: "Monthly, you see exactly what's performing, what we're optimising, and what's next. Your investment compounds." },
+              { n: '01', name: 'Discovery Call', desc: "We start by understanding your business, market, and what winning looks like for you. No templates." },
+              { n: '02', name: 'Strategy & Roadmap', desc: "We map exactly which services you need, in which order, and why. Every recommendation tied to a real outcome." },
+              { n: '03', name: 'Build & Execute', desc: "Design, development, campaigns, content — all built with precision and reviewed before anything goes live." },
+              { n: '04', name: 'Measure & Scale', desc: "Monthly, you see exactly what's performing, what we're optimising, and what's next. Your investment compounds." },
             ].map(({ n, name, desc }, i) => (
               <Reveal key={n} delay={i * 0.12} className={styles.processStep}>
                 <div className={styles.processNum}>{n}</div>
@@ -622,9 +598,9 @@ export default function HomePage() {
           </div>
           <div className={styles.blogGrid}>
             {POSTS.map((post, i) => (
-              <Reveal 
-                key={post.slug} 
-                delay={i * 0.1} 
+              <Reveal
+                key={post.slug}
+                delay={i * 0.1}
               >
                 <a
                   href={WA_LINKS.default}
@@ -656,12 +632,12 @@ export default function HomePage() {
               Real ROI for real businesses.
             </Reveal>
           </div>
-          
+
           <div className={sharedStyles.testiGrid}>
             {CLIENT_TESTIMONIALS.slice(0, 8).map((testi, i) => (
               <Reveal key={testi.author} delay={i * 0.1} className={sharedStyles.testiCard}>
                 <div className={sharedStyles.testiTop}>
-                  <div className={sharedStyles.testiAvatar}>{testi.author.split(' ').map(n=>n[0]).join('')}</div>
+                  <div className={sharedStyles.testiAvatar}>{testi.author.split(' ').map(n => n[0]).join('')}</div>
                   <div>
                     <div className={sharedStyles.testiAuthor}>{testi.author}</div>
                     <div className={sharedStyles.testiRole}>{testi.role}</div>
@@ -680,7 +656,7 @@ export default function HomePage() {
           CTA FINALE
       ============================================================ */}
       <div id="contact">
-        <CTA 
+        <CTA
           eyebrow="Let's Build Something Premium"
           title={<>Your business is ready.<br /><span className="gold-shimmer">Your digital presence should be too.</span></>}
           description="Start with a free 30-minute strategy call. We'll tell you exactly what your brand needs — and what it doesn't."
@@ -689,6 +665,7 @@ export default function HomePage() {
           note="No pressure. No pitch deck. Just a real conversation."
         />
       </div>
+      </main>
     </>
   )
 }
