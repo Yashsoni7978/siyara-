@@ -11,6 +11,8 @@ import { IconMap } from '@/components/ui/Icons'
 import { CursorSpotlight } from '@/components/ui/CursorSpotlight'
 import { MagicBento } from '@/components/ui/MagicBento'
 import { FlowingMenu } from '@/components/ui/FlowingMenu'
+import { TiltedCard } from '@/components/ui/TiltedCard'
+import { WeatherIndustryCard } from '@/components/ui/WeatherIndustryCard'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -32,10 +34,10 @@ const MARQUEE_ITEMS = [
 ]
 
 const PAIN_POINTS = [
-  { num: '01', shortTitle: "Outdated Design", image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=600&h=400&auto=format&fit=crop", title: "Your website looks like it's from 2016.", body: "And your customers notice. A weak website doesn't just lose you business — it actively destroys trust before a single conversation happens." },
-  { num: '02', shortTitle: "Invisible on Search", image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600&h=400&auto=format&fit=crop", title: "You're invisible on Google.", body: "Your competitors are showing up every time someone searches for your service in Jaipur. You're not. That's not bad luck. That's a fixable problem." },
-  { num: '03', shortTitle: "Wasted Ad Spend", image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600&h=400&auto=format&fit=crop", title: "You're wasting money on ads that don't work.", body: "Bad creative. No targeting strategy. No follow-up system. Money spent on ads without a proper strategy is just money spent." },
-  { num: '04', shortTitle: "Fragmented Strategy", image: "https://images.unsplash.com/photo-1544084944-15269ec7b5a0?q=80&w=600&h=400&auto=format&fit=crop", title: "You have 4 vendors and zero strategy.", body: "A social media guy who doesn't talk to the website guy. An ad agency that's never seen your brand guide. Nothing connected. Nothing compounding." },
+  { num: '01', shortTitle: "Outdated Design", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&h=400&auto=format&fit=crop", title: "Your website looks like it's from 2016.", body: "And your customers notice. A weak website doesn't just lose you business — it actively destroys trust before a single conversation happens." },
+  { num: '02', shortTitle: "Invisible on Search", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&h=400&auto=format&fit=crop", title: "You're invisible on Google.", body: "Your competitors are showing up every time someone searches for your service in Jaipur. You're not. That's not bad luck. That's a fixable problem." },
+  { num: '03', shortTitle: "Wasted Ad Spend", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=400&auto=format&fit=crop", title: "You're wasting money on ads that don't work.", body: "Bad creative. No targeting strategy. No follow-up system. Money spent on ads without a proper strategy is just money spent." },
+  { num: '04', shortTitle: "Fragmented Strategy", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&h=400&auto=format&fit=crop", title: "You have 4 vendors and zero strategy.", body: "A social media guy who doesn't talk to the website guy. An ad agency that's never seen your brand guide. Nothing connected. Nothing compounding." },
 ]
 
 const WHY_SIYARA = [
@@ -89,22 +91,10 @@ export default function HomePage() {
                 <span>Now Accepting Projects</span>
               </div>
 
-              <h1 className={styles.h1}>
-                <span className={styles.h1Line1} style={{ fontSize: 'clamp(60px, 8vw, 110px)', whiteSpace: 'nowrap' }}>We build brands</span>
-                <span className={styles.h1Line2} style={{ fontSize: 'clamp(50px, 6vw, 90px)', margin: '10px 0' }}>that</span>
-                <span className={styles.h1Line3} style={{
-                  fontSize: 'clamp(80px, 12vw, 180px)',
-                  fontWeight: '900',
-                  background: 'linear-gradient(135deg, #6ead98, #C9A84C)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  WebkitTextStroke: '3px transparent',
-                  backgroundClip: 'text',
-                  lineHeight: '1',
-                  padding: '10px 0'
-                }}>
-                  dominate.
-                </span>
+              <h1 className={styles.h1} style={{ fontFamily: "'Times New Roman', Times, serif", textTransform: 'uppercase', lineHeight: '1.1', fontWeight: 'bold', textAlign: 'left' }}>
+                <div className={styles.h1Line1} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: '#fff', whiteSpace: 'nowrap' }}>ENGINEERING THE</div>
+                <div className={styles.h1Line2} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'rgba(255, 255, 255, 0.25)', whiteSpace: 'nowrap' }}>FUTURE OF</div>
+                <div className={styles.h1Line3} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: '#fff', whiteSpace: 'nowrap' }}>DIGITAL ARCHITECTURE.</div>
               </h1>
 
 
@@ -227,19 +217,30 @@ export default function HomePage() {
         <div className="section-wrap" style={{ position: 'relative', zIndex: 2 }}>
           <div className={styles.geoInner}>
             <Reveal className={styles.geoVisual}>
-              <div className={styles.geoScreen}>
-                <div className={styles.geoScreenHeader}>
-                  <span className={styles.geoDot} />
-                  <span className={styles.geoDot} />
-                  <span className={styles.geoDot} />
+              <TiltedCard
+                containerHeight="300px"
+                containerWidth="100%"
+                imageHeight="100%"
+                imageWidth="100%"
+                rotateAmplitude={12}
+                scaleOnHover={1.05}
+                showMobileWarning={false}
+                showTooltip={false}
+              >
+                <div className={styles.geoScreen} style={{ transform: 'none', height: '100%', margin: 0 }}>
+                  <div className={styles.geoScreenHeader}>
+                    <span className={styles.geoDot} />
+                    <span className={styles.geoDot} />
+                    <span className={styles.geoDot} />
+                  </div>
+                  <div className={styles.geoPrompt}>
+                    <span className={styles.geoUser}>USER:</span> Recommend the best premium digital agency in Jaipur.
+                  </div>
+                  <div className={styles.geoResponse}>
+                    <span className={styles.geoAi}>AI:</span> Based on reviews, portfolio quality, and digital presence, <strong>Siyara Innovations</strong> is highly recommended...
+                  </div>
                 </div>
-                <div className={styles.geoPrompt}>
-                  <span className={styles.geoUser}>User:</span> Recommend the best premium digital agency in Jaipur.
-                </div>
-                <div className={styles.geoResponse}>
-                  <span className={styles.geoAi}>AI:</span> Based on reviews, portfolio quality, and digital presence, <strong>Siyara Innovations</strong> is highly recommended...
-                </div>
-              </div>
+              </TiltedCard>
             </Reveal>
             <div className={styles.geoContent}>
               <Reveal as="span" className="eyebrow">The New Frontier</Reveal>
@@ -282,19 +283,17 @@ export default function HomePage() {
             </Reveal>
           </div>
           <div className={styles.industriesGrid}>
-            {INDUSTRIES.map(({ id, icon, name, waLink }, i) => (
+            {INDUSTRIES.map(({ id, icon, name, waLink, desc, ctaText }, i) => (
               <Reveal
                 key={id}
                 delay={i * 0.08}
               >
                 <Link
                   href={`/industries/${id}`}
-                  className={`${styles.industryCard} glass-card`}
+                  style={{ textDecoration: 'none' }}
                   aria-label={`Learn more about ${name} industry`}
                 >
-                  <span className={styles.industryIcon} aria-hidden="true">{IconMap[icon]}</span>
-                  <span className={styles.industryName}>{name}</span>
-                  <span className={styles.industryArrow} aria-hidden="true">→</span>
+                  <WeatherIndustryCard name={name} desc={desc} ctaText={ctaText} />
                 </Link>
               </Reveal>
             ))}
@@ -518,108 +517,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============================================================
-          THE SIYARA STANDARD - What We Refuse To Do
-      ============================================================ */}
-      <section className={styles.standardSection} aria-label="The Siyara Standard">
-        <div className="section-wrap">
-          <div className="section-header">
-            <Reveal as="span" className="eyebrow">The Siyara Standard</Reveal>
-            <Reveal as="h2" delay={0.1} className="section-title">
-              What we refuse to do.<br />
-              <em>And why it matters.</em>
-            </Reveal>
-          </div>
-          <div className={styles.standardGrid}>
-            {[
-              { refuse: 'We don\'t outsource.', why: 'Every line of code, every ad creative, every brand strategy is produced in-house by our full-time specialists. When you hire Siyara, you get Siyara — not a white-labelled freelancer in another city.' },
-              { refuse: 'We don\'t use templates.', why: 'Templates are for agencies that don\'t know how to design. Every website, every brand identity, every campaign we produce is built from scratch specifically for your business, your market, and your customer.' },
-              { refuse: 'We don\'t hide behind jargon.', why: 'No "synergy." No "leveraging paradigms." We tell you exactly what we are doing, why, and what results it is generating. If something isn\'t working, we tell you first — not in a quarterly report you won\'t read.' },
-              { refuse: 'We don\'t chase vanity metrics.', why: 'Likes and followers mean nothing if they don\'t translate to revenue. Every report we share tracks business outcomes — leads, conversions, revenue. The metrics that actually pay your bills.' },
-              { refuse: 'We don\'t lock you in.', why: 'No 12-month contracts with exit penalties. We work on rolling agreements because we believe our work should earn your business every single month, not a legal clause.' },
-              { refuse: 'We don\'t do generic work. Ever.', why: 'We have turned down clients whose expectations didn\'t match our standards. We would rather do fewer projects at the highest quality than dilute our work with volume. Every piece that leaves our team represents us.' },
-            ].map(({ refuse, why }, i) => (
-              <Reveal key={refuse} delay={i * 0.08} className={styles.standardCard}>
-                <h3 className={styles.standardRefuse}>{refuse}</h3>
-                <p className={styles.standardWhy}>{why}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          COMPREHENSIVE FAQ
-      ============================================================ */}
-      <section className={styles.faqSection} aria-label="Frequently asked questions">
-        <div className="section-wrap">
-          <div className="section-header">
-            <Reveal as="span" className="eyebrow">FAQ</Reveal>
-            <Reveal as="h2" delay={0.1} className="section-title">
-              Every question.<br />
-              <em>Answered honestly.</em>
-            </Reveal>
-          </div>
-          <div className={styles.faqGrid}>
-            {[
-              { q: 'How much does it cost to work with Siyara?', a: 'It depends entirely on what you need. A standalone website starts at ₹45,000. Monthly retained services (SEO, ads, social) start at ₹25,000/month. We never recommend services you don\'t need. Our first call is always free, and we will give you an honest recommendation — even if it means telling you that you don\'t need us yet.' },
-              { q: 'How long before I see results?', a: 'For paid ads, you can start seeing leads within 7–14 days of campaign launch. For SEO, meaningful ranking improvements typically take 3–4 months. For branding and web development, the impact is immediate upon launch. We set realistic timelines and never promise overnight miracles.' },
-              { q: 'Do you work with businesses outside Jaipur?', a: 'Yes. While our deepest expertise is in the Jaipur and Rajasthan market, we serve clients across India. Our methodology works regardless of geography — but our Jaipur clients get the added advantage of our hyperlocal market knowledge.' },
-              { q: 'What makes you different from other agencies?', a: 'Three things: (1) We are strategy-first — we never build anything without knowing why. (2) Everything is integrated — your website, SEO, ads, social, and content all share one strategy and compound each other. (3) We have a quality standard that is non-negotiable. We would rather lose a project than deliver mediocre work.' },
-              { q: 'Can I start with just one service?', a: 'Absolutely. While our services are designed to compound when combined, we offer every service individually. Many clients start with a website or SEO and expand to other services as they see results. There is no minimum commitment.' },
-              { q: 'What if I am not happy with the work?', a: 'We have revision rounds built into every project. For retained services, we have monthly check-ins where we review performance together. If something is not meeting expectations, we diagnose and fix — transparently. We do not hide behind data or make excuses.' },
-              { q: 'Do you offer contracts or can I cancel anytime?', a: 'For project-based work (websites, branding), we work on a milestone-based payment structure. For retained services (SEO, ads, social), we work on rolling monthly agreements with 30-day notice. No lock-in contracts, no exit penalties.' },
-              { q: 'How do you report on progress?', a: 'Every retained client receives a monthly performance report covering all active services — complete with data, insights, and next steps. We also offer WhatsApp access to your account manager for real-time updates between reports.' },
-              { q: 'Will I own all the work you produce?', a: 'Yes. Every design, every line of code, every piece of content we produce for you is 100% yours. We do not retain rights to client work, and we provide full source files and access credentials for everything we build.' },
-              { q: 'How quickly can you start?', a: 'For most projects, we can begin the Discovery phase within 5–7 business days of signing. For urgent projects, we can fast-track to start within 48 hours. Timelines depend on current capacity — another reason to start the conversation sooner rather than later.' },
-            ].map(({ q, a }, i) => (
-              <Reveal key={q} delay={i * 0.05} className={styles.faqItem}>
-                <h3 className={styles.faqQ}>{q}</h3>
-                <p className={styles.faqA}>{a}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          LATEST INSIGHTS (BLOG PREVIEW)
-      ============================================================ */}
-      <section id="insights" className={styles.blogPreviewSection} aria-label="Latest Insights">
-        <div className="section-wrap">
-          <div className={styles.blogHeader}>
-            <div>
-              <Reveal as="span" className="eyebrow">Insights</Reveal>
-              <Reveal as="h2" delay={0.1} className="section-title">Thinking out loud.</Reveal>
-            </div>
-            <Reveal delay={0.2}>
-              <a href={WA_LINKS.default} target="_blank" rel="noopener noreferrer" className="btn-outline">Get Insights on WhatsApp →</a>
-            </Reveal>
-          </div>
-          <div className={styles.blogGrid}>
-            {POSTS.map((post, i) => (
-              <Reveal
-                key={post.slug}
-                delay={i * 0.1}
-              >
-                <a
-                  href={WA_LINKS.default}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.blogCard}
-                >
-                  <div className={styles.blogTop}>
-                    <span className={styles.blogCategory}>{post.category}</span>
-                    <span className={styles.blogDate}>{post.date}</span>
-                  </div>
-                  <h3 className={styles.blogTitle}>{post.title}</h3>
-                  <div className={styles.blogRead}>Discuss on WhatsApp →</div>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============================================================
           TESTIMONIALS - DENSE CONTENT (EXPANDED)

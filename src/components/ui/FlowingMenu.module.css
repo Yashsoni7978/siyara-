@@ -55,7 +55,9 @@
   overflow: hidden;
   pointer-events: none;
   transform: translateY(101%);
-  background-color: rgba(90, 166, 138, 0.9); /* Silk Green */
+  background-color: rgba(10, 10, 10, 0.98); /* Premium Dark Tech Shade */
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 10;
 }
 

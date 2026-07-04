@@ -3,29 +3,26 @@
 ============================================================ */
 .nav {
   position: fixed;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 95%;
-  max-width: 672px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
   z-index: 1000;
-  height: 56px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px 0 24px;
-  background: rgba(4, 16, 11, 0.75);
+  padding: 0 5%;
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(90, 166, 138, 0.08);
-  border-radius: 100px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .nav.scrolled {
-  background: rgba(4, 16, 11, 0.92);
-  border-color: rgba(90, 166, 138, 0.15);
+  background: rgba(5, 5, 5, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Logo */
@@ -38,33 +35,31 @@
 }
 
 .logoMain {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--text-primary);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.logoMain::before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #5aa68a, #C9A84C);
-  display: inline-block;
 }
 
 .logoSub {
   display: none;
 }
 
+.desktopLinksContainer {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
 /* Desktop nav links */
 .links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 32px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -77,25 +72,19 @@
 .link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  font-family: var(--font-ui);
+  font-family: var(--font-ui), sans-serif;
   font-size: 11px;
   font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
-  border-radius: 100px;
 }
 
-.link:hover {
-  color: var(--text-primary);
-}
-
-.link.active {
-  color: var(--text-primary);
+.link:hover, .link.active {
+  color: #fff;
 }
 
 /* CTA button */
@@ -103,28 +92,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 20px;
-  background: linear-gradient(135deg, #C9A84C, #a8782a);
-  color: #04100B;
-  font-family: var(--font-ui);
-  font-size: 13px;
+  padding: 12px 24px;
+  background: transparent;
+  color: #C9A84C;
+  font-family: var(--font-ui), sans-serif;
+  font-size: 11px;
   font-weight: 600;
-  border-radius: 9999px;
+  letter-spacing: 0.15em;
+  border: 1px solid #C9A84C;
+  border-radius: 0;
   text-decoration: none;
-  border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .cta:hover {
-  opacity: 0.88;
-  transform: scale(1.02);
-}
-
-.cta svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+  background: #C9A84C;
+  color: #000;
 }
 
 /* Hamburger */
@@ -243,17 +227,12 @@
 /* Responsive */
 @media (max-width: 1100px) {
   .links {
-    gap: 0;
-  }
-
-  .link {
-    padding: 10px 10px;
-    font-size: 12px;
+    gap: 20px;
   }
 }
 
 @media (max-width: 900px) {
-  .links {
+  .desktopLinksContainer {
     display: none;
   }
 
@@ -266,9 +245,7 @@
   }
 
   .nav {
-    top: 12px;
-    width: calc(100% - 24px);
-    padding: 0 16px;
-    height: 60px;
+    height: 64px;
+    padding: 0 20px;
   }
 }

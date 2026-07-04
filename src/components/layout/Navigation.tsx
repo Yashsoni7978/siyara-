@@ -5,14 +5,13 @@ import { useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { WA_LINKS } from '@/lib/constants'
 import { Home, Briefcase, Image as ImageIcon, User, MessageSquare } from 'lucide-react'
-import { MagnificationDock } from '@/components/ui/MagnificationDock'
 import styles from './Navigation.module.css'
 
 const NAV_LINKS = [
-  { label: 'Services', href: '/services' },
-  { label: 'Work', href: '/portfolio' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'WORK', href: '/portfolio' },
+  { label: 'SERVICES', href: '/services' },
+  { label: 'MANIFESTO', href: '/about' },
+  { label: 'CONTACT', href: '/contact' },
 ]
 
 export function Navigation() {
@@ -20,14 +19,6 @@ export function Navigation() {
   const [menuOpen, setMenuOpen]       = useState(false)
   const pathname = usePathname()
   const router = useRouter()
-
-  const dockItems = [
-    { icon: <Home size={22} strokeWidth={1.5} />, label: 'Home', onClick: () => router.push('/') },
-    { icon: <Briefcase size={22} strokeWidth={1.5} />, label: 'Services', onClick: () => router.push('/services') },
-    { icon: <ImageIcon size={22} strokeWidth={1.5} />, label: 'Work', onClick: () => router.push('/portfolio') },
-    { icon: <User size={22} strokeWidth={1.5} />, label: 'About', onClick: () => router.push('/about') },
-    { icon: <MessageSquare size={22} strokeWidth={1.5} />, label: 'Contact', onClick: () => router.push('/contact') },
-  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -56,32 +47,22 @@ export function Navigation() {
         aria-label="Main navigation"
       >
         <Link href="/" className={styles.logo} aria-label="Siyara Innovations Home">
-          <div style={{ 
-            display: 'flex', alignItems: 'center', justifyContent: 'center', 
-            width: '36px', height: '36px', 
-            background: 'linear-gradient(135deg, #5aa68a 0%, #C9A84C 100%)', 
-            borderRadius: '8px', 
-            boxShadow: '0 4px 16px rgba(90, 166, 138, 0.3)' 
-          }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="7" r="4" />
-              <line x1="12" y1="11" x2="12" y2="22" />
-              <line x1="9" y1="16" x2="15" y2="16" />
-              <line x1="8" y1="7" x2="16" y2="7" />
-            </svg>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 0, marginLeft: '4px' }}>
-            <span className={styles.logoMain}>Siyara</span>
-          </div>
+          <span className={styles.logoMain}>SIYARA.INNOVATIONS</span>
         </Link>
 
-        <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-          <MagnificationDock 
-            items={dockItems} 
-            panelHeight={56} 
-            baseItemSize={40} 
-            magnification={60} 
-          />
+        <div className={styles.desktopLinksContainer}>
+          <ul className={styles.links}>
+            {NAV_LINKS.map(link => (
+              <li key={link.label} className={styles.navItem}>
+                <Link 
+                  href={link.href} 
+                  className={`${styles.link} ${pathname === link.href ? styles.active : ''}`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
@@ -92,7 +73,7 @@ export function Navigation() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Start a Project
+            START PROJECT
           </Link>
         </div>
 
