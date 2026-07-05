@@ -107,7 +107,7 @@ export const PORTFOLIO = [
     name: 'Aura Aesthetics',
     industry: 'Healthcare & Clinics',
     desc: 'A sophisticated digital experience for a premium dermatology clinic. Built with custom CSS gradients and robust patient booking flows.',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&h=400&auto=format&fit=crop',
     demoLink: '/showcase/aura',
   },
   {
@@ -115,7 +115,7 @@ export const PORTFOLIO = [
     name: 'Vitalis Health',
     industry: 'Healthcare & Clinics',
     desc: 'A multi-campus hospital showcase focusing on patient trust and accessibility. Features department listings and doctor directories.',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=600&h=400&auto=format&fit=crop',
     demoLink: '/showcase/vitalis',
   },
   {
@@ -123,7 +123,7 @@ export const PORTFOLIO = [
     name: 'Oakhaven Properties',
     industry: 'Real Estate & Interiors',
     desc: 'An ultra-luxury real estate brokerage platform showcasing high-net-worth properties with elegant serif typography and rich color schemes.',
-    image: '',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600&h=400&auto=format&fit=crop',
     demoLink: '/showcase/oakhaven',
   },
   {

@@ -51,7 +51,7 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="What We Do"
-        title={<>14 services.<br /><em style={{ fontStyle: 'italic', color: 'var(--accent-primary)' }}>One unified strategy.</em></>}
+        title={<>14 services.<br /><em style={{ color: 'var(--accent-primary)' }}>One unified strategy.</em></>}
         subtitle="Every service is designed to work together. When your website, SEO, ads, and social all share one strategy — they compound. That's the Siyara difference."
         breadcrumb={[{ label: 'Services' }]}
       />

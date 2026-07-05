@@ -27,7 +27,7 @@ export default function PortfolioPage() {
     <>
       <PageHero
         eyebrow="Our Work"
-        title={<>Built to impress.<br /><em style={{ fontStyle: 'italic', color: 'var(--accent-primary)' }}>Engineered to convert.</em></>}
+        title={<>Built to impress.<br /><em style={{ color: 'var(--accent-primary)' }}>Engineered to convert.</em></>}
         subtitle="Every project in our portfolio is a real business with real goals. Here is how we brought their brand to life."
         breadcrumb={[{ label: 'Portfolio' }]}
       />

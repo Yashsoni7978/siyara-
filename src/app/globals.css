@@ -108,6 +108,15 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 
+/* Kill all italics globally */
+em, i {
+  font-style: normal;
+}
+
+*, *::before, *::after {
+  font-style: normal;
+}
+
 /* Premium Noise Overlay */
 body::after {
   content: "";

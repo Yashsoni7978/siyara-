@@ -195,24 +195,37 @@
   gap: 8px;
   padding: 8px 16px;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
   margin-bottom: 40px;
   font-size: 11px;
   font-weight: 600;
-  color: var(--text-primary);
-  animation: fadeIn 0.8s var(--ease-out) 0.2s both;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: badgeGlow 2s infinite alternate ease-in-out, fadeIn 0.8s var(--ease-out) 0.2s both;
   z-index: 2;
+}
+
+@keyframes badgeGlow {
+  from {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.1), inset 0 0 10px rgba(255, 215, 0, 0.05);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    border-color: rgba(255, 215, 0, 0.2);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.2);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    border-color: rgba(255, 215, 0, 0.6);
+  }
 }
 
 .heroBadgeDot {
   width: 6px;
   height: 6px;
-  background-color: var(--accent-green);
   border-radius: 50%;
-  box-shadow: 0 0 8px rgba(90, 166, 138, 0.8);
 }
 
 @keyframes fadeIn {
@@ -274,7 +287,7 @@
 
 .heroSub em {
   color: var(--text-secondary);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* CTAs */
@@ -424,19 +437,24 @@
 
 .marqueeTrack {
   display: flex;
-  gap: 120px;
-  animation: tickerScroll 30s linear infinite;
   white-space: nowrap;
+  animation: scrollMarquee 40s linear infinite;
 }
 
-@keyframes tickerScroll {
-  0% {
-    transform: translateX(0);
-  }
+.marqueeTrackReverse {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollMarqueeReverse 40s linear infinite;
+}
 
-  100% {
-    transform: translateX(-50%);
-  }
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollMarqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
 .marqueeItem {
@@ -1224,7 +1242,7 @@
   font-family: var(--font-display);
   font-size: clamp(20px, 2.4vw, 30px);
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   color: rgba(var(--text-primary-rgb), 0.82);
   line-height: 1.55;
   max-width: 820px;

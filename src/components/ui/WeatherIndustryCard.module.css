@@ -5,8 +5,9 @@
   justify-content: center;
   width: 100%;
   max-width: 300px;
-  height: 350px; /* Reserve space for the dropdown */
+  height: 130px; /* Base height */
   margin: 0 auto;
+  transition: height 0.4s ease-in-out;
 }
 
 .card {
@@ -18,17 +19,13 @@
   background: #1e1e1e;
   color: #ffffff;
   z-index: 2;
-  transition: 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.weather {
-  position: relative;
-  margin: 1em;
-  width: 80px;
-  height: 80px;
+  transform-origin: center;
 }
 
 .main {
@@ -36,15 +33,14 @@
   font-weight: bold;
   position: relative;
   line-height: 1.1;
-  margin-left: 10px;
-  margin-right: 10px;
+  text-align: center;
+  margin: 0;
 }
 
 .mainsub {
-  position: absolute;
-  top: 100px;
-  left: 110px;
-  font-size: 0.6em;
+  position: relative;
+  margin-top: 5px;
+  font-size: 0.8em;
   color: #aaa;
 }
 
@@ -53,28 +49,29 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
   height: 130px;
   border-radius: 25px;
-  background: #2d2d2d;
+  background: #252525;
   z-index: 1;
-  transition: 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   overflow: hidden;
 }
 
 /* Hover triggers */
+.cardm:hover {
+  height: 320px; /* Pushes the row below down to fit the expanded card */
+}
+
 .cardm:hover .card {
-  background-color: #3a3a3a;
-  cursor: pointer;
-  transform: translateY(-5px);
+  background-color: transparent; /* Lets card2 background show through seamlessly */
+  box-shadow: none;
 }
 
 .cardm:hover .card2 {
   height: 320px;
-  top: -5px; /* follows the card */
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+  background-color: #2d2d2d;
 }
 
 /* Internal elements of card2 */

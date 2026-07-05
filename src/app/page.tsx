@@ -87,14 +87,14 @@ export default function HomePage() {
           <div className={styles.heroInner}>
             <div className={styles.heroLeft} style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
               <div className={styles.heroBadge}>
-                <span className={styles.heroBadgeDot} aria-hidden="true" style={{ background: '#6ead98', boxShadow: '0 0 8px rgba(90,166,138,0.8)' }} />
-                <span>Now Accepting Projects</span>
+                <span className={styles.heroBadgeDot} aria-hidden="true" style={{ background: '#FFD700', boxShadow: '0 0 10px rgba(255, 215, 0, 1)' }} />
+                <span>RAISE THE CURTAIN OF SUCCESS</span>
               </div>
 
               <h1 className={styles.h1} style={{ fontFamily: "'Times New Roman', Times, serif", textTransform: 'uppercase', lineHeight: '1.1', fontWeight: 'bold', textAlign: 'left' }}>
-                <div className={styles.h1Line1} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: '#fff', whiteSpace: 'nowrap' }}>ENGINEERING THE</div>
-                <div className={styles.h1Line2} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'rgba(255, 255, 255, 0.25)', whiteSpace: 'nowrap' }}>FUTURE OF</div>
-                <div className={styles.h1Line3} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: '#fff', whiteSpace: 'nowrap' }}>DIGITAL ARCHITECTURE.</div>
+                <div className={styles.h1Line1} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: '#fff', whiteSpace: 'nowrap' }}>We build brands</div>
+                <div className={styles.h1Line2} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'rgba(255, 255, 255, 0.25)', whiteSpace: 'nowrap' }}>that</div>
+                <div className={styles.h1Line3} style={{ fontSize: 'clamp(70px, 13vw, 180px)', color: '#fff', whiteSpace: 'nowrap', letterSpacing: '0.02em', fontWeight: '900' }}>DOMINATE</div>
               </h1>
 
 
@@ -127,10 +127,28 @@ export default function HomePage() {
         </div>
 
       {/* ============================================================
+          ABOUT / PHILOSOPHY (Centered)
+      ============================================================ */}
+      <section style={{ padding: '6rem 1rem', textAlign: 'center', maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <Reveal>
+          <h2 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontFamily: "var(--font-display), 'Times New Roman', serif", lineHeight: '1.1', marginBottom: '2rem', textTransform: 'uppercase' }}>
+            We don't just build websites.<br />
+            <span className="gold-shimmer">We architect growth engines.</span>
+          </h2>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+            At Siyara Innovations, we unify premium branding, cutting-edge development, and AI-driven automation under one roof. We eliminate the friction between your vision and your revenue, giving your business the digital foundation it needs to scale and dominate.
+          </p>
+          <Link href="/about" className="btn-outline">
+            Read Our Story →
+          </Link>
+        </Reveal>
+      </section>
+
+      {/* ============================================================
           MARQUEE
       ============================================================ */}
       <Reveal as="section" className={styles.marqueeSection} aria-label="Services marquee" aria-hidden="true">
-        <div className={styles.marqueeTrack}>
+        <div className={styles.marqueeTrack} style={{ gap: '120px' }}>
           {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
             <div key={i} className={styles.marqueeItem}>
               <span className={styles.marqueeValue}>{item}</span>
@@ -314,7 +332,7 @@ export default function HomePage() {
             </Reveal>
           </div>
           <div className={styles.workGrid}>
-            {PORTFOLIO.slice(0, 3).map((item, i) => (
+            {PORTFOLIO.slice(0, 6).map((item, i) => (
               <Reveal key={item.id} delay={i * 0.15} className={styles.workCardWrap}>
                 <Link href={item.demoLink} className={styles.workCard}>
                   <div className={styles.workImageWrap}>
@@ -522,29 +540,40 @@ export default function HomePage() {
           TESTIMONIALS - DENSE CONTENT (EXPANDED)
       ============================================================ */}
       <section className={sharedStyles.testimonialsSection} aria-label="Client testimonials">
-        <div className="section-wrap">
+        <div className={sharedStyles.starsBg}></div>
+        <div style={{ position: 'relative', zIndex: 1, paddingBottom: '40px' }}>
           <div className={sharedStyles.testiHeader}>
-            <Reveal as="span" className="eyebrow">Client Success</Reveal>
+            <Reveal as="span" className="eyebrow" style={{ color: 'rgba(255, 215, 0, 0.7)' }}>Client Success</Reveal>
             <Reveal as="h2" delay={0.1} className={sharedStyles.testiTitle}>
               Real ROI for real businesses.
             </Reveal>
           </div>
 
-          <div className={sharedStyles.testiGrid}>
-            {CLIENT_TESTIMONIALS.slice(0, 8).map((testi, i) => (
-              <Reveal key={testi.author} delay={i * 0.1} className={sharedStyles.testiCard}>
-                <div className={sharedStyles.testiTop}>
-                  <div className={sharedStyles.testiAvatar}>{testi.author.split(' ').map(n => n[0]).join('')}</div>
-                  <div>
-                    <div className={sharedStyles.testiAuthor}>{testi.author}</div>
-                    <div className={sharedStyles.testiRole}>{testi.role}</div>
+          <div className={sharedStyles.marqueeWrapper}>
+            <div className={sharedStyles.marqueeTrackTop}>
+              {[...CLIENT_TESTIMONIALS.slice(0, 4), ...CLIENT_TESTIMONIALS.slice(0, 4)].map((testi, i) => (
+                <div key={`top-${i}`} className={sharedStyles.testiCard}>
+                  <div className={sharedStyles.stars}>★★★★★</div>
+                  <p className={sharedStyles.testiQuote}>&quot;{testi.quote}&quot;</p>
+                  <div className={sharedStyles.testiAuthorRow}>
+                    <span className={sharedStyles.testiAuthor}>— {testi.author}</span>
+                    <span className={sharedStyles.testiRole}>{testi.company.split(',')[0]}</span>
                   </div>
-                  <span className={sharedStyles.testiPlatform}>{testi.platform}</span>
                 </div>
-                <div className={sharedStyles.stars}>★★★★★</div>
-                <p className={sharedStyles.testiQuote}>&quot;{testi.quote}&quot;</p>
-              </Reveal>
-            ))}
+              ))}
+            </div>
+            <div className={sharedStyles.marqueeTrackBottom}>
+              {[...CLIENT_TESTIMONIALS.slice(4, 8), ...CLIENT_TESTIMONIALS.slice(4, 8)].map((testi, i) => (
+                <div key={`bottom-${i}`} className={sharedStyles.testiCard}>
+                  <div className={sharedStyles.stars}>★★★★★</div>
+                  <p className={sharedStyles.testiQuote}>&quot;{testi.quote}&quot;</p>
+                  <div className={sharedStyles.testiAuthorRow}>
+                    <span className={sharedStyles.testiAuthor}>— {testi.author}</span>
+                    <span className={sharedStyles.testiRole}>{testi.company.split(',')[0]}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

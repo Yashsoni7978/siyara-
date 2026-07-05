@@ -44,7 +44,7 @@
 .tagline {
   font-family: var(--font-display);
   font-size: 14px;
-  font-style: italic;
+  font-style: normal;
   font-weight: 300;
   color: rgba(var(--text-primary-rgb), 0.4);
   margin: 0 0 16px;

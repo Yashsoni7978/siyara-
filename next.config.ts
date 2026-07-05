@@ -6,7 +6,12 @@ const nextConfig: NextConfig = {
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
     // Explicitly allow the public folder OG image
     dangerouslyAllowSVG: false,
     contentDispositionType: 'attachment',
