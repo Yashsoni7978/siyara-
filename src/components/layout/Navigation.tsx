@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { WA_LINKS } from '@/lib/constants'
 import { Home, Briefcase, Image as ImageIcon, User, MessageSquare } from 'lucide-react'
 import styles from './Navigation.module.css'
@@ -18,10 +18,20 @@ export function Navigation() {
   const [scrolled, setScrolled]       = useState(false)
   const [menuOpen, setMenuOpen]       = useState(false)
   const pathname = usePathname()
-  const router = useRouter()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        setScrolled(prev => {
+          const next = window.scrollY > 40
+          return prev === next ? prev : next
+        })
+        ticking = false
+      })
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -30,6 +40,21 @@ export function Navigation() {
     setMenuOpen(false)
     document.body.style.overflow = ''
   }, [pathname])
+
+  // Close mobile menu on Escape, and always restore body scroll on unmount
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false)
+        document.body.style.overflow = ''
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = ''
+    }
+  }, [])
 
   const toggleMenu = () => {
     setMenuOpen(prev => {

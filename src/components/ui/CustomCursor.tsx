@@ -15,6 +15,10 @@ export function CustomCursor() {
     const ringEl = ringRef.current
     if (!dot || !ringEl) return
 
+    // Touch/coarse-pointer devices have no hovering cursor —
+    // don't attach listeners or run the rAF loop at all.
+    if (window.matchMedia('(pointer: coarse)').matches) return
+
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY }
       dot.style.left = e.clientX + 'px'

@@ -114,7 +114,7 @@ export default function HomePage() {
       <main className={styles.pageContent}>
         <div className={styles.heroStats} role="list" aria-label="Agency statistics">
           {[
-            { num: '12+', label: 'Digital services' },
+            { num: '14', label: 'Digital services' },
             { num: '5', label: 'Industries served' },
             { num: '1', label: 'Unified strategy' },
             { num: '0', label: 'Generic work. Ever.' },
@@ -132,7 +132,7 @@ export default function HomePage() {
       <section style={{ padding: '6rem 1rem', textAlign: 'center', maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
         <Reveal>
           <h2 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontFamily: "var(--font-display), 'Times New Roman', serif", lineHeight: '1.1', marginBottom: '2rem', textTransform: 'uppercase' }}>
-            We don't just build websites.<br />
+            We don&apos;t just build websites.<br />
             <span className="gold-shimmer">We architect growth engines.</span>
           </h2>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
@@ -165,7 +165,7 @@ export default function HomePage() {
       {/* ============================================================
           SERVICES SECTION
       ============================================================ */}
-      <section className={styles.servicesSection} aria-label="Our services">
+      <section id="services" className={styles.servicesSection} aria-label="Our services">
         <div className="section-wrap">
           <div className="section-header">
             <Reveal as="span" className="eyebrow">What We Do</Reveal>
@@ -219,7 +219,7 @@ export default function HomePage() {
                   text: pt.shortTitle,
                   marqueeText: pt.title,
                   image: pt.image,
-                  link: '#',
+                  link: '#contact',
                 }))}
               />
             </div>
@@ -596,47 +596,3 @@ export default function HomePage() {
   )
 }
 
-// ------------- DUMMY PADDING -------------
-// Padding line 657
-// Padding line 658
-// Padding line 659
-// Padding line 660
-// Padding line 661
-// Padding line 662
-// Padding line 663
-// Padding line 664
-// Padding line 665
-// Padding line 666
-// Padding line 667
-// Padding line 668
-// Padding line 669
-// Padding line 670
-// Padding line 671
-// Padding line 672
-// Padding line 673
-// Padding line 674
-// Padding line 675
-// Padding line 676
-// Padding line 677
-// Padding line 678
-// Padding line 679
-// Padding line 680
-// Padding line 681
-// Padding line 682
-// Padding line 683
-// Padding line 684
-// Padding line 685
-// Padding line 686
-// Padding line 687
-// Padding line 688
-// Padding line 689
-// Padding line 690
-// Padding line 691
-// Padding line 692
-// Padding line 693
-// Padding line 694
-// Padding line 695
-// Padding line 696
-// Padding line 697
-// Padding line 698
-// Padding line 699

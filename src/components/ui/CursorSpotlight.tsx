@@ -18,6 +18,11 @@ export function CursorSpotlight() {
   const maskImage = useMotionTemplate`radial-gradient(400px circle at ${smoothX}px ${smoothY}px, black, transparent 50%)`
 
   useEffect(() => {
+    // Touch/coarse-pointer devices don't have a hovering cursor —
+    // skip attaching the listener and rendering the effect entirely.
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
+    if (isTouchDevice) return
+
     setIsMounted(true)
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX)

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { WA_LINKS, BRAND } from '@/lib/constants'
 import { CLIENT_TESTIMONIALS } from '@/lib/social-proof'
+import { aboutPageSchema } from '@/lib/seo'
 import sharedStyles from '../contact/contact.module.css'
 import styles from './about.module.css'
 import { Reveal } from '@/components/ui/Reveal'
@@ -54,6 +55,10 @@ const TIMELINE = [
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
       {/* ============================================================
           CINEMATIC HERO
       ============================================================ */}

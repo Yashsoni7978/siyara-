@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, FormEvent } from 'react'
 import { BRAND, WA_LINKS } from '@/lib/constants'
 import styles from './Footer.module.css'
 
@@ -28,6 +31,18 @@ const COMPANY_LINKS = [
 ]
 
 export function Footer() {
+  const [newsletterEmail, setNewsletterEmail] = useState('')
+
+  const handleNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (!newsletterEmail.trim()) return
+    const subject = encodeURIComponent('Subscribe me to Siyara Insights')
+    const body = encodeURIComponent(
+      `Please add this email to the weekly insights list: ${newsletterEmail.trim()}`
+    )
+    window.location.href = `mailto:${BRAND.email}?subject=${subject}&body=${body}`
+  }
+
   return (
     <footer id="footer" className={styles.footer} role="contentinfo">
       <div className={styles.main}>
@@ -113,9 +128,17 @@ export function Footer() {
           <div className={styles.newsletterBlock}>
             <span className={styles.colTitle} style={{ marginTop: '32px' }}>Stay Sharp</span>
             <p className={styles.newsletterText}>Get one strategy-led insight delivered weekly. No fluff.</p>
-            <form className={styles.newsletterForm}>
-              <input type="email" placeholder="Enter your email" className={styles.newsletterInput} aria-label="Email for newsletter" />
-              <button type="button" className={styles.newsletterBtn} aria-label="Subscribe">
+            <form className={styles.newsletterForm} onSubmit={handleNewsletterSubmit}>
+              <input
+                type="email"
+                required
+                placeholder="Enter your email"
+                className={styles.newsletterInput}
+                aria-label="Email for newsletter"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+              />
+              <button type="submit" className={styles.newsletterBtn} aria-label="Subscribe">
                 →
               </button>
             </form>

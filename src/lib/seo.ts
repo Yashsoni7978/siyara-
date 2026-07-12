@@ -158,6 +158,51 @@ export const organizationSchema = {
   sameAs: [BRAND.instagram, BRAND.linkedin, BRAND.twitter],
 }
 
+export const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': `${BRAND.siteUrl}/about#aboutpage`,
+  url: `${BRAND.siteUrl}/about`,
+  name: `About ${BRAND.name}`,
+  description:
+    'Learn why top brands trust Siyara Innovations. A strategy-first digital growth agency based in Jaipur, focused on premium execution and ROI.',
+  isPartOf: { '@id': `${BRAND.siteUrl}/#website` },
+  about: { '@id': BRAND.siteUrl },
+  inLanguage: 'en-IN',
+}
+
+export const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': `${BRAND.siteUrl}/contact#contactpage`,
+  url: `${BRAND.siteUrl}/contact`,
+  name: `Contact ${BRAND.name}`,
+  description:
+    'Get in touch with Siyara Innovations. Start with a free 30-minute strategy call or message us on WhatsApp.',
+  isPartOf: { '@id': `${BRAND.siteUrl}/#website` },
+  about: { '@id': BRAND.siteUrl },
+  inLanguage: 'en-IN',
+}
+
+// ============================================================
+// FAQ SCHEMA HELPER — builds FAQPage JSON-LD strictly from
+// visible on-page Q&A content passed in. Never invent entries here.
+// ============================================================
+export function buildFaqSchema(faqs: { q: string; a: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: a,
+      },
+    })),
+  }
+}
+
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
