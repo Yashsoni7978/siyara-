@@ -111,13 +111,7 @@ export const localBusinessSchema = {
     '@type': 'PostalAddress',
     addressLocality: 'Jaipur',
     addressRegion: 'Rajasthan',
-    postalCode: '302001',
     addressCountry: 'IN',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 26.9124,
-    longitude: 75.7873,
   },
   areaServed: [
     { '@type': 'City',    name: 'Jaipur' },

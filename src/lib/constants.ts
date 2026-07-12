@@ -9,8 +9,7 @@ export const BRAND = {
   soulLine: "We don't just build your digital presence. We build brands that dominate.",
   location: 'Jaipur, Rajasthan, India',
   email: 'hello@siyarainnovations.com',
-  // ⚠️ REPLACE WITH YOUR REAL WHATSAPP NUMBER (country code + number, no +)
-  whatsappNumber: '919999999999',
+  whatsappNumber: '917737877978',
   siteUrl: 'https://siyarainnovations.com',
   instagram: 'https://instagram.com/siyarainnovations',
   linkedin: 'https://linkedin.com/company/siyarainnovations',

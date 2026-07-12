@@ -20,36 +20,33 @@ export const metadata: Metadata = {
 }
 
 const ABOUT_MARQUEE = [
-  'Strategy-First', 'Zero Outsourcing', 'Premium Always', 'Jaipur Roots',
-  'Full Ecosystem', 'Senior Execution', 'AI-Powered', 'ROI Obsessed',
+  'Strategy-First', 'Founder-Led', 'Premium Always', 'Jaipur Roots',
+  'Full Ecosystem', 'Problem-First', 'AI-Powered', 'ROI Obsessed',
   'Data Driven', 'Brand Architects', 'Growth Partners', 'Non-Negotiable Quality',
 ]
 
 const VALUES = [
   { icon: '◈', title: 'Strategy before execution', body: "We never build things without knowing why. Every design, campaign, and page serves a clear business objective — not a deliverable count." },
   { icon: '◉', title: 'Jaipur-first, India-ready', body: 'We know this market. We know how local businesses win here and how they expand across India from here. Our Jaipur roots give us a cultural edge no remote agency can replicate.' },
-  { icon: '⬡', title: 'One team, full ecosystem', body: 'No disconnected vendors. Your website informs your SEO, your SEO informs your content, your content informs your ads. One strategy, everything compounding.' },
-  { icon: '✦', title: 'Premium, always', body: "Work that leaves our team looks expensive, feels premium, and performs. We turn down projects that don't fit this standard." },
+  { icon: '⬡', title: 'One strategy, everything connected', body: 'Your website informs your SEO. Your SEO informs your content. Your content informs your ads. No disconnected vendors pulling in different directions. One integrated strategy, everything compounding.' },
+  { icon: '✦', title: 'Premium, always', body: "Work that leaves here looks expensive, feels premium, and performs. We turn down projects that don't fit this standard." },
   { icon: '⚡', title: 'Speed with precision', body: 'Timelines are deadlines. We deliver on time, every time — without cutting corners on quality.' },
   { icon: '🔒', title: 'Radical transparency', body: "You will always know exactly what we are working on, why, and what results it is generating. No jargon. No fluff." },
 ]
 
-const TEAM = [
-  { role: 'Founder & Strategy Lead', initials: 'SI', desc: 'Brand strategist with 8+ years building businesses across Jaipur and India. Worked with 50+ brands before founding Siyara.', skills: ['Brand Strategy', 'Market Positioning', 'Growth Planning'] },
-  { role: 'Creative Director', initials: 'CD', desc: 'Award-winning designer specialising in luxury brand identities and digital experiences. Obsessed with typography and motion.', skills: ['UI/UX Design', 'Brand Identity', 'Motion Design'] },
-  { role: 'Head of Performance Marketing', initials: 'HP', desc: 'Ex-agency performance marketer who has managed ₹5Cr+ in annual ad spend across Meta and Google.', skills: ['Meta Ads', 'Google Ads', 'Analytics'] },
-  { role: 'AI & Automation Lead', initials: 'AL', desc: 'Full-stack developer and AI specialist building custom automation pipelines for Indian businesses.', skills: ['AI Automation', 'Web Development', 'API Integration'] },
-  { role: 'SEO & Content Strategist', initials: 'SC', desc: 'SEO strategist who has ranked 200+ keywords in competitive Jaipur and national searches.', skills: ['Technical SEO', 'GEO', 'Content Strategy'] },
-  { role: 'Social Media Manager', initials: 'SM', desc: 'Built and grew 12 Instagram accounts from zero to 10,000+ followers for Jaipur businesses.', skills: ['Social Strategy', 'Content Creation', 'Community Management'] },
+const HOW_WE_WORK = [
+  { icon: '◈', title: 'Diagnose first', body: 'Every engagement starts with understanding the actual problem — not pitching services. Visibility, positioning, technology, growth: we identify what the business genuinely needs before anything is built.' },
+  { icon: '◉', title: 'Founder-led direction', body: 'Strategic direction stays close to execution. There is no unnecessary account-management layer between the thinking and the doing. Decisions are faster, accountability is clearer.' },
+  { icon: '⬡', title: 'Systems over campaigns', body: 'Every growth problem is approached as a system. Your website, SEO, content, and ads are not separate activities — they are one compounding engine. We build it that way.' },
+  { icon: '✦', title: 'Right capability for the brief', body: 'Execution is structured around what the business actually needs. Specialist depth where it is required. Direct involvement where it matters most. No unnecessary layers.' },
 ]
 
 const TIMELINE = [
-  { year: '2021', title: 'Founded', desc: 'Siyara Innovations was founded with a simple belief: Jaipur businesses deserve world-class digital marketing.' },
-  { year: '2022', title: 'First 10 clients', desc: 'Grew to 10 retained clients across restaurants, fashion, and real estate.' },
-  { year: '2023', title: 'AI & automation division', desc: 'Launched our AI Automation practice — the first Jaipur agency to offer custom AI agent development.' },
-  { year: '2024', title: 'GEO Optimisation launch', desc: 'Pioneered Generative Engine Optimisation (GEO) for Jaipur businesses.' },
-  { year: '2025', title: '40+ active clients', desc: 'Reached 40+ active retained clients with a 92% recommendation rate.' },
-  { year: '2026', title: 'Scaling across India', desc: 'While our heart is in Jaipur, we now serve clients across India.' },
+  { year: 'Day One', title: 'Founded in Jaipur', desc: 'Siyara Innovations was built on a single conviction: Jaipur businesses deserve world-class digital execution, not templated solutions.' },
+  { year: 'Early Work', title: 'First retained clients', desc: 'Built initial relationships across restaurants, fashion, and real estate — industries where premium digital presence creates measurable commercial advantage.' },
+  { year: 'Expanding', title: 'AI & Automation practice', desc: 'Added AI automation and custom agent development — structuring growth systems that run beyond conventional marketing campaigns.' },
+  { year: 'Present', title: 'GEO Optimisation launch', desc: 'Pioneered Generative Engine Optimisation (GEO) — helping Jaipur businesses appear in AI-generated search recommendations on ChatGPT, Perplexity, and Google AI.' },
+  { year: 'Now', title: 'Serving businesses across India', desc: 'Rooted in Jaipur, working with ambitious businesses across India. The heart stays here. The reach keeps growing.' },
 ]
 
 export default function AboutPage() {
@@ -108,14 +105,14 @@ export default function AboutPage() {
 
       <main className={styles.pageContent}>
         {/* ============================================================
-            STATS BAR
+            STATS BAR — qualitative positioning only
         ============================================================ */}
         <div className={styles.statsBar}>
           {[
-            { num: '40+', label: 'Active clients' },
-            { num: '5yr', label: 'In business' },
+            { num: 'Jaipur', label: 'Rooted here' },
             { num: '4.9★', label: 'Google rating' },
-            { num: '92%', label: 'Recommendation rate' },
+            { num: 'Founder', label: 'Led by design' },
+            { num: 'System', label: 'Driven growth' },
           ].map(({ num, label }) => (
             <div key={label} className={styles.statItem}>
               <span className={styles.statNum}>{num}</span>
@@ -210,7 +207,7 @@ export default function AboutPage() {
             <div className={styles.sectionHeader}>
               <Reveal as="span" className="eyebrow">Our Journey</Reveal>
               <Reveal as="h2" delay={0.1} className={styles.sectionTitle}>
-                Five years of building<br />Jaipur&apos;s brands.
+                How Siyara<br /><span className="gold-shimmer">was built.</span>
               </Reveal>
             </div>
             <div className={styles.timeline}>
@@ -229,27 +226,27 @@ export default function AboutPage() {
         </section>
 
         {/* ============================================================
-            TEAM
+            HOW WE WORK — Founder-led operating model
         ============================================================ */}
         <section className={styles.teamSection}>
           <div className="section-wrap">
             <div className={styles.sectionHeader}>
-              <Reveal as="span" className="eyebrow">The Team</Reveal>
+              <Reveal as="span" className="eyebrow">How We Work</Reveal>
               <Reveal as="h2" delay={0.1} className={styles.sectionTitle}>
-                Specialists, not generalists.
+                Founder-led.<br /><span className="gold-shimmer">System-driven.</span>
               </Reveal>
             </div>
-            <div className={styles.teamGrid}>
-              {TEAM.map(({ role, initials, desc, skills }, i) => (
-                <Reveal key={role} delay={i * 0.08} className={styles.teamCard}>
-                  <div className={styles.teamAvatar}><span>{initials}</span></div>
-                  <div className={styles.teamInfo}>
-                    <span className={styles.teamRole}>{role}</span>
-                    <p className={styles.teamDesc}>{desc}</p>
-                    <div className={styles.teamSkills}>
-                      {skills.map(s => <span key={s} className={styles.teamSkill}>{s}</span>)}
-                    </div>
-                  </div>
+            <Reveal delay={0.15}>
+              <p style={{ fontSize: '1.15rem', color: 'rgba(var(--text-primary-rgb), 0.75)', lineHeight: 1.75, maxWidth: '680px', marginBottom: '56px' }}>
+                Siyara is intentionally built around direct strategic involvement. Every growth problem is diagnosed first — then execution is structured around what the business actually needs. Less unnecessary layering. Closer connection between strategy and delivery. Faster decisions. Clearer accountability.
+              </p>
+            </Reveal>
+            <div className={styles.valuesGrid}>
+              {HOW_WE_WORK.map(({ icon, title, body }, i) => (
+                <Reveal key={title} delay={i * 0.08} className={styles.valueCard}>
+                  <span className={styles.valueIcon}>{icon}</span>
+                  <h3 className={styles.valueCardTitle}>{title}</h3>
+                  <p className={styles.valueCardBody}>{body}</p>
                 </Reveal>
               ))}
             </div>

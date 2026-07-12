@@ -61,7 +61,7 @@ export function Footer() {
           </p>
           <a href={`mailto:${BRAND.email}`} className={styles.email}>{BRAND.email}</a>
           <p style={{ marginTop: '16px', fontSize: '0.95rem', color: 'rgba(var(--text-primary-rgb), 0.7)', maxWidth: '280px', lineHeight: 1.5 }}>
-            Proudly building world-class digital experiences from the Pink City. If you&apos;re in Jaipur, drop by for a chai and a strategy session.
+            Proudly building world-class digital experiences from Jaipur, Rajasthan. Founder-led by design — strategy stays close to execution.
           </p>
 
           <div className={styles.social} aria-label="Social media links">
