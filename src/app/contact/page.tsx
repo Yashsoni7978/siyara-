@@ -1,46 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import { WA_LINKS, BRAND } from '@/lib/constants'
-import { RATING_STATS, CLIENT_TESTIMONIALS } from '@/lib/social-proof'
 import { contactPageSchema, buildFaqSchema } from '@/lib/seo'
-import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
+import { CTA } from '@/components/ui/CTA'
 import styles from './contact.module.css'
-import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
   description: 'Get in touch with Siyara Innovations. Start with a free 30-minute strategy call or message us on WhatsApp. We reply within 4 hours.',
   alternates: { canonical: `${BRAND.siteUrl}/contact` },
 }
-
-const CONTACT_OPTIONS = [
-  {
-    icon: '💬',
-    title: 'WhatsApp (Fastest)',
-    desc: 'Message us directly. We reply within 4 hours on weekdays.',
-    cta: 'Message on WhatsApp',
-    href: WA_LINKS.default,
-    external: true,
-  },
-  {
-    icon: '📞',
-    title: 'Strategy Call',
-    desc: 'Book a free 30-minute call to discuss your brand and what it needs.',
-    cta: 'Book Free Call',
-    href: WA_LINKS.strategyCall,
-    external: true,
-  },
-  {
-    icon: '✉️',
-    title: 'Email',
-    desc: 'Prefer email? Reach us at hello@siyarainnovations.com. We reply within 24 hours.',
-    cta: 'Send an Email',
-    href: `mailto:${BRAND.email}`,
-    external: false,
-  },
-]
 
 const FAQ = [
   { q: 'Where are you based?', a: 'We are based in Jaipur, Rajasthan. We work seamlessly with businesses across India — whether you are local to Jaipur or anywhere else in the country.' },
@@ -63,138 +33,229 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <PageHero
-        eyebrow="Get In Touch"
-        title={<>Let&apos;s build something<br /><span className="gold-shimmer">worth talking about.</span></>}
-        subtitle="Whether it's a quick message over WhatsApp or a detailed email, we're ready to talk growth. No pitch decks. Just an honest conversation."
-        breadcrumb={[{ label: 'Contact' }]}
-      />
 
-      {/* Ratings Strip - Social Proof */}
-      <section className={styles.ratingsStrip} aria-label="Platform Ratings">
-        <div className="section-wrap">
-          <div className={styles.ratingsGrid}>
-            {RATING_STATS.map((stat, i) => (
-              <Reveal key={stat.platform} delay={i * 0.1} className={styles.ratingItem}>
-                <div className={styles.ratingPlatform}>
-                  <span className={styles.platformIcon}>{IconMap[stat.icon]}</span>
-                  <div className={styles.stars}>
-                    {'★'.repeat(Math.floor(stat.rating))}
-                    {stat.rating % 1 !== 0 && '★'}
-                  </div>
-                </div>
-                <div className={styles.ratingScore}>
-                  <span className={styles.scoreNum}>{stat.rating}</span>
-                  <span className={styles.scoreLabel}>
-                    {stat.platform} · {stat.reviews} reviews
-                  </span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Options */}
-      <section className={styles.optionsSection} aria-label="Contact options">
-        <div className="section-wrap">
-          <div className={styles.optionsGrid}>
-            {CONTACT_OPTIONS.map(({ icon, title, desc, cta, href, external }, i) => (
-              <Reveal key={title} delay={i * 0.12} className={styles.optionCard}>
-                <span className={styles.optionIcon}>{icon}</span>
-                <h2 className={styles.optionTitle}>{title}</h2>
-                <p className={styles.optionDesc}>{desc}</p>
-                <Link
-                  href={href}
-                  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="btn-primary"
-                  style={{ marginTop: 'auto', alignSelf: 'flex-start' }}
-                >
-                  {cta}
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials - Dense Content */}
-      <section className={styles.testimonialsSection} aria-label="Client testimonials">
-        <div className="section-wrap">
-          <div className={styles.testiHeader}>
-            <Reveal as="span" className="eyebrow">Client Success</Reveal>
-            <Reveal as="h2" delay={0.1} className={styles.testiTitle}>
-              Real ROI for real businesses.
-            </Reveal>
-          </div>
-          
-          <div className={styles.testiGrid}>
-            {CLIENT_TESTIMONIALS.slice(0, 4).map((testi, i) => (
-              <Reveal key={testi.author} delay={i * 0.1} className={styles.testiCard}>
-                <div className={styles.testiTop}>
-                  <div className={styles.testiAvatar}>{testi.author.split(' ').map(n=>n[0]).join('')}</div>
-                  <div>
-                    <div className={styles.testiAuthor}>{testi.author}</div>
-                    <div className={styles.testiRole}>{testi.role}</div>
-                  </div>
-                  <span className={styles.testiPlatform}>{testi.platform}</span>
-                </div>
-                <div className={styles.stars}>★★★★★</div>
-                <p className={styles.testiQuote}>&quot;{testi.quote}&quot;</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Info Strip */}
-      <section className={styles.infoSection} aria-label="Location and contact information">
-        <div className="section-wrap">
-          <div className={styles.infoGrid}>
-            <Reveal className={styles.infoCard}>
-              <span className={styles.infoLabel}>Based in</span>
-              <span className={styles.infoValue}>Jaipur, Rajasthan, India</span>
-            </Reveal>
-            <Reveal delay={0.1} className={styles.infoCard}>
-              <span className={styles.infoLabel}>Working Hours</span>
-              <span className={styles.infoValue}>Mon – Sat · 9am – 7pm IST</span>
-            </Reveal>
-            <Reveal delay={0.2} className={styles.infoCard}>
-              <span className={styles.infoLabel}>Email</span>
-              <a href={`mailto:${BRAND.email}`} className={styles.infoLink}>{BRAND.email}</a>
-            </Reveal>
-            <Reveal delay={0.3} className={styles.infoCard}>
-              <span className={styles.infoLabel}>Response Time</span>
-              <span className={styles.infoValue}>Within 4 hours (WhatsApp)</span>
-            </Reveal>
-          </div>
-
-          <Reveal delay={0.4} style={{ marginTop: '80px', borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(var(--accent-primary-rgb), 0.2)', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', textAlign: 'center', position: 'relative', width: '100%', height: 'auto', aspectRatio: '21/9' }}>
-            <Image src="/images/contact_location.png" alt="Jaipur, Rajasthan — Siyara Innovations home base" fill style={{ objectFit: 'cover' }} sizes="100vw" />
+      {/* ============================================================
+          01 — HERO
+      ============================================================ */}
+      <section className={styles.contactHero} aria-label="Contact hero">
+        <div className={styles.contactHeroGrid} aria-hidden="true" />
+        <div className={styles.contactHeroGlow} aria-hidden="true" />
+        <div className={styles.contactHeroInner}>
+          <Reveal as="span" className={styles.contactKicker}>
+            01 / INITIATE
+          </Reveal>
+          <Reveal as="h1" delay={0.1} className={styles.contactH1}>
+            <span className={styles.contactH1Ivory}>LET&apos;S BUILD</span>
+            <span className={styles.contactH1Ivory}>SOMETHING</span>
+            <span className={styles.contactH1Ivory}>WORTH TALKING</span>
+            <span className={styles.contactH1Green}>ABOUT.</span>
+          </Reveal>
+          <Reveal as="p" delay={0.25} className={styles.contactHeroSub}>
+            Tell us what is slowing the business down. Visibility, positioning, technology or growth — the first conversation starts with the problem.
+          </Reveal>
+          <Reveal delay={0.35}>
+            <span className={styles.contactHeroLine} aria-hidden="true" />
           </Reveal>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className={styles.faqSection} aria-label="Frequently asked questions">
+      {/* ============================================================
+          02 — CONTACT INTERFACE
+      ============================================================ */}
+      <section className={styles.interfaceSection} aria-label="Contact channels">
         <div className="section-wrap">
-          <div className={styles.faqHeader}>
-            <Reveal as="span" className="eyebrow">FAQ</Reveal>
-            <Reveal as="h2" delay={0.1} className={styles.faqTitle}>
-              Quick answers.
+          <Reveal as="span" className={styles.contactKicker}>
+            02 / START HERE
+          </Reveal>
+          <Reveal as="h2" delay={0.1} className={styles.contactSectionTitle}>
+            <span>CHOOSE THE CHANNEL.</span>
+            <span className={styles.greenEmphasis}>START WITH THE PROBLEM.</span>
+          </Reveal>
+
+          <div className={styles.channelGrid}>
+            {/* WhatsApp — Primary */}
+            <Reveal className={styles.channelPrimary}>
+              <div className={styles.channelHeader}>
+                <span className={styles.channelLabel}>CHANNEL / 01</span>
+              </div>
+              <h3 className={styles.channelName}>WHATSAPP</h3>
+              <div className={styles.channelMeta}>
+                <div className={styles.channelMetaItem}>
+                  <span className={styles.channelMetaKey}>STATUS</span>
+                  <span className={styles.channelMetaValue}>FASTEST</span>
+                </div>
+                <div className={styles.channelMetaItem}>
+                  <span className={styles.channelMetaKey}>RESPONSE</span>
+                  <span className={styles.channelMetaValue}>WITHIN 4H</span>
+                </div>
+              </div>
+              <p className={styles.channelDesc}>
+                Best for a quick first conversation. Tell us what is not working and where you want the business to go.
+              </p>
+              <Link
+                href={WA_LINKS.contact}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelCta}
+              >
+                START ON WHATSAPP →
+              </Link>
             </Reveal>
+
+            <div className={styles.channelSecondaryStack}>
+              {/* Call */}
+              <Reveal delay={0.1} className={styles.channelSecondary}>
+                <div className={styles.channelHeader}>
+                  <span className={styles.channelLabel}>CHANNEL / 02</span>
+                </div>
+                <h3 className={styles.channelName}>CALL</h3>
+                <div className={styles.channelMeta}>
+                  <div className={styles.channelMetaItem}>
+                    <span className={styles.channelMetaKey}>AVAILABILITY</span>
+                    <span className={styles.channelMetaValue}>WORKING HOURS</span>
+                  </div>
+                  <div className={styles.channelMetaItem}>
+                    <span className={styles.channelMetaKey}>HOURS</span>
+                    <span className={styles.channelMetaValue}>MON–SAT · 9AM–7PM IST</span>
+                  </div>
+                </div>
+                <p className={styles.channelDesc}>
+                  Prefer to speak directly? Call during working hours and start with the problem.
+                </p>
+                <Link
+                  href={`tel:+${BRAND.whatsappNumber}`}
+                  className={styles.channelCta}
+                >
+                  CALL SIYARA →
+                </Link>
+              </Reveal>
+
+              {/* Email */}
+              <Reveal delay={0.2} className={styles.channelSecondary}>
+                <div className={styles.channelHeader}>
+                  <span className={styles.channelLabel}>CHANNEL / 03</span>
+                </div>
+                <h3 className={styles.channelName}>EMAIL</h3>
+                <div className={styles.channelMeta}>
+                  <div className={styles.channelMetaItem}>
+                    <span className={styles.channelMetaKey}>TYPE</span>
+                    <span className={styles.channelMetaValue}>DETAILED</span>
+                  </div>
+                  <div className={styles.channelMetaItem}>
+                    <span className={styles.channelMetaKey}>RESPONSE</span>
+                    <span className={styles.channelMetaValue}>WITHIN 24H</span>
+                  </div>
+                </div>
+                <p className={styles.channelDesc}>
+                  For context-heavy briefs, send the details. Business, current friction and the outcome you are working towards.
+                </p>
+                <Link
+                  href={`mailto:${BRAND.email}`}
+                  className={styles.channelCta}
+                >
+                  SEND AN EMAIL →
+                </Link>
+              </Reveal>
+            </div>
           </div>
-          <div className={styles.faqList}>
-            {FAQ.map(({ q, a }, i) => (
-              <Reveal key={q} delay={i * 0.08} className={styles.faqItem}>
-                <h3 className={styles.faqQ}>{q}</h3>
-                <p className={styles.faqA}>{a}</p>
+        </div>
+      </section>
+
+      {/* ============================================================
+          03 — THE BRIEF
+      ============================================================ */}
+      <section className={styles.briefSection} aria-label="How to start the conversation">
+        <div className="section-wrap">
+          <Reveal as="span" className={styles.contactKicker}>
+            03 / THE BRIEF
+          </Reveal>
+          <Reveal as="h2" delay={0.1} className={styles.contactSectionTitle}>
+            <span>START WITH THE PROBLEM.</span>
+            <span className={styles.greenEmphasis}>WE&apos;LL MAP THE SYSTEM.</span>
+          </Reveal>
+
+          <div className={styles.briefGrid}>
+            {[
+              { num: '01', label: 'BUSINESS', question: 'WHAT DO YOU DO?', desc: 'Give us the business in one clear sentence.' },
+              { num: '02', label: 'FRICTION', question: 'WHAT ISN\u2019T WORKING?', desc: 'Visibility, positioning, technology, growth — name the friction.' },
+              { num: '03', label: 'SIGNAL', question: 'WHERE ARE YOU VISIBLE TODAY?', desc: 'Website, Google, social, AI search or somewhere else.' },
+              { num: '04', label: 'OUTCOME', question: 'WHAT NEEDS TO CHANGE?', desc: 'Tell us what a better next six months should look like.' },
+            ].map(({ num, label, question, desc }, i) => (
+              <Reveal key={num} delay={i * 0.08} className={styles.briefItem}>
+                <span className={styles.briefIndex}>{num} / {label}</span>
+                <h3 className={styles.briefQuestion}>{question}</h3>
+                <p className={styles.briefDesc}>{desc}</p>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
+
+      {/* ============================================================
+          04 — BASE & RESPONSE
+      ============================================================ */}
+      <section className={styles.signalSection} aria-label="Location and response times">
+        <div className="section-wrap">
+          <Reveal as="span" className={styles.contactKicker}>
+            04 / SIGNAL
+          </Reveal>
+          <Reveal as="h2" delay={0.1} className={styles.signalHeadline}>
+            <span>ROOTED IN JAIPUR.</span>
+            <span className={styles.greenEmphasis}>BUILT TO WORK BEYOND IT.</span>
+          </Reveal>
+
+          <div className={styles.signalGrid}>
+            {[
+              { key: 'BASE', value: 'JAIPUR, RAJASTHAN' },
+              { key: 'WORKING', value: 'ACROSS INDIA' },
+              { key: 'HOURS', value: 'MON–SAT · 9AM–7PM IST' },
+              { key: 'WHATSAPP', value: '< 4 HOURS' },
+              { key: 'EMAIL', value: '< 24 HOURS' },
+            ].map(({ key, value }, i) => (
+              <Reveal key={key} delay={i * 0.06} className={styles.signalItem}>
+                <span className={styles.signalKey}>{key}</span>
+                <span className={styles.signalValue}>{value}</span>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          05 — QUICK ANSWERS
+      ============================================================ */}
+      <section className={styles.contactFaqSection} aria-label="Frequently asked questions">
+        <div className="section-wrap">
+          <Reveal as="span" className={styles.contactKicker}>
+            05 / QUICK ANSWERS
+          </Reveal>
+          <Reveal as="h2" delay={0.1} className={styles.contactSectionTitle}>
+            <span>QUICK ANSWERS.</span>
+          </Reveal>
+
+          <div className={styles.contactFaqList}>
+            {FAQ.map(({ q, a }, i) => (
+              <Reveal key={q} delay={i * 0.06} className={styles.contactFaqItem}>
+                <div className={styles.contactFaqLeft}>
+                  <span className={styles.contactFaqIndex}>Q / {String(i + 1).padStart(2, '0')}</span>
+                  <h3 className={styles.contactFaqQ}>{q}</h3>
+                </div>
+                <p className={styles.contactFaqA}>{a}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          06 — FINAL ACTION
+      ============================================================ */}
+      <CTA
+        eyebrow="06 / FINAL ACTION"
+        title={<>THE PROBLEM IS CLEAR.<br /><span className="gold-shimmer">LET&apos;S BUILD WHAT FIXES IT.</span></>}
+        primaryBtn={{ text: 'Start a Conversation', href: WA_LINKS.contact, isExternal: true, hasIcon: true }}
+        note="WHATSAPP / FASTEST RESPONSE"
+      />
     </>
   )
 }
-
