@@ -195,7 +195,7 @@
 
 /* H1 headline — 3 line structure matching homepage */
 .h1 {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-display);
   text-transform: uppercase;
   line-height: 1.05;
   font-weight: 900;
@@ -382,9 +382,21 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   padding-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Card */
@@ -827,4 +839,297 @@
   .heroSection { padding: 0 20px; }
   .grid { grid-template-columns: 1fr; gap: 28px; }
   .filterChip { padding: 16px 16px; font-size: 8.5px; }
+}
+
+/* ============================================================
+   NEW SYSTEMS IN ACTION STYLES
+============================================================ */
+.contextSection {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
+}
+
+.contextInner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contextLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contextTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.contextRight {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: rgba(255,255,255,0.02);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.contextText {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-family: var(--font-ui);
+}
+
+@media (max-width: 900px) {
+  .contextInner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.featuredSection {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
+}
+
+.featuredHeader {
+  margin-bottom: 80px;
+}
+
+.featuredTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-top: 16px;
+}
+
+.featuredList {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.featuredItem {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.featuredVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.featuredVisualRight {
+  order: 2;
+}
+
+.featuredMetaLeft {
+  order: 1;
+}
+
+.featuredImg {
+  object-fit: cover;
+}
+
+.featuredMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.featuredIndex {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--accent-primary);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.featuredName {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.featuredIndustry {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.featuredBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.featuredBlockLabel {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.4);
+}
+
+.featuredBlockText {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.capabilitiesTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.capabilityTag {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  background: rgba(255,255,255,0.05);
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.featuredLink {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 16px;
+  transition: opacity 0.3s;
+}
+
+.featuredLink:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  .featuredItem {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .featuredVisualRight {
+    order: 0;
+  }
+  .featuredMetaLeft {
+    order: 0;
+  }
+}
+
+.workIndexHeader {
+  background: var(--bg-primary);
+  padding-top: var(--section-padding);
+}
+
+.workIndexTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-top: 16px;
+}
+
+.patternSection {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--section-padding);
+}
+
+.patternHeader {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.patternTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-top: 16px;
+}
+
+.patternGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border-color);
+  border: 1px solid var(--border-color);
+}
+
+.patternStage {
+  background: var(--bg-primary);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.patternStageNum {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  color: rgba(90, 166, 138, 0.2);
+  line-height: 1;
+}
+
+.patternStageTitle {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.patternStageDesc {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .patternGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .patternGrid {
+    grid-template-columns: 1fr;
+  }
 }
