@@ -163,40 +163,6 @@ export default function HomePage() {
 
 
       {/* ============================================================
-          SERVICES SECTION
-      ============================================================ */}
-      <section id="services" className={styles.servicesSection} aria-label="Our services">
-        <div className="section-wrap">
-          <div className="section-header">
-            <Reveal as="span" className="eyebrow">What We Do</Reveal>
-            <Reveal as="h2" delay={0.1} className="section-title">
-              14 services.<br />
-              <span className="gold-shimmer">One unified growth strategy.</span>
-            </Reveal>
-          </div>
-
-          <MagicBento 
-            items={SERVICES.map(svc => ({
-              id: svc.id,
-              num: svc.num,
-              name: svc.name,
-              fix: svc.fix,
-              description: svc.desc,
-              features: (svc as any).features,
-              icon: IconMap[svc.icon as keyof typeof IconMap]
-            }))}
-            enableStars={true}
-            enableSpotlight={true}
-            enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
-            glowColor="201, 168, 76"
-          />
-        </div>
-      </section>
-
-      {/* ============================================================
           PROBLEM SECTION
       ============================================================ */}
       <section className={styles.problemSection} aria-label="Problems we solve">
@@ -285,6 +251,40 @@ export default function HomePage() {
               </Reveal>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          SERVICES SECTION
+      ============================================================ */}
+      <section id="services" className={styles.servicesSection} aria-label="Our services">
+        <div className="section-wrap">
+          <div className="section-header">
+            <Reveal as="span" className="eyebrow">What We Do</Reveal>
+            <Reveal as="h2" delay={0.1} className="section-title">
+              14 services.<br />
+              <span className="gold-shimmer">One unified growth strategy.</span>
+            </Reveal>
+          </div>
+
+          <MagicBento 
+            items={SERVICES.map(svc => ({
+              id: svc.id,
+              num: svc.num,
+              name: svc.name,
+              fix: svc.fix,
+              description: svc.desc,
+              features: (svc as any).features,
+              icon: IconMap[svc.icon as keyof typeof IconMap]
+            }))}
+            enableStars={true}
+            enableSpotlight={true}
+            enableBorderGlow={true}
+            enableTilt={true}
+            enableMagnetism={true}
+            clickEffect={true}
+            glowColor="201, 168, 76"
+          />
         </div>
       </section>
 
