@@ -24,8 +24,6 @@ const INDUSTRY_LINKS = [
 
 const COMPANY_LINKS = [
   { href: '/about',        label: 'Why Siyara'      },
-  { href: '/portfolio',    label: 'Case Studies'    },
-  { href: '/careers',      label: 'Careers'         },
   { href: '/blog',         label: 'Insights'        },
   { href: '/contact',      label: 'Contact'         },
 ]

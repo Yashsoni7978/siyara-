@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { WA_LINKS, BRAND, SERVICES, INDUSTRIES, PORTFOLIO } from '@/lib/constants'
-import { RATING_STATS, CLIENT_TESTIMONIALS } from '@/lib/social-proof'
+import { WA_LINKS, BRAND, SERVICES, INDUSTRIES } from '@/lib/constants'
 import styles from './Home.module.css'
 import sharedStyles from './contact/contact.module.css'
 import { Reveal } from '@/components/ui/Reveal'
@@ -136,7 +135,7 @@ export default function HomePage() {
             <span className="gold-shimmer">We architect growth engines.</span>
           </h2>
           <p style={{ fontSize: '18px', color: 'var(--text-body-secondary)', lineHeight: '1.6', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
-            At Siyara Innovations, we unify premium branding, cutting-edge development, and AI-driven automation under one roof. We eliminate the friction between your vision and your revenue, giving your business the digital foundation it needs to scale and dominate.
+            At Siyara Innovations, Jaipur's premium digital marketing and web development agency, we unify premium branding, cutting-edge development, and AI-driven automation under one roof. We eliminate the friction between your vision and your revenue, giving businesses across India the digital foundation they need to scale and dominate.
           </p>
           <Link href="/about" className="btn-outline">
             Read Our Story →
@@ -285,6 +284,12 @@ export default function HomePage() {
             clickEffect={true}
             glowColor="201, 168, 76"
           />
+          
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link href="/services" className="btn-outline">
+              Explore All 14 Services →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -316,50 +321,16 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+            <Link href="/industries" className="btn-outline">
+              View All Industries →
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ============================================================
-          FEATURED WORK / PORTFOLIO
-      ============================================================ */}
-      <section id="work" className={styles.workSection} aria-label="Featured case studies">
-        <div className="section-wrap">
-          <div className="section-header">
-            <Reveal as="span" className="eyebrow">Featured Work</Reveal>
-            <Reveal as="h2" delay={0.1} className="section-title">
-              Our standard is <span className="gold-shimmer">non-negotiable.</span><br />
-              <em>See the difference.</em>
-            </Reveal>
-          </div>
-          <div className={styles.workGrid}>
-            {PORTFOLIO.slice(0, 6).map((item, i) => (
-              <Reveal key={item.id} delay={i * 0.15} className={styles.workCardWrap}>
-                <Link href={item.demoLink} className={styles.workCard}>
-                  <div className={styles.workImageWrap}>
-                    <Image
-                      src={item.image}
-                      alt={`${item.name} Showcase`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className={styles.workImg}
-                    />
-                    <div className={styles.workOverlay}>
-                      <span className={styles.workBtn}>View Case Study →</span>
-                    </div>
-                  </div>
-                  <div className={styles.workMeta}>
-                    <span className={styles.workIndustry}>{item.industry}</span>
-                    <h3 className={styles.workName}>{item.name}</h3>
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={0.2} className={styles.workFooter}>
-            <Link href="/portfolio" className="btn-outline">View All Case Studies →</Link>
-          </Reveal>
-        </div>
-      </section>
+
 
       {/* ============================================================
           WHY SIYARA (Bento)
@@ -536,47 +507,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* ============================================================
-          TESTIMONIALS - DENSE CONTENT (EXPANDED)
-      ============================================================ */}
-      <section className={sharedStyles.testimonialsSection} aria-label="Client testimonials">
-        <div className={sharedStyles.starsBg}></div>
-        <div style={{ position: 'relative', zIndex: 1, paddingBottom: '40px' }}>
-          <div className={sharedStyles.testiHeader}>
-            <Reveal as="span" className="eyebrow" style={{ color: 'rgba(255, 215, 0, 0.7)' }}>Client Success</Reveal>
-            <Reveal as="h2" delay={0.1} className={sharedStyles.testiTitle}>
-              Real ROI for real businesses.
-            </Reveal>
-          </div>
 
-          <div className={sharedStyles.marqueeWrapper}>
-            <div className={sharedStyles.marqueeTrackTop}>
-              {[...CLIENT_TESTIMONIALS.slice(0, 4), ...CLIENT_TESTIMONIALS.slice(0, 4)].map((testi, i) => (
-                <div key={`top-${i}`} className={sharedStyles.testiCard}>
-                  <div className={sharedStyles.stars}>★★★★★</div>
-                  <p className={sharedStyles.testiQuote}>&quot;{testi.quote}&quot;</p>
-                  <div className={sharedStyles.testiAuthorRow}>
-                    <span className={sharedStyles.testiAuthor}>— {testi.author}</span>
-                    <span className={sharedStyles.testiRole}>{testi.company.split(',')[0]}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className={sharedStyles.marqueeTrackBottom}>
-              {[...CLIENT_TESTIMONIALS.slice(4, 8), ...CLIENT_TESTIMONIALS.slice(4, 8)].map((testi, i) => (
-                <div key={`bottom-${i}`} className={sharedStyles.testiCard}>
-                  <div className={sharedStyles.stars}>★★★★★</div>
-                  <p className={sharedStyles.testiQuote}>&quot;{testi.quote}&quot;</p>
-                  <div className={sharedStyles.testiAuthorRow}>
-                    <span className={sharedStyles.testiAuthor}>— {testi.author}</span>
-                    <span className={sharedStyles.testiRole}>{testi.company.split(',')[0]}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ============================================================
           CTA FINALE
@@ -587,7 +518,7 @@ export default function HomePage() {
           title={<>Your business is ready.<br /><span className="gold-shimmer">Your digital presence should be too.</span></>}
           description="Start with a free 30-minute strategy call. We'll tell you exactly what your brand needs — and what it doesn't."
           primaryBtn={{ text: 'Book Free Strategy Call', href: WA_LINKS.strategyCall, isExternal: true, hasIcon: true }}
-          secondaryBtn={{ text: 'Browse Services →', href: '#services' }}
+          secondaryBtn={{ text: 'Browse Services →', href: '/services' }}
           note="No pressure. No pitch deck. Just a real conversation."
         />
       </div>

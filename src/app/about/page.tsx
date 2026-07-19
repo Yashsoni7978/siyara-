@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { WA_LINKS, BRAND } from '@/lib/constants'
-import { CLIENT_TESTIMONIALS } from '@/lib/social-proof'
 import { aboutPageSchema } from '@/lib/seo'
 import sharedStyles from '../contact/contact.module.css'
 import styles from './about.module.css'
@@ -225,57 +224,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          07 — PROOF (Reusing Contact shared styles)
-      ============================================================ */}
-      <section className={sharedStyles.testimonialsSection} aria-label="Client testimonials">
-        <div className={sharedStyles.starsBg}></div>
-        <div style={{ position: 'relative', zIndex: 1, paddingBottom: '40px' }}>
-          <div className={sharedStyles.testiHeader}>
-            <Reveal as="span" className={styles.kicker} style={{ marginBottom: '16px', display: 'inline-flex' }}>
-              07 / PROOF
-            </Reveal>
-            <Reveal as="h2" delay={0.1} className={sharedStyles.testiTitle} style={{ color: 'var(--text-primary)' }}>
-              RATED 4.9★ ON GOOGLE.
-            </Reveal>
-          </div>
 
-          <div className={sharedStyles.marqueeWrapper}>
-            <div className={sharedStyles.marqueeTrackTop}>
-              {[...CLIENT_TESTIMONIALS.slice(0, 4), ...CLIENT_TESTIMONIALS.slice(0, 4)].map((testi, i) => (
-                <div key={`top-${i}`} className={sharedStyles.testiCard}>
-                  <div className={sharedStyles.stars}>★★★★★</div>
-                  <p className={sharedStyles.testiQuote}>&quot;{testi.quote}&quot;</p>
-                  <div className={sharedStyles.testiAuthorRow}>
-                    <span className={sharedStyles.testiAuthor}>— {testi.author}</span>
-                    <span className={sharedStyles.testiRole}>{testi.company.split(',')[0]}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className={sharedStyles.marqueeTrackBottom}>
-              {[...CLIENT_TESTIMONIALS.slice(4, 8), ...CLIENT_TESTIMONIALS.slice(4, 8)].map((testi, i) => (
-                <div key={`bottom-${i}`} className={sharedStyles.testiCard}>
-                  <div className={sharedStyles.stars}>★★★★★</div>
-                  <p className={sharedStyles.testiQuote}>&quot;{testi.quote}&quot;</p>
-                  <div className={sharedStyles.testiAuthorRow}>
-                    <span className={sharedStyles.testiAuthor}>— {testi.author}</span>
-                    <span className={sharedStyles.testiRole}>{testi.company.split(',')[0]}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ============================================================
-          08 — FINAL ACTION
+          07 — FINAL ACTION
       ============================================================ */}
       <CTA
-        eyebrow="08 / FINAL ACTION"
+        eyebrow="07 / FINAL ACTION"
         title={<>THE THINKING IS DIFFERENT.<br /><span className="gold-shimmer">THE START IS SIMPLE.</span></>}
         primaryBtn={{ text: 'Start a Conversation', href: WA_LINKS.contact, isExternal: true, hasIcon: true }}
+        secondaryBtn={{ text: 'Explore Our Services →', href: '/services' }}
         note="WHATSAPP / FASTEST RESPONSE"
       />
     </>

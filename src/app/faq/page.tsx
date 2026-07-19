@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { BRAND } from '@/lib/constants'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
@@ -7,6 +8,7 @@ import styles from './faq.module.css'
 export const metadata: Metadata = {
   title: `FAQ — ${BRAND.name}`,
   description: 'Frequently asked questions about Siyara Innovations, our process, pricing, and services.',
+  alternates: { canonical: `${BRAND.siteUrl}/faq` },
 }
 
 const FAQS = [
@@ -21,7 +23,7 @@ const FAQS = [
   {
     category: 'Services',
     items: [
-      { q: 'Do you build custom websites or use templates?', a: 'Every digital experience we build is 100% custom. We do not use pre-made templates because your brand deserves a unique identity engineered for your specific goals.' },
+      { q: 'Do you build custom websites or use templates?', a: <>Every digital experience we build is 100% custom. We do not use pre-made templates because your brand deserves a unique identity engineered for your specific goals. <Link href="/services/web-development" style={{ color: 'var(--accent-primary)', textDecoration: 'underline' }}>Explore our Web Development service</Link>.</> },
       { q: 'What is Generative Engine Optimisation (GEO)?', a: 'GEO is the next evolution of SEO. Instead of just ranking on Google, we optimise your brand to be recommended by AI engines like ChatGPT, Perplexity, and Google\'s SGE.' },
       { q: 'Do you offer ongoing support?', a: 'Yes. Digital products require maintenance. We offer retainer packages to ensure your website, app, or marketing campaigns continue to perform optimally long after launch.' },
     ]

@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { INDUSTRIES, PORTFOLIO, WA_LINKS, BRAND, SERVICES } from '@/lib/constants'
-import { TESTIMONIALS } from '@/lib/social-proof'
+import { INDUSTRIES, WA_LINKS, BRAND, SERVICES } from '@/lib/constants'
 import { PageHero } from '@/components/ui/PageHero'
 import { CTA } from '@/components/ui/CTA'
 import { Reveal } from '@/components/ui/Reveal'
@@ -186,7 +185,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ id: s
   const ind = INDUSTRIES.find((i) => i.id === resolvedParams.id)
   if (!ind) notFound()
 
-  const relatedProjects = PORTFOLIO.filter(p => p.industry === ind.name)
+
   const deep = INDUSTRY_DEEP[ind.id] || DEFAULT_INDUSTRY
   const recommended = deep.recommendedServices.map(id => SERVICES.find(s => s.id === id)).filter(Boolean)
 
@@ -291,25 +290,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ id: s
             </div>
           )}
 
-          {/* Portfolio */}
-          {relatedProjects.length > 0 && (
-            <div style={{ marginTop: '6rem' }}>
-              <Reveal>
-                <h2 className="section-title" style={{ textAlign: 'center' }}>
-                  Featured Work
-                </h2>
-              </Reveal>
-              <div className={styles.portfolioGrid}>
-                {relatedProjects.map((project, i) => (
-                  <Reveal key={project.id} delay={i * 0.1} className={styles.projectCard}>
-                    <h3 className={styles.projectName}>{project.name}</h3>
-                    <p className={styles.projectDesc}>{project.desc}</p>
-                    <Link href={project.demoLink} className={styles.projectLink}>View Case Study →</Link>
-                  </Reveal>
-                ))}
-              </div>
-            </div>
-          )}
+
 
           {/* FAQ */}
           <div style={{ marginTop: '6rem' }}>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SERVICES, WA_LINKS, BRAND } from '@/lib/constants'
-import { TESTIMONIALS, PLATFORM_STATS } from '@/lib/social-proof'
 import { PageHero } from '@/components/ui/PageHero'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
@@ -10,12 +9,12 @@ import styles from './services.module.css'
 import { IconMap } from '@/components/ui/Icons'
 
 export const metadata: Metadata = {
-  title: 'Our Services | Capability System',
-  description: 'Explore all 14 digital capabilities by Siyara Innovations — web development, branding, AI automation, SEO, performance marketing, and more. Rated 4.9★ on Google.',
+  title: 'Digital Marketing & Web Development Services Jaipur | Siyara Innovations',
+  description: 'Siyara Innovations is a premium full-service digital growth agency in Jaipur, Rajasthan. We offer web development, branding, SEO, AI automation, and performance marketing to scale your business.',
   alternates: { canonical: `${BRAND.siteUrl}/services` },
   openGraph: {
-    title: `Our Services | ${BRAND.name}`,
-    description: 'Explore all 14 digital capabilities by Siyara Innovations.',
+    title: 'Digital Marketing & Web Development Services | Siyara Innovations',
+    description: 'Explore our premium digital capabilities designed to accelerate business growth across India.',
     url: `${BRAND.siteUrl}/services`,
   },
 }
@@ -84,7 +83,7 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="01 / CAPABILITY SYSTEM"
         title={<>14 services.<br /><em style={{ color: 'var(--accent-primary)' }}>One unified strategy.</em></>}
-        subtitle="Every service is designed to work together. When your website, SEO, ads, and social all share one strategy — they compound. That's the Siyara difference."
+        subtitle="Siyara Innovations provides premium digital marketing and web development services for ambitious businesses in Jaipur and across India. Every service—from SEO to AI automation—is integrated into one unified strategy to drive measurable revenue growth and accelerate customer acquisition."
         breadcrumb={[{ label: 'Services' }]}
       />
 
@@ -245,53 +244,13 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 10 — CLIENT PROOF */}
-      <section className={styles.testimonialsSection} aria-label="Client testimonials">
-        <div className="section-wrap">
-          <div className={styles.valuesHeader}>
-            <Reveal as="span" className="eyebrow">10 / CLIENT PROOF</Reveal>
-            <Reveal as="h2" delay={0.1} className={styles.categoryTitle}>Rated 4.9★ across all platforms.</Reveal>
-          </div>
-          
-          {/* Rating Strip (Moved from top) */}
-          <div className={styles.ratingStripInner} style={{ marginBottom: '40px', background: 'var(--bg-surface)', borderRadius: '12px', border: '1px solid var(--border-subtle)', overflow: 'hidden' }}>
-            {PLATFORM_STATS.map(({ platform, rating, reviews, logo }) => (
-              <div key={platform} className={styles.ratingStripItem}>
-                <span className={styles.ratingLogo}>{logo}</span>
-                <span className={styles.ratingStars}>{'★★★★★'}</span>
-                <span className={styles.ratingScore}>{rating} on {platform}</span>
-                <span className={styles.ratingCount}>({reviews} reviews)</span>
-              </div>
-            ))}
-          </div>
 
-          <div className={styles.testimonialsGrid}>
-            {TESTIMONIALS.slice(0, 6).map(({ id, name, role, company, avatar, rating, platform, text }) => (
-              <Reveal key={id} delay={(id % 2) * 0.12} className={styles.testimonialCard}>
-                <div className={styles.testimonialTop}>
-                  <div className={styles.testimonialAvatar}><span>{avatar}</span></div>
-                  <div>
-                    <span className={styles.testimonialName}>{name}</span>
-                    <span className={styles.testimonialCompany}>{role} · {company}</span>
-                  </div>
-                  <span className={styles.testimonialPlatform}>{platform}</span>
-                </div>
-                <div className={styles.testimonialStars}>{'★★★★★'.split('').map((s, i) => <span key={i}>{s}</span>)}</div>
-                <p className={styles.testimonialText}>&ldquo;{text}&rdquo;</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal style={{ textAlign: 'center', marginTop: '40px' }}>
-            <Link href="/about" className="btn-outline">Read All Testimonials →</Link>
-          </Reveal>
-        </div>
-      </section>
 
-      {/* 11 — QUICK ANSWERS */}
+      {/* 10 — QUICK ANSWERS */}
       <section className={styles.faqSection} aria-label="Services FAQ">
         <div className="section-wrap">
           <div className={styles.valuesHeader}>
-            <Reveal as="span" className="eyebrow">11 / QUICK ANSWERS</Reveal>
+            <Reveal as="span" className="eyebrow">10 / QUICK ANSWERS</Reveal>
             <Reveal as="h2" delay={0.1} className={styles.categoryTitle}>Common questions answered.</Reveal>
           </div>
           <div className={styles.faqList}>
@@ -305,7 +264,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 12 — FINAL ACTION */}
+      {/* 11 — FINAL ACTION */}
       <div id="action">
         <CTA 
           title={<>Not sure where to start?<br /><span className="gold-shimmer">We&apos;ll tell you exactly what you need.</span></>}

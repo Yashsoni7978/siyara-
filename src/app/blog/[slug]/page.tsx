@@ -133,15 +133,7 @@ export default async function BlogPostPage({ params }: Props) {
 
           {/* Content */}
           <div className={styles.content}>
-            {content || (
-              <p className={styles.comingSoon}>
-                Full article coming soon. In the meantime, {' '}
-                <Link href={WA_LINKS.default} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)' }}>
-                  message us on WhatsApp
-                </Link>
-                {' '} to discuss this topic with our team.
-              </p>
-            )}
+            {content}
           </div>
         </div>
       </article>

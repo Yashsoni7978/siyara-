@@ -27,28 +27,5 @@ export const POSTS = [
     date: 'May 2026',
     readTime: '7 min',
   },
-  {
-    slug: '5-signs-your-brand-is-costing-you-clients',
-    category: 'Branding',
-    title: '5 signs your brand is actively costing you clients',
-    excerpt: "Your brand is making an impression whether you intend it to or not. Here are five telltale signs that yours is working against you — and what to do about it.",
-    date: 'Apr 2026',
-    readTime: '5 min',
-  },
-  {
-    slug: 'why-most-small-business-ads-fail',
-    category: 'Ads',
-    title: 'Why most small business ad campaigns fail within 30 days',
-    excerpt: "It's not the platform. It's not the budget. It's a fundamental misunderstanding of what ads are supposed to do and how they actually work. Let's fix that.",
-    date: 'Apr 2026',
-    readTime: '7 min',
-  },
-  {
-    slug: 'what-ai-automation-can-do-for-a-5-person-business',
-    category: 'AI',
-    title: 'What AI automation can realistically do for a 5-person business in 2026',
-    excerpt: "AI automation isn't just for enterprises. Here is a practical, grounded look at what a small Indian business can actually automate today — and what results to expect.",
-    date: 'Apr 2026',
-    readTime: '9 min',
-  },
+
 ]
