@@ -155,7 +155,7 @@
 }
 
 .diagnosticItem:hover {
-  background: rgba(90, 166, 138, 0.03);
+  background: rgba(var(--accent-primary-rgb), 0.03);
 }
 
 .diagnosticIndex {
@@ -269,7 +269,7 @@
 }
 
 .modelStage:hover {
-  background: rgba(90, 166, 138, 0.03);
+  background: rgba(var(--accent-primary-rgb), 0.03);
 }
 
 .modelStageHeader {
@@ -330,7 +330,7 @@
 }
 
 .principleItem:hover {
-  background: rgba(90, 166, 138, 0.02);
+  background: rgba(var(--accent-primary-rgb), 0.02);
 }
 
 .principleIndex {

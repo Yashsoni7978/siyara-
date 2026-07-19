@@ -87,7 +87,7 @@ export default function HomePage() {
           <div className={styles.heroInner}>
             <div className={styles.heroLeft} style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
               <div className={styles.heroBadge}>
-                <span className={styles.heroBadgeDot} aria-hidden="true" style={{ background: '#FFD700', boxShadow: '0 0 10px rgba(255, 215, 0, 1)' }} />
+                <span className={styles.heroBadgeDot} aria-hidden="true" style={{ background: 'var(--testi-star)', boxShadow: '0 0 10px rgba(255, 215, 0, 1)' }} />
                 <span>RAISE THE CURTAIN OF SUCCESS</span>
               </div>
 

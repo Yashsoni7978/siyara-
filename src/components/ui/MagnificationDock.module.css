@@ -37,8 +37,8 @@
 }
 
 .dockItem:hover, .dockItem:focus-visible {
-  background: rgba(90, 166, 138, 0.1);
-  border-color: rgba(90, 166, 138, 0.4);
+  background: rgba(var(--accent-primary-rgb), 0.1);
+  border-color: rgba(var(--accent-primary-rgb), 0.4);
 }
 
 .dockLabel {

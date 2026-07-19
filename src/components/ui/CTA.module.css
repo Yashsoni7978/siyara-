@@ -13,7 +13,7 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 400px;
-  background: radial-gradient(ellipse at center, rgba(201, 168, 76, 0.15) 0%, transparent 60%);
+  background: radial-gradient(ellipse at center, rgba(var(--accent-gold-rgb), 0.15) 0%, transparent 60%);
   filter: blur(40px);
   pointer-events: none;
 }
@@ -26,7 +26,7 @@
 
 .eyebrow {
   display: block;
-  color: rgba(201, 168, 76, 0.5);
+  color: rgba(var(--accent-gold-rgb), 0.5);
   margin-bottom: 24px;
   font-family: var(--font-ui);
   font-size: 10px;

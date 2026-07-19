@@ -55,9 +55,9 @@
   overflow: hidden;
   pointer-events: none;
   transform: translateY(101%);
-  background-color: rgba(10, 10, 10, 0.98); /* Premium Dark Tech Shade */
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--nav-bg); /* Premium Dark Tech Shade */
+  border-top: 1px solid var(--border-section);
+  border-bottom: 1px solid var(--border-section);
   z-index: 10;
 }
 
@@ -91,5 +91,5 @@
   border-radius: 50px;
   background-size: cover;
   background-position: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-strong);
 }

@@ -6,7 +6,7 @@ import { ReactNode } from 'react'
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   return (
-    <NextThemesProvider defaultTheme="dark" attribute="data-theme" enableSystem={false}>
+    <NextThemesProvider defaultTheme="dark" attribute="data-theme" enableSystem={true}>
       <MotionConfig reducedMotion="user">
         <LazyMotion features={domAnimation} strict>
           {children}

@@ -51,7 +51,7 @@ export default function PortfolioPage() {
           <nav className={styles.heroBreadcrumb} aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span className={styles.sep}>/</span>
-            <span style={{ color: 'rgba(240,245,242,0.55)' }}>Portfolio</span>
+            <span style={{ color: 'rgba(var(--text-primary-rgb), 0.55)' }}>Portfolio</span>
           </nav>
 
           {/* Badge */}

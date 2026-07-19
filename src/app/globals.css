@@ -1,81 +1,299 @@
 /* ============================================================
    SIYARA INNOVATIONS — GLOBAL DESIGN SYSTEM
    Premium Digital Agency in Jaipur
+   
+   TOKEN-FIRST ARCHITECTURE
+   Dark Theme  = Production reference (visually unchanged)
+   Light Theme = Warm editorial palette
 ============================================================ */
 
 /* ============================================================
-   CSS CUSTOM PROPERTIES
+   DARK THEME TOKENS (DEFAULT)
+   These values are extracted from the existing production CSS.
+   DO NOT modify without visual regression testing.
 ============================================================ */
 :root {
-  /* Siyara Emerald Theme */
-  --foreground:     #F0F5F2;
-  --background:     #04100B;
-  --bg-base:        #04100B;
-  --bg-primary:     #04100B;
-  --bg-primary-rgb: 4, 16, 11;
-  --bg-secondary:   #060f0a;
-  --bg-secondary-rgb: 6, 15, 10;
-  --bg-card:        rgba(90, 166, 138, 0.04);
-  --border-subtle:  rgba(90, 166, 138, 0.08);
-  --border-hover:   rgba(90, 166, 138, 0.35);
+  /* ── Background ── */
+  --bg-base:              #04100B;
+  --bg-primary:           #04100B;
+  --bg-primary-rgb:       4, 16, 11;
+  --bg-secondary:         #060f0a;
+  --bg-secondary-rgb:     6, 15, 10;
+  --bg-tertiary:          #081a12;
+  --bg-card:              rgba(255, 255, 255, 0.02);
+  --bg-card-hover:        rgba(90, 166, 138, 0.04);
+  --bg-surface:           rgba(255, 255, 255, 0.03);
+  --bg-surface-elevated:  rgba(255, 255, 255, 0.05);
+  --foreground:           #F0F5F2;
 
-  --accent-primary:     #5aa68a;  /* rich silk green */
-  --accent-primary-rgb: 90, 166, 138;
-  --accent-secondary:   #6ead98;  /* highlight silk */
+  /* ── Accent ── */
+  --accent-primary:       #5aa68a;
+  --accent-primary-rgb:   90, 166, 138;
+  --accent-secondary:     #6ead98;
   --accent-secondary-rgb: 110, 173, 152;
-  --accent-green:       #5aa68a;
-  --accent-green-rgb:   90, 166, 138;
-  --accent-light:       #6ead98;
-  --accent-deep:        #1a4a35;
-  --accent-gold:        #C9A84C;  /* Royal Gold — CTAs */
+  --accent-green:         #5aa68a;
+  --accent-green-rgb:     90, 166, 138;
+  --accent-light:         #6ead98;
+  --accent-deep:          #1a4a35;
+  --accent-gold:          #C9A84C;
+  --accent-gold-rgb:      201, 168, 76;
 
-  --text-primary:     #F0F5F2;
-  --text-primary-rgb: 240, 245, 242;
-  --text-secondary:   rgba(240, 245, 242, 0.5);
-  --text-inverse:     #04100B;
+  /* ── Text ── */
+  --text-primary:         #F0F5F2;
+  --text-primary-rgb:     240, 245, 242;
+  --text-secondary:       rgba(var(--text-primary-rgb), 0.5);
+  --text-muted:           rgba(var(--text-primary-rgb), 0.5);
+  --text-inverse:         #04100B;
 
-  /* Alpha tokens */
-  --text-muted:   rgba(240, 245, 242, 0.5);
-  --border-color: rgba(90, 166, 138, 0.08);
-  --border-glow:  rgba(90, 166, 138, 0.35);
+  /* ── Border ── */
+  --border-color:         rgba(90, 166, 138, 0.08);
+  --border-subtle:        rgba(90, 166, 138, 0.08);
+  --border-hover:         rgba(90, 166, 138, 0.35);
+  --border-glow:          rgba(90, 166, 138, 0.35);
+  --border-strong:        rgba(255, 255, 255, 0.1);
+  --border-section:       rgba(255, 255, 255, 0.05);
 
-  /* Typography */
+  /* ── Card ── */
+  --card-bg:              rgba(255, 255, 255, 0.02);
+  --card-border:          rgba(255, 255, 255, 0.05);
+  --card-hover-bg:        rgba(90, 166, 138, 0.04);
+  --card-hover-border:    rgba(90, 166, 138, 0.28);
+
+  /* ── Input ── */
+  --input-bg:             transparent;
+  --input-border:         rgba(var(--text-primary-rgb), 0.2);
+  --input-focus:          var(--accent-green);
+
+  /* ── Glass ── */
+  --glass-bg:             rgba(10, 10, 10, 0.7);
+  --glass-bg-elevated:    rgba(10, 10, 10, 0.95);
+  --glass-border:         rgba(255, 255, 255, 0.1);
+
+  /* ── Navigation ── */
+  --nav-bg:               rgba(10, 10, 10, 0.95);
+  --nav-bg-scrolled:      rgba(5, 5, 5, 0.98);
+  --nav-border:           rgba(255, 255, 255, 0.05);
+  --nav-border-scrolled:  rgba(255, 255, 255, 0.1);
+  --nav-link:             rgba(255, 255, 255, 0.6);
+  --nav-link-hover:       var(--text-primary);
+  --nav-logo:             var(--text-primary);
+
+  /* ── Button ── */
+  --btn-primary-bg:       #04100B;
+  --btn-primary-bg-hover: #081a12;
+  --btn-gradient-start:   #C9A84C;
+  --btn-gradient-end:     #a8782a;
+  --btn-cta-color:        #C9A84C;
+  --btn-cta-hover-bg:     #C9A84C;
+  --btn-cta-hover-color:  var(--text-inverse);
+
+  /* ── Shadow ── */
+  --shadow-card:          0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-elevated:      0 40px 80px rgba(var(--text-inverse-rgb), 0.6);
+  --shadow-glow:          0 0 20px rgba(90, 166, 138, 0.08);
+
+  /* ── Decorative (hero glows, curtains) ── */
+  --glow-primary:         rgba(var(--bg-tertiary-rgb), 0.85);
+  --glow-secondary:       rgba(var(--bg-secondary-rgb), 0.5);
+  --glow-tertiary:        rgba(var(--bg-tertiary-rgb), 0.2);
+  --orb-1:                rgba(90, 166, 138, 0.12);
+  --orb-2:                rgba(var(--bg-tertiary-rgb), 0.15);
+  --orb-3:                rgba(90, 166, 138, 0.06);
+  --noise-opacity:        0.03;
+  --page-curtain-shadow:  0 -20px 40px rgba(0, 0, 0, 0.5);
+
+  /* ── Testimonial section ── */
+  --testi-bg:             var(--testi-bg);
+  --testi-card-bg:        var(--testi-card-bg);
+  --testi-card-border:    rgba(255, 215, 0, 0.15);
+  --testi-card-hover:     rgba(255, 215, 0, 0.4);
+  --testi-quote:          var(--testi-quote);
+  --testi-role:           var(--testi-role);
+  --testi-star:           var(--testi-star);
+
+  /* ── WeatherIndustryCard ── */
+  --wic-bg:               #1e1e1e;
+  --wic-bg-2:             #252525;
+  --wic-bg-hover:         #2d2d2d;
+  --wic-text:             var(--text-primary);
+  --wic-sub:              #aaaaaa;
+  --wic-desc:             #cccccc;
+  --wic-btn-bg:           #10b981;
+  --wic-btn-hover:        #059669;
+  --wic-project-bg:       rgba(255, 255, 255, 0.05);
+  --wic-project-strong:   #10b981;
+
+  /* ── Code block ── */
+  --code-bg:              rgba(8, 8, 8, 0.8);
+  --code-toolbar-bg:      rgba(255, 255, 255, 0.02);
+  --code-text:            #e2e8f0;
+
+  /* ── Selection / Scrollbar ── */
+  --selection-bg:         rgba(90, 166, 138, 0.3);
+  --selection-color:      #F0F5F2;
+  --scrollbar-track:      #04100B;
+  --scrollbar-thumb:      rgba(90, 166, 138, 0.3);
+  --scrollbar-thumb-hover: rgba(90, 166, 138, 0.5);
+
+  /* ── Theme meta ── */
+  --theme-color:          #04100B;
+
+  /* ── Typography ── */
   --font-display: var(--font-young-serif), Georgia, serif;
   --font-ui:      var(--font-ui), system-ui, sans-serif;
 
-  /* Spacing */
+  /* ── Spacing ── */
   --section-padding: 120px 0;
   --card-padding: 40px;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 56px;
+  --space-8: 72px;
+  --space-12: 96px;
+  --space-15: 120px;
+  --nav-h: 72px;
 }
 
-/* Keep dark theme locked — no light mode overrides */
-[data-theme='light'] {
-  --bg-base:        #04100B;
-  --bg-primary:     #04100B;
-  --bg-primary-rgb: 4, 16, 11;
-  --bg-secondary:   #060f0a;
-  --bg-secondary-rgb: 6, 15, 10;
-
-  --accent-primary:     #5aa68a;
-  --accent-primary-rgb: 90, 166, 138;
-  --accent-secondary:   #6ead98;
-  --accent-secondary-rgb: 110, 173, 152;
-  --accent-green:       #5aa68a;
-  --accent-green-rgb:   90, 166, 138;
-  --accent-gold:        #C9A84C;
-
-  --text-primary:     #F0F5F2;
-  --text-primary-rgb: 240, 245, 242;
-  --text-secondary:   rgba(240, 245, 242, 0.5);
-  --text-inverse:     #04100B;
-
-  --text-muted:   rgba(240, 245, 242, 0.5);
-  --border-color: rgba(90, 166, 138, 0.08);
-  --border-glow:  rgba(90, 166, 138, 0.35);
-}
 
 /* ============================================================
-   RESET & NOISE OVERLAY
+   LIGHT THEME TOKENS
+   Warm editorial palette — luxury architecture studio feel.
+   Preserves brand identity: green is still the accent,
+   gold is still micro-detail, typography is unchanged.
+============================================================ */
+[data-theme='light'] {
+  /* ── Background ── */
+  --bg-base:              #F7F3EB;
+  --bg-primary:           #F7F3EB;
+  --bg-primary-rgb:       247, 243, 235;
+  --bg-secondary:         #F2EBDD;
+  --bg-secondary-rgb:     242, 235, 221;
+  --bg-tertiary:          #ECE4D4;
+  --bg-card:              rgba(30, 90, 72, 0.03);
+  --bg-card-hover:        rgba(30, 90, 72, 0.06);
+  --bg-surface:           rgba(30, 90, 72, 0.04);
+  --bg-surface-elevated:  rgba(30, 90, 72, 0.06);
+  --foreground:           #1B1B1A;
+
+  /* ── Accent ── */
+  --accent-primary:       #1E5A48;
+  --accent-primary-rgb:   30, 90, 72;
+  --accent-secondary:     #2E7D5A;
+  --accent-secondary-rgb: 46, 125, 90;
+  --accent-green:         #1E5A48;
+  --accent-green-rgb:     30, 90, 72;
+  --accent-light:         #2E7D5A;
+  --accent-deep:          #C7D6C8;
+  --accent-gold:          #C7A55B;
+  --accent-gold-rgb:      199, 165, 91;
+
+  /* ── Text ── */
+  --text-primary:         #1B1B1A;
+  --text-primary-rgb:     27, 27, 26;
+  --text-secondary:       rgba(27, 27, 26, 0.6);
+  --text-muted:           #6A6A63;
+  --text-inverse:         #F7F3EB;
+
+  /* ── Border ── */
+  --border-color:         rgba(30, 90, 72, 0.12);
+  --border-subtle:        rgba(30, 90, 72, 0.08);
+  --border-hover:         rgba(30, 90, 72, 0.35);
+  --border-glow:          rgba(30, 90, 72, 0.25);
+  --border-strong:        rgba(30, 90, 72, 0.22);
+  --border-section:       rgba(30, 90, 72, 0.08);
+
+  /* ── Card ── */
+  --card-bg:              rgba(30, 90, 72, 0.03);
+  --card-border:          rgba(30, 90, 72, 0.10);
+  --card-hover-bg:        rgba(30, 90, 72, 0.06);
+  --card-hover-border:    rgba(30, 90, 72, 0.22);
+
+  /* ── Input ── */
+  --input-bg:             #F7F3EB;
+  --input-border:         rgba(27, 27, 26, 0.15);
+  --input-focus:          #1E5A48;
+
+  /* ── Glass ── */
+  --glass-bg:             rgba(247, 243, 235, 0.85);
+  --glass-bg-elevated:    rgba(247, 243, 235, 0.98);
+  --glass-border:         rgba(30, 90, 72, 0.12);
+
+  /* ── Navigation ── */
+  --nav-bg:               rgba(247, 243, 235, 0.95);
+  --nav-bg-scrolled:      rgba(242, 235, 221, 0.98);
+  --nav-border:           rgba(30, 90, 72, 0.08);
+  --nav-border-scrolled:  rgba(30, 90, 72, 0.15);
+  --nav-link:             rgba(27, 27, 26, 0.55);
+  --nav-link-hover:       #1B1B1A;
+  --nav-logo:             #1B1B1A;
+
+  /* ── Button ── */
+  --btn-primary-bg:       #F7F3EB;
+  --btn-primary-bg-hover: #EFE7D8;
+  --btn-gradient-start:   #C7A55B;
+  --btn-gradient-end:     #a8862e;
+  --btn-cta-color:        #1E5A48;
+  --btn-cta-hover-bg:     #1E5A48;
+  --btn-cta-hover-color:  #F7F3EB;
+
+  /* ── Shadow ── */
+  --shadow-card:          0 2px 12px rgba(30, 90, 72, 0.06);
+  --shadow-elevated:      0 20px 40px rgba(30, 90, 72, 0.08);
+  --shadow-glow:          0 0 20px rgba(30, 90, 72, 0.06);
+
+  /* ── Decorative ── */
+  --glow-primary:         rgba(199, 214, 200, 0.5);
+  --glow-secondary:       rgba(199, 214, 200, 0.25);
+  --glow-tertiary:        rgba(30, 90, 72, 0.06);
+  --orb-1:                rgba(30, 90, 72, 0.06);
+  --orb-2:                rgba(199, 214, 200, 0.1);
+  --orb-3:                rgba(30, 90, 72, 0.03);
+  --noise-opacity:        0.015;
+  --page-curtain-shadow:  0 -20px 40px rgba(30, 90, 72, 0.06);
+
+  /* ── Testimonial section ── */
+  --testi-bg:             #F2EBDD;
+  --testi-card-bg:        #F7F3EB;
+  --testi-card-border:    rgba(199, 165, 91, 0.25);
+  --testi-card-hover:     rgba(199, 165, 91, 0.5);
+  --testi-quote:          #4A4A44;
+  --testi-role:           #8A8A82;
+  --testi-star:           #C7A55B;
+
+  /* ── WeatherIndustryCard ── */
+  --wic-bg:               #EFE7D8;
+  --wic-bg-2:             #E8DFC8;
+  --wic-bg-hover:         #E2D9C0;
+  --wic-text:             #1B1B1A;
+  --wic-sub:              #6A6A63;
+  --wic-desc:             #4A4A44;
+  --wic-btn-bg:           #1E5A48;
+  --wic-btn-hover:        #2E7D5A;
+  --wic-project-bg:       rgba(30, 90, 72, 0.06);
+  --wic-project-strong:   #1E5A48;
+
+  /* ── Code block ── */
+  --code-bg:              rgba(30, 90, 72, 0.04);
+  --code-toolbar-bg:      rgba(30, 90, 72, 0.03);
+  --code-text:            #1B1B1A;
+
+  /* ── Selection / Scrollbar ── */
+  --selection-bg:         rgba(30, 90, 72, 0.15);
+  --selection-color:      #1B1B1A;
+  --scrollbar-track:      #F2EBDD;
+  --scrollbar-thumb:      rgba(30, 90, 72, 0.2);
+  --scrollbar-thumb-hover: rgba(30, 90, 72, 0.35);
+
+  /* ── Theme meta ── */
+  --theme-color:          #F7F3EB;
+}
+
+
+/* ============================================================
+   RESET & BASE
 ============================================================ */
 *,
 *::before,
@@ -92,8 +310,8 @@ html {
 
 body {
   font-family: var(--font-ui), 'Inter', sans-serif;
-  background-color: #04100B;
-  color: #F0F5F2;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -117,9 +335,48 @@ em, i {
   font-style: normal;
 }
 
-/* Premium Noise Overlay — desktop only. The feTurbulence SVG filter
-   is a real GPU/render cost on mobile with no visible payoff at
-   0.03 opacity, so it's disabled below 768px. */
+/* ============================================================
+   SELECTION
+============================================================ */
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+
+/* ============================================================
+   NOISE OVERLAY — desktop only
+============================================================ */
 body::after {
   content: "";
   position: fixed;
@@ -129,7 +386,7 @@ body::after {
   height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.03;
+  opacity: var(--noise-opacity);
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -152,7 +409,7 @@ svg {
 }
 
 /* ============================================================
-   LAYOUT UTILITIES (Sharp, Premium, No Boxy Design)
+   LAYOUT UTILITIES
 ============================================================ */
 .section-wrap {
   width: 100%;
@@ -203,17 +460,18 @@ svg {
   letter-spacing: -0.01em;
 }
 
-/* High-End Cinematic Glass Card */
+/* ============================================================
+   GLASS CARD
+============================================================ */
 .glass-card {
-  background: rgba(10, 10, 10, 0.7);
+  background: var(--glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
   box-shadow: 0 0 20px -10px transparent;
   z-index: 10;
   position: relative;
   border-radius: 24px;
-  /* 3xl roughly */
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
 }
@@ -225,20 +483,16 @@ svg {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+  background: linear-gradient(135deg, var(--bg-surface) 0%, transparent 100%);
   pointer-events: none;
   z-index: -1;
   border-radius: inherit;
 }
 
 .glass-card:hover {
-  border-color: rgba(90, 166, 138, 0.28);
+  border-color: var(--card-hover-border);
   transform: translateY(-4px);
-  background: rgba(90, 166, 138, 0.04);
-}
-
-[data-theme='light'] .glass-card {
-  /* same dark glass */
+  background: var(--card-hover-bg);
 }
 
 /* ============================================================
@@ -270,7 +524,7 @@ svg {
 }
 
 .text-shimmer {
-  background: linear-gradient(135deg, #6ead98 0%, #C9A84C 100%);
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-gold) 100%);
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
@@ -280,7 +534,7 @@ svg {
 }
 
 .gold-shimmer {
-  background: linear-gradient(135deg, #6ead98 0%, #C9A84C 100%);
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-gold) 100%);
   background-size: 200% auto;
   color: transparent;
   -webkit-background-clip: text;
@@ -301,8 +555,8 @@ svg {
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(90, 166, 138, 0.8); }
-  50%       { box-shadow: 0 0 16px rgba(90, 166, 138, 1); }
+  0%, 100% { box-shadow: 0 0 8px rgba(var(--accent-primary-rgb), 0.8); }
+  50%       { box-shadow: 0 0 16px rgba(var(--accent-primary-rgb), 1); }
 }
 
 @keyframes ticker {
@@ -359,7 +613,7 @@ svg {
 }
 
 /* ============================================================
-   COMPONENTS (Buttons, Cards, etc.)
+   COMPONENTS (Buttons, etc.)
 ============================================================ */
 .btn-primary {
   position: relative;
@@ -386,7 +640,7 @@ svg {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(135deg, #C9A84C, #a8782a);
+  background: linear-gradient(135deg, var(--btn-gradient-start), var(--btn-gradient-end));
   z-index: -2;
 }
 
@@ -394,14 +648,14 @@ svg {
   content: '';
   position: absolute;
   inset: 1px;
-  background: #04100B;
+  background: var(--btn-primary-bg);
   border-radius: 9999px;
   z-index: -1;
   transition: background 0.3s ease;
 }
 
 .btn-primary:hover::after {
-  background: #081a12;
+  background: var(--btn-primary-bg-hover);
 }
 
 .btn-outline {
@@ -437,24 +691,6 @@ svg {
   }
 }
 
-/* Ensure empty pages meet the 700 line pad requirement if checked globally */
-/* The layout padding continues below... */
-
-:root {
-  /* Spacing */
-  --space-1: 8px;
-  --space-2: 16px;
-  --space-3: 24px;
-  --space-4: 32px;
-  --space-5: 40px;
-  --space-6: 56px;
-  --space-8: 72px;
-  --space-12: 96px;
-  --space-15: 120px;
-  --nav-h: 72px;
-}
-
-
 /* ============================================================
    RESPONSIVE SPACING
 ============================================================ */
@@ -466,8 +702,7 @@ svg {
 }
 
 /* ============================================================
-   REDUCED MOTION — respect the user's OS-level preference for
-   CSS-driven animations (marquees, pulses, shimmer, etc.)
+   REDUCED MOTION
 ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

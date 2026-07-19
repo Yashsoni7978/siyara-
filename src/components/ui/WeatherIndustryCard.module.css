@@ -16,8 +16,8 @@
   width: 100%;
   height: 130px;
   border-radius: 25px;
-  background: #1e1e1e;
-  color: #ffffff;
+  background: var(--wic-bg);
+  color: var(--wic-text);
   z-index: 2;
   transition: all 0.4s ease-in-out;
   display: flex;
@@ -41,7 +41,7 @@
   position: relative;
   margin-top: 5px;
   font-size: 0.8em;
-  color: #aaa;
+  color: var(--wic-sub);
 }
 
 .card2 {
@@ -52,7 +52,7 @@
   width: 100%;
   height: 130px;
   border-radius: 25px;
-  background: #252525;
+  background: var(--wic-bg-2);
   z-index: 1;
   transition: all 0.4s ease-in-out;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -71,7 +71,7 @@
 
 .cardm:hover .card2 {
   height: 320px;
-  background-color: #2d2d2d;
+  background-color: var(--wic-bg-hover);
 }
 
 /* Internal elements of card2 */
@@ -81,7 +81,7 @@
   justify-content: space-around;
   position: absolute;
   width: 100%;
-  color: #ffffff;
+  color: var(--wic-text);
   top: 135px; /* Hidden initially, reveals when height expands */
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -99,14 +99,14 @@
   align-items: center;
   text-align: center;
   font-size: 0.75em;
-  background: rgba(255,255,255,0.05);
+  background: var(--wic-project-bg);
   padding: 10px;
   border-radius: 12px;
   width: 45%;
 }
 
 .projectItem strong {
-  color: #10b981;
+  color: var(--wic-project-strong);
   margin-bottom: 4px;
 }
 
@@ -116,7 +116,7 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  color: #ccc;
+  color: var(--wic-desc);
   top: 200px; /* Hidden initially */
   opacity: 0;
   transition: 0.4s ease-in-out;
@@ -148,13 +148,13 @@
   font-size: 0.9em;
   font-weight: bold;
   border-radius: 18px;
-  background: #10b981;
-  color: #1e1e1e;
+  background: var(--wic-btn-bg);
+  color: var(--wic-text);
   transition: 0.2s ease-in-out;
   cursor: pointer;
 }
 
 .card3:hover {
-  background: #059669;
-  color: #fff;
+  background: var(--wic-btn-hover);
+  color: var(--text-inverse);
 }

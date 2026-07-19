@@ -8,6 +8,7 @@ import { CustomCursor } from '@/components/ui/CustomCursor'
 import { NoiseOverlay } from '@/components/ui/NoiseOverlay'
 import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
+import { ThemeColorMeta } from '@/components/ui/ThemeColorMeta'
 import { defaultMetadata, localBusinessSchema, organizationSchema, websiteSchema } from '@/lib/seo'
 import { SkipNav } from '@/components/ui/SkipNav'
 
