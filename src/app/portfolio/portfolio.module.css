@@ -213,7 +213,7 @@
 .h1Line2 {
   display: block;
   font-size: clamp(40px, 6vw, 90px);
-  color: rgba(255, 255, 255, 0.22);
+  color: var(--text-caption);
   font-weight: 700;
 }
 
@@ -782,7 +782,7 @@
 .testiQuote {
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-body-secondary);
   line-height: 1.75;
   font-family: 'Times New Roman', Times, serif;
   font-style: normal;
@@ -807,7 +807,7 @@
 
 .testiRole {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--text-caption);
   font-family: var(--font-ui);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -992,7 +992,7 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-caption);
 }
 
 .featuredBlockText {

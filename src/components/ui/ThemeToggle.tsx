@@ -6,7 +6,7 @@ import styles from "./ThemeToggle.module.css"
 
 export function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
 
   useEffect(() => {
     setMounted(true)
@@ -16,8 +16,7 @@ export function ThemeToggle() {
     return <div style={{ width: 36, height: 36 }} />
   }
 
-  // Determine actual theme correctly on client side
-  const isDark = theme === 'dark' || (!theme && typeof document !== 'undefined' && !document.documentElement.hasAttribute('data-theme'))
+  const isDark = resolvedTheme === 'dark'
 
   return (
     <button

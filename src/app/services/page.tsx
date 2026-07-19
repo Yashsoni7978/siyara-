@@ -254,7 +254,7 @@ export default function ServicesPage() {
           </div>
           
           {/* Rating Strip (Moved from top) */}
-          <div className={styles.ratingStripInner} style={{ marginBottom: '40px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)', overflow: 'hidden' }}>
+          <div className={styles.ratingStripInner} style={{ marginBottom: '40px', background: 'var(--bg-surface)', borderRadius: '12px', border: '1px solid var(--border-subtle)', overflow: 'hidden' }}>
             {PLATFORM_STATS.map(({ platform, rating, reviews, logo }) => (
               <div key={platform} className={styles.ratingStripItem}>
                 <span className={styles.ratingLogo}>{logo}</span>

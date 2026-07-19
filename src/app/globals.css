@@ -12,14 +12,14 @@
    These values are extracted from the existing production CSS.
    DO NOT modify without visual regression testing.
 ============================================================ */
-:root {
+:root, .force-dark {
   /* ── Background ── */
-  --bg-base:              #04100B;
-  --bg-primary:           #04100B;
-  --bg-primary-rgb:       4, 16, 11;
-  --bg-secondary:         #060f0a;
-  --bg-secondary-rgb:     6, 15, 10;
-  --bg-tertiary:          #081a12;
+  --bg-base:              #111416;
+  --bg-primary:           #111416;
+  --bg-primary-rgb:       17, 20, 22;
+  --bg-secondary:         #15181A;
+  --bg-secondary-rgb:     21, 24, 26;
+  --bg-tertiary:          #1A1D1F;
   --bg-card:              rgba(255, 255, 255, 0.02);
   --bg-card-hover:        rgba(90, 166, 138, 0.04);
   --bg-surface:           rgba(255, 255, 255, 0.03);
@@ -44,6 +44,17 @@
   --text-secondary:       rgba(var(--text-primary-rgb), 0.5);
   --text-muted:           rgba(var(--text-primary-rgb), 0.5);
   --text-inverse:         #04100B;
+
+  /* ── Semantic Typography (Decoupled) ── */
+  --heading-primary:      var(--text-primary);
+  --heading-secondary:    var(--text-primary);
+  --heading-tertiary:     var(--text-primary);
+  --text-body:            var(--text-primary);
+  --text-body-secondary:  var(--text-secondary);
+  --text-caption:         rgba(var(--text-primary-rgb), 0.4);
+  --text-success:         var(--accent-green);
+  --text-accent:          var(--accent-gold);
+  --text-disabled:        rgba(var(--text-primary-rgb), 0.3);
 
   /* ── Border ── */
   --border-color:         rgba(90, 166, 138, 0.08);
@@ -70,8 +81,8 @@
   --glass-border:         rgba(255, 255, 255, 0.1);
 
   /* ── Navigation ── */
-  --nav-bg:               rgba(10, 10, 10, 0.95);
-  --nav-bg-scrolled:      rgba(5, 5, 5, 0.98);
+  --nav-bg:               transparent;
+  --nav-bg-scrolled:      rgba(10, 10, 10, 0.95);
   --nav-border:           rgba(255, 255, 255, 0.05);
   --nav-border-scrolled:  rgba(255, 255, 255, 0.1);
   --nav-link:             rgba(255, 255, 255, 0.6);
@@ -166,17 +177,17 @@
 ============================================================ */
 [data-theme='light'] {
   /* ── Background ── */
-  --bg-base:              #F7F3EB;
-  --bg-primary:           #F7F3EB;
-  --bg-primary-rgb:       247, 243, 235;
-  --bg-secondary:         #F2EBDD;
-  --bg-secondary-rgb:     242, 235, 221;
-  --bg-tertiary:          #ECE4D4;
-  --bg-card:              rgba(30, 90, 72, 0.03);
-  --bg-card-hover:        rgba(30, 90, 72, 0.06);
-  --bg-surface:           rgba(30, 90, 72, 0.04);
-  --bg-surface-elevated:  rgba(30, 90, 72, 0.06);
-  --foreground:           #1B1B1A;
+  --bg-base:              #F9F6F0;
+  --bg-primary:           #F9F6F0;
+  --bg-primary-rgb:       249, 246, 240;
+  --bg-secondary:         #F4EFE6;
+  --bg-secondary-rgb:     244, 239, 230;
+  --bg-tertiary:          #EBE4D8;
+  --bg-card:              #EBE4D8;
+  --bg-card-hover:        #E8DFC8;
+  --bg-surface:           #F4EFE6;
+  --bg-surface-elevated:  #EBE4D8;
+  --foreground:           #1A1A1A;
 
   /* ── Accent ── */
   --accent-primary:       #1E5A48;
@@ -186,109 +197,164 @@
   --accent-green:         #1E5A48;
   --accent-green-rgb:     30, 90, 72;
   --accent-light:         #2E7D5A;
-  --accent-deep:          #C7D6C8;
+  --accent-deep:          #EBE4D8;
   --accent-gold:          #C7A55B;
   --accent-gold-rgb:      199, 165, 91;
 
   /* ── Text ── */
-  --text-primary:         #1B1B1A;
-  --text-primary-rgb:     27, 27, 26;
-  --text-secondary:       rgba(27, 27, 26, 0.6);
-  --text-muted:           #6A6A63;
-  --text-inverse:         #F7F3EB;
+  --text-primary:         #1A1A1A;
+  --text-primary-rgb:     26, 26, 26;
+  --text-secondary:       rgba(26, 26, 26, 0.6);
+  --text-muted:           #666666;
+  --text-inverse:         #FFFFFF;
+
+  /* ── Semantic Typography (Decoupled) ── */
+  --heading-primary:      #1A1A1A;
+  --heading-secondary:    #1E5A48;
+  --heading-tertiary:     #1E5A48;
+  --text-body:            #3F4A46;
+  --text-body-secondary:  #505A56;
+  --text-caption:         #7A746B;
+  --text-success:         #2E7D5A;
+  --text-accent:          #C7A55B;
+  --text-disabled:        #A3A3A3;
 
   /* ── Border ── */
-  --border-color:         rgba(30, 90, 72, 0.12);
+  --border-color:         rgba(30, 90, 72, 0.08);
   --border-subtle:        rgba(30, 90, 72, 0.08);
-  --border-hover:         rgba(30, 90, 72, 0.35);
-  --border-glow:          rgba(30, 90, 72, 0.25);
-  --border-strong:        rgba(30, 90, 72, 0.22);
+  --border-hover:         rgba(30, 90, 72, 0.2);
+  --border-glow:          rgba(199, 165, 91, 0.15);
+  --border-strong:        rgba(30, 90, 72, 0.15);
   --border-section:       rgba(30, 90, 72, 0.08);
 
   /* ── Card ── */
-  --card-bg:              rgba(30, 90, 72, 0.03);
-  --card-border:          rgba(30, 90, 72, 0.10);
-  --card-hover-bg:        rgba(30, 90, 72, 0.06);
-  --card-hover-border:    rgba(30, 90, 72, 0.22);
+  --card-bg:              #EBE4D8;
+  --card-border:          rgba(30, 90, 72, 0.08);
+  --card-hover-bg:        #E8DFC8;
+  --card-hover-border:    rgba(30, 90, 72, 0.2);
 
   /* ── Input ── */
-  --input-bg:             #F7F3EB;
-  --input-border:         rgba(27, 27, 26, 0.15);
+  --input-bg:             #F9F6F0;
+  --input-border:         rgba(26, 26, 26, 0.15);
   --input-focus:          #1E5A48;
 
   /* ── Glass ── */
-  --glass-bg:             rgba(247, 243, 235, 0.85);
-  --glass-bg-elevated:    rgba(247, 243, 235, 0.98);
-  --glass-border:         rgba(30, 90, 72, 0.12);
+  --glass-bg:             rgba(249, 246, 240, 0.85);
+  --glass-bg-elevated:    rgba(249, 246, 240, 0.98);
+  --glass-border:         rgba(30, 90, 72, 0.08);
 
   /* ── Navigation ── */
-  --nav-bg:               rgba(247, 243, 235, 0.95);
-  --nav-bg-scrolled:      rgba(242, 235, 221, 0.98);
+  --nav-bg:               rgba(249, 246, 240, 0.95);
+  --nav-bg-scrolled:      rgba(244, 239, 230, 0.98);
   --nav-border:           rgba(30, 90, 72, 0.08);
-  --nav-border-scrolled:  rgba(30, 90, 72, 0.15);
-  --nav-link:             rgba(27, 27, 26, 0.55);
-  --nav-link-hover:       #1B1B1A;
-  --nav-logo:             #1B1B1A;
+  --nav-border-scrolled:  rgba(30, 90, 72, 0.12);
+  --nav-link:             rgba(26, 26, 26, 0.55);
+  --nav-link-hover:       #1A1A1A;
+  --nav-logo:             #1A1A1A;
 
   /* ── Button ── */
-  --btn-primary-bg:       #F7F3EB;
-  --btn-primary-bg-hover: #EFE7D8;
+  --btn-primary-bg:       #1E5A48;
+  --btn-primary-bg-hover: #164335;
+  --btn-text:             #C7A55B;
   --btn-gradient-start:   #C7A55B;
   --btn-gradient-end:     #a8862e;
-  --btn-cta-color:        #1E5A48;
+  --btn-cta-color:        #C7A55B;
   --btn-cta-hover-bg:     #1E5A48;
-  --btn-cta-hover-color:  #F7F3EB;
+  --btn-cta-hover-color:  #F9F6F0;
 
   /* ── Shadow ── */
-  --shadow-card:          0 2px 12px rgba(30, 90, 72, 0.06);
-  --shadow-elevated:      0 20px 40px rgba(30, 90, 72, 0.08);
-  --shadow-glow:          0 0 20px rgba(30, 90, 72, 0.06);
+  --shadow-card:          0 4px 24px rgba(20, 18, 15, 0.06);
+  --shadow-elevated:      0 8px 32px rgba(20, 18, 15, 0.08);
+  --shadow-glow:          0 0 24px rgba(199, 165, 91, 0.1);
 
   /* ── Decorative ── */
-  --glow-primary:         rgba(199, 214, 200, 0.5);
-  --glow-secondary:       rgba(199, 214, 200, 0.25);
-  --glow-tertiary:        rgba(30, 90, 72, 0.06);
-  --orb-1:                rgba(30, 90, 72, 0.06);
-  --orb-2:                rgba(199, 214, 200, 0.1);
-  --orb-3:                rgba(30, 90, 72, 0.03);
+  --glow-primary:         rgba(235, 228, 216, 0.4);
+  --glow-secondary:       rgba(235, 228, 216, 0.1);
+  --glow-tertiary:        rgba(235, 228, 216, 0.05);
+  --curtain-pos:          50% 120%;
+  --curtain-blur:         blur(40px);
+  --orb-1:                rgba(249, 246, 240, 0.05);
+  --orb-2:                rgba(199, 165, 91, 0.02);
+  --orb-3:                rgba(235, 228, 216, 0.05);
+  --orb-blur:             blur(60px);
+  --ray-opacity:          0.02;
+  --ray-blur:             blur(24px);
+  --hero-h1-shadow:       0 8px 32px rgba(26, 26, 26, 0.08);
   --noise-opacity:        0.015;
-  --page-curtain-shadow:  0 -20px 40px rgba(30, 90, 72, 0.06);
+  --page-curtain-shadow:  0 -20px 40px rgba(20, 18, 15, 0.06);
 
   /* ── Testimonial section ── */
-  --testi-bg:             #F2EBDD;
-  --testi-card-bg:        #F7F3EB;
-  --testi-card-border:    rgba(199, 165, 91, 0.25);
-  --testi-card-hover:     rgba(199, 165, 91, 0.5);
-  --testi-quote:          #4A4A44;
-  --testi-role:           #8A8A82;
+  --testi-bg:             #F4EFE6;
+  --testi-card-bg:        #F9F6F0;
+  --testi-card-border:    rgba(30, 90, 72, 0.08);
+  --testi-card-hover:     rgba(30, 90, 72, 0.15);
+  --testi-quote:          #1A1A1A;
+  --testi-role:           #666666;
   --testi-star:           #C7A55B;
 
   /* ── WeatherIndustryCard ── */
-  --wic-bg:               #EFE7D8;
-  --wic-bg-2:             #E8DFC8;
-  --wic-bg-hover:         #E2D9C0;
-  --wic-text:             #1B1B1A;
-  --wic-sub:              #6A6A63;
-  --wic-desc:             #4A4A44;
+  --wic-bg:               #EBE4D8;
+  --wic-bg-2:             #E4DBCB;
+  --wic-bg-hover:         #DFD5C2;
+  --wic-text:             #1A1A1A;
+  --wic-sub:              #666666;
+  --wic-desc:             #1A1A1A;
   --wic-btn-bg:           #1E5A48;
-  --wic-btn-hover:        #2E7D5A;
+  --wic-btn-hover:        #164335;
   --wic-project-bg:       rgba(30, 90, 72, 0.06);
   --wic-project-strong:   #1E5A48;
 
   /* ── Code block ── */
-  --code-bg:              rgba(30, 90, 72, 0.04);
-  --code-toolbar-bg:      rgba(30, 90, 72, 0.03);
-  --code-text:            #1B1B1A;
+  --code-bg:              #EBE4D8;
+  --code-toolbar-bg:      #F4EFE6;
+  --code-text:            #1A1A1A;
 
   /* ── Selection / Scrollbar ── */
-  --selection-bg:         rgba(30, 90, 72, 0.15);
-  --selection-color:      #1B1B1A;
-  --scrollbar-track:      #F2EBDD;
+  --selection-bg:         rgba(199, 165, 91, 0.2);
+  --selection-color:      #1A1A1A;
+  --scrollbar-track:      #F4EFE6;
   --scrollbar-thumb:      rgba(30, 90, 72, 0.2);
   --scrollbar-thumb-hover: rgba(30, 90, 72, 0.35);
 
   /* ── Theme meta ── */
-  --theme-color:          #F7F3EB;
+  --theme-color:          #F9F6F0;
+}
+
+/* ============================================================
+   HYBRID HERO OVERRIDE (LIGHT THEME)
+   Applies a deep charcoal (10-15% lighter than dark theme) 
+   and restores pure white typography.
+============================================================ */
+[data-theme='light'] .force-dark {
+  --bg-primary:           #111416; /* Premium neutral charcoal */
+  --bg-base:              #111416;
+  --bg-secondary:         #15181A;
+  --bg-tertiary:          #1A1D1F;
+  --text-primary:         #FFFFFF;
+  --text-primary-rgb:     255, 255, 255;
+  --heading-primary:      #FFFFFF;
+  --text-body-secondary:  rgba(255, 255, 255, 0.9);
+  --text-muted:           #A3A3A3;
+  
+  /* Refined Ambient Lighting */
+  --glow-primary:         rgba(25, 36, 31, 0.5);
+  --glow-secondary:       rgba(25, 36, 31, 0.25);
+  --glow-tertiary:        rgba(25, 36, 31, 0.05);
+  --orb-1:                rgba(199, 165, 91, 0.04); /* Subtle gold */
+  --orb-2:                rgba(25, 36, 31, 0.15);
+  --orb-3:                rgba(30, 90, 72, 0.06);
+  --orb-blur:             blur(90px); /* Increased blur to remove blob effect */
+  --ray-opacity:          0.015; /* Extremely soft rays */
+  --noise-opacity:        0.025;
+  
+  /* Depth & Separation */
+  --hero-h1-shadow:       0 16px 48px rgba(0, 0, 0, 0.6);
+  
+  /* CTA Polish */
+  --btn-primary-bg:       #19221F;
+  --btn-primary-bg-hover: #1F2A27;
+  --btn-gradient-start:   #D4B254;
+  --btn-gradient-end:     #9A7E35;
 }
 
 
@@ -621,7 +687,7 @@ svg {
   align-items: center;
   justify-content: center;
   padding: 16px 40px;
-  color: var(--text-primary);
+  color: var(--btn-text, var(--text-primary));
   font-family: var(--font-ui);
   font-size: 14px;
   font-weight: 600;

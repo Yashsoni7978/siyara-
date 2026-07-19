@@ -34,7 +34,7 @@ const MARQUEE_ITEMS = [
 ]
 
 const PAIN_POINTS = [
-  { num: '01', shortTitle: "Outdated Design", image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600&h=400&auto=format&fit=crop", title: "Your website looks like it's from 2016.", body: "And your customers notice. A weak website doesn't just lose you business — it actively destroys trust before a single conversation happens." },
+  { num: '01', shortTitle: "Outdated Design", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&h=400&auto=format&fit=crop", title: "Your website looks like it's from 2016.", body: "And your customers notice. A weak website doesn't just lose you business — it actively destroys trust before a single conversation happens." },
   { num: '02', shortTitle: "Invisible on Search", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=600&h=400&auto=format&fit=crop", title: "You're invisible on Google.", body: "Your competitors are showing up every time someone searches for your service in Jaipur. You're not. That's not bad luck. That's a fixable problem." },
   { num: '03', shortTitle: "Wasted Ad Spend", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&h=400&auto=format&fit=crop", title: "You're wasting money on ads that don't work.", body: "Bad creative. No targeting strategy. No follow-up system. Money spent on ads without a proper strategy is just money spent." },
   { num: '04', shortTitle: "Fragmented Strategy", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&h=400&auto=format&fit=crop", title: "You have 4 vendors and zero strategy.", body: "A social media guy who doesn't talk to the website guy. An ad agency that's never seen your brand guide. Nothing connected. Nothing compounding." },
@@ -75,7 +75,7 @@ export default function HomePage() {
       {/* ============================================================
           HERO
       ============================================================ */}
-      <div className={styles.heroStickyContainer}>
+      <div className={`${styles.heroStickyContainer} force-dark`}>
         <section className={styles.hero} aria-label="Hero section">
         <div className={styles.heroCurtain} aria-hidden="true" />
         <div className={styles.heroRays} aria-hidden="true" />
@@ -92,9 +92,9 @@ export default function HomePage() {
               </div>
 
               <h1 className={styles.h1} style={{ fontFamily: "'Times New Roman', Times, serif", textTransform: 'uppercase', lineHeight: '1.1', fontWeight: 'bold', textAlign: 'left' }}>
-                <div className={styles.h1Line1} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: '#fff', whiteSpace: 'nowrap' }}>We build brands</div>
-                <div className={styles.h1Line2} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'rgba(255, 255, 255, 0.25)', whiteSpace: 'nowrap' }}>that</div>
-                <div className={styles.h1Line3} style={{ fontSize: 'clamp(70px, 13vw, 180px)', color: '#fff', whiteSpace: 'nowrap', letterSpacing: '0.02em', fontWeight: '900' }}>DOMINATE</div>
+                <div className={styles.h1Line1} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'var(--heading-primary)', whiteSpace: 'nowrap' }}>We build brands</div>
+                <div className={styles.h1Line2} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'var(--text-body-secondary)', whiteSpace: 'nowrap' }}>that</div>
+                <div className={styles.h1Line3} style={{ fontSize: 'clamp(70px, 13vw, 180px)', color: 'var(--heading-primary)', whiteSpace: 'nowrap', letterSpacing: '0.02em', fontWeight: '900' }}>DOMINATE</div>
               </h1>
 
 
@@ -135,7 +135,7 @@ export default function HomePage() {
             We don&apos;t just build websites.<br />
             <span className="gold-shimmer">We architect growth engines.</span>
           </h2>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+          <p style={{ fontSize: '18px', color: 'var(--text-body-secondary)', lineHeight: '1.6', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
             At Siyara Innovations, we unify premium branding, cutting-edge development, and AI-driven automation under one roof. We eliminate the friction between your vision and your revenue, giving your business the digital foundation it needs to scale and dominate.
           </p>
           <Link href="/about" className="btn-outline">

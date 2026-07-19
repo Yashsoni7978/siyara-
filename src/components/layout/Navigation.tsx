@@ -5,12 +5,12 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { WA_LINKS } from '@/lib/constants'
 import { Home, Briefcase, Image as ImageIcon, User, MessageSquare } from 'lucide-react'
+import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import styles from './Navigation.module.css'
 
 const NAV_LINKS = [
-  { label: 'WORK', href: '/portfolio' },
+  { label: 'ABOUT', href: '/about' },
   { label: 'SERVICES', href: '/services' },
-  { label: 'MANIFESTO', href: '/about' },
   { label: 'CONTACT', href: '/contact' },
 ]
 
@@ -91,6 +91,7 @@ export function Navigation() {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <ThemeToggle />
           <Link
             href={WA_LINKS.default}
             className={styles.cta}
@@ -119,6 +120,9 @@ export function Navigation() {
         aria-modal="true"
         aria-label="Navigation menu"
       >
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+          <ThemeToggle />
+        </div>
         <div className={styles.mobileGroup}>
           {NAV_LINKS.map(link => (
             <Link key={link.label} href={link.href} className={styles.mobileLink}>
