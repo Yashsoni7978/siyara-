@@ -12,6 +12,7 @@ import { MagicBento } from '@/components/ui/MagicBento'
 import { FlowingMenu } from '@/components/ui/FlowingMenu'
 import { TiltedCard } from '@/components/ui/TiltedCard'
 import { WeatherIndustryCard } from '@/components/ui/WeatherIndustryCard'
+import HeroSilk from '@/components/hero/HeroSilk'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -76,7 +77,16 @@ export default function HomePage() {
       ============================================================ */}
       <div className={`${styles.heroStickyContainer} force-dark`}>
         <section className={styles.hero} aria-label="Hero section">
+        <HeroSilk
+          className={styles.silkCanvas}
+          color="#06402B"
+          speed={1.2}
+          noiseIntensity={1.2}
+          mouseSensitivity={0.15}
+          damping={0.9}
+        />
         <div className={styles.heroCurtain} aria-hidden="true" />
+        <div className={styles.silkOverlay} aria-hidden="true" />
         <div className={styles.heroRays} aria-hidden="true" />
         <div className={`${styles.orb} ${styles.orb1}`} aria-hidden="true" />
         <div className={`${styles.orb} ${styles.orb2}`} aria-hidden="true" />

@@ -17,7 +17,7 @@
   flex-direction: column;
   padding: 0 48px;
   border-bottom: 1px solid var(--border-color);
-  background: var(--bg-primary);
+  background: #04100B;
   overflow: hidden;
   z-index: 1;
 }
@@ -58,6 +58,13 @@
   -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, black 10%, transparent 80%);
 }
 
+.silkCanvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .heroCurtain {
   position: absolute;
   bottom: -20%;
@@ -66,7 +73,8 @@
   width: 140%;
   height: 85%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
+  opacity: 0.15;
   background: radial-gradient(
     ellipse 55% 55% at var(--curtain-pos, 50% 100%),
     var(--glow-primary)  0%,
@@ -76,6 +84,14 @@
   );
   filter: var(--curtain-blur, none);
   animation: pulseGlow 5s ease-in-out infinite;
+}
+
+.silkOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.05);
+  pointer-events: none;
 }
 
 .heroRays {

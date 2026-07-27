@@ -104,12 +104,12 @@
   --shadow-glow:          0 0 20px rgba(90, 166, 138, 0.08);
 
   /* ── Decorative (hero glows, curtains) ── */
-  --glow-primary:         rgba(var(--bg-tertiary-rgb), 0.85);
-  --glow-secondary:       rgba(var(--bg-secondary-rgb), 0.5);
-  --glow-tertiary:        rgba(var(--bg-tertiary-rgb), 0.2);
-  --orb-1:                rgba(90, 166, 138, 0.12);
-  --orb-2:                rgba(var(--bg-tertiary-rgb), 0.15);
-  --orb-3:                rgba(90, 166, 138, 0.06);
+  --glow-primary:         rgba(6, 64, 43, 0.45);
+  --glow-secondary:       rgba(6, 64, 43, 0.25);
+  --glow-tertiary:        rgba(6, 64, 43, 0.08);
+  --orb-1:                rgba(6, 64, 43, 0.15);
+  --orb-2:                rgba(6, 64, 43, 0.10);
+  --orb-3:                rgba(6, 64, 43, 0.06);
   --noise-opacity:        0.03;
   --page-curtain-shadow:  0 -20px 40px rgba(0, 0, 0, 0.5);
 
@@ -337,12 +337,12 @@
   --text-muted:           #A3A3A3;
   
   /* Refined Ambient Lighting */
-  --glow-primary:         rgba(25, 36, 31, 0.5);
-  --glow-secondary:       rgba(25, 36, 31, 0.25);
-  --glow-tertiary:        rgba(25, 36, 31, 0.05);
-  --orb-1:                rgba(199, 165, 91, 0.04); /* Subtle gold */
-  --orb-2:                rgba(25, 36, 31, 0.15);
-  --orb-3:                rgba(30, 90, 72, 0.06);
+  --glow-primary:         rgba(6, 64, 43, 0.5);
+  --glow-secondary:       rgba(6, 64, 43, 0.25);
+  --glow-tertiary:        rgba(6, 64, 43, 0.05);
+  --orb-1:                rgba(6, 64, 43, 0.08);
+  --orb-2:                rgba(6, 64, 43, 0.15);
+  --orb-3:                rgba(6, 64, 43, 0.06);
   --orb-blur:             blur(90px); /* Increased blur to remove blob effect */
   --ray-opacity:          0.015; /* Extremely soft rays */
   --noise-opacity:        0.025;
