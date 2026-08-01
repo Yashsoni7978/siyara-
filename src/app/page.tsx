@@ -101,9 +101,9 @@ export default function HomePage() {
               </div>
 
               <h1 className={styles.h1} style={{ fontFamily: "'Times New Roman', Times, serif", textTransform: 'uppercase', lineHeight: '1.1', fontWeight: 'bold', textAlign: 'left' }}>
-                <div className={styles.h1Line1} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'var(--heading-primary)', whiteSpace: 'nowrap' }}>We build brands</div>
-                <div className={styles.h1Line2} style={{ fontSize: 'clamp(40px, 6vw, 90px)', color: 'var(--text-body-secondary)', whiteSpace: 'nowrap' }}>that</div>
-                <div className={styles.h1Line3} style={{ fontSize: 'clamp(70px, 13vw, 180px)', color: 'var(--heading-primary)', whiteSpace: 'nowrap', letterSpacing: '0.02em', fontWeight: '900' }}>DOMINATE</div>
+                <div className={styles.h1Line1} style={{ fontSize: 'clamp(32px, 6vw, 90px)', color: 'var(--heading-primary)', whiteSpace: 'nowrap' }}>We build brands</div>
+                <div className={styles.h1Line2} style={{ fontSize: 'clamp(32px, 6vw, 90px)', color: 'var(--text-body-secondary)', whiteSpace: 'nowrap' }}>that</div>
+                <div className={styles.h1Line3} style={{ fontSize: 'clamp(46px, 13vw, 180px)', color: 'var(--heading-primary)', whiteSpace: 'nowrap', letterSpacing: '0.02em', fontWeight: '900' }}>DOMINATE</div>
               </h1>
 
 

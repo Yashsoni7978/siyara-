@@ -758,12 +758,75 @@ svg {
 }
 
 /* ============================================================
-   RESPONSIVE SPACING
+   RESPONSIVE SPACING & UTILITIES
 ============================================================ */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 100px 0;
+    --card-padding: 32px;
+  }
+  
+  .section-title {
+    font-size: clamp(32px, 6vw, 48px);
+  }
+  
+  .h1 {
+    font-size: clamp(60px, 9vw, 100px);
+  }
+}
+
+@media (max-width: 768px) {
   :root {
     --section-padding: 80px 0;
     --card-padding: 24px 20px;
+    --space-15: 80px;
+    --space-12: 64px;
+    --space-8: 48px;
+    --space-6: 40px;
+    --space-5: 32px;
+    --space-4: 24px;
+  }
+
+  .section-wrap {
+    padding: 0 5vw;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 8vw, 40px);
+    margin-bottom: 24px;
+  }
+
+  h1, h2, h3 {
+    word-break: break-word;
+  }
+
+  .glass-card {
+    border-radius: 16px;
+  }
+  
+  .btn-primary {
+    padding: 14px 32px;
+    font-size: 13px;
+    width: 100%;
+  }
+
+  .btn-outline {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 64px 0;
+    --card-padding: 20px 16px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 8vw, 32px);
   }
 }
 
