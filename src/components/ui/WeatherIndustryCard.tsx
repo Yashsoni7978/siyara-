@@ -10,14 +10,16 @@ interface WeatherIndustryCardProps {
 export const WeatherIndustryCard = ({ name, desc, ctaText }: WeatherIndustryCardProps) => {
   return (
     <div className={styles.cardm}>
-      <div className={styles.card}>
-        <div className={styles.main}>{name}</div>
-        <div className={styles.mainsub}>Siyara Innovations</div>
-      </div>
-
+      {/* Unified Card Container */}
       <div className={styles.card2}>
+        {/* Top Header — Industry Name (Always visible) */}
+        <div className={styles.cardHeader}>
+          <h3 className={styles.main}>{name}</h3>
+          <div className={styles.mainsub}>Siyara Innovations</div>
+        </div>
+
+        {/* Middle Section — Featured / Case Study Pills (Reveals on hover) */}
         <div className={styles.upper}>
-          {/* Projects on top, as requested */}
           <div className={styles.projectItem}>
             <strong>Featured</strong>
             Client Project
@@ -28,8 +30,8 @@ export const WeatherIndustryCard = ({ name, desc, ctaText }: WeatherIndustryCard
           </div>
         </div>
 
+        {/* Lower Section — Description + CTA Button (Reveals on hover) */}
         <div className={styles.lower}>
-          {/* Description in the bottom */}
           <p className={styles.descText}>{desc}</p>
           <div className={styles.card3}>{ctaText}</div>
         </div>

@@ -259,61 +259,42 @@ export const MagicBento: React.FC<BentoProps> = ({
     <div className={styles.bentoContainer}>
       <div ref={gridRef} className={styles.bentoGrid}>
         {items.map((card, index) => {
+          const serviceLabel = card.num ? `Service ${card.num}` : (card.fix ? `Fixes: ${card.fix}` : 'Feature');
+
           const Content = (
             <>
+              {/* Ambient overlays */}
               <div className={styles.spotlightOverlay} />
               {enableBorderGlow && <div className={styles.borderGlow} />}
-              
+
+              {/* contentWrapper is the perspective anchor */}
               <div className={styles.contentWrapper}>
-                {card.icon && <div className={styles.iconWrapper}>{card.icon}</div>}
-                
-                <span className={styles.label}>
-                  {card.num ? `Service ${card.num}` : (card.fix ? `Fixes: ${card.fix}` : 'Feature')}
-                </span>
-                
-                <h3 className={styles.title}>
-                  {card.name || card.title}
-                </h3>
-                
-                {card.description && (
-                  <p className={`${styles.description} ${textAutoHide ? styles.lineClamp : ''}`}>
-                    {card.description}
-                  </p>
-                )}
-                
-                {card.features && card.features.length > 0 && (
-                  <ul className={styles.featuresList}>
-                    {card.features.map((feature, idx) => (
-                      <li key={idx} className={styles.featureItem}>
-                        <svg className={styles.featureIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+
+                {/* ── FRONT: service name centred (visible by default) ── */}
+                <div className={styles.iconWrapper}>
+                  <p className={styles.frontTitle}>{card.name || card.title}</p>
+                </div>
+
+                {/* ── TOP panel: service label — slides in from top ── */}
+                <div className={styles.cardContentTop}>
+                  <span className={styles.label}>{serviceLabel}</span>
+                  <span className={styles.title} style={{ margin: 0, fontSize: '13px' }}>
+                    {card.name || card.title}
+                  </span>
+                </div>
+
+                {/* ── BOTTOM panel: description — slides in from bottom ── */}
+                <div className={styles.cardContent}>
+                  {card.description && (
+                    <p className={styles.description}>{card.description}</p>
+                  )}
+                </div>
+
               </div>
             </>
           );
 
           const cardClass = `${styles.bentoCard} ${styles[`card-${index % 14}`]}`;
-
-          if (enableStars) {
-            return (
-              <ParticleCard
-                key={card.id || index}
-                href={`/services/${card.id}`}
-                className={cardClass}
-                particleCount={particleCount}
-                glowColor={glowColor}
-                enableTilt={enableTilt}
-                enableMagnetism={enableMagnetism}
-                clickEffect={clickEffect}
-                disableAnimations={shouldDisableAnimations}
-              >
-                {Content}
-              </ParticleCard>
-            );
-          }
 
           return (
             <Link key={card.id || index} href={`/services/${card.id}`} className={cardClass}>

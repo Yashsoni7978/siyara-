@@ -3,7 +3,7 @@
 import React from 'react'
 
 // Helper component to standardise SVG props
-const BaseIcon = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
+const BaseIcon = ({ children, className = '', width = 24, height = 24 }: { children: React.ReactNode, className?: string, width?: number, height?: number }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -12,6 +12,8 @@ const BaseIcon = ({ children, className = '' }: { children: React.ReactNode, cla
     strokeWidth="1.5"
     strokeLinecap="round"
     strokeLinejoin="round"
+    width={width}
+    height={height}
     className={`w-6 h-6 ${className}`}
   >
     {children}

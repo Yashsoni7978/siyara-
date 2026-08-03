@@ -268,9 +268,9 @@ export default function HomePage() {
       ============================================================ */}
       <section id="services" className={styles.servicesSection} aria-label="Our services">
         <div className="section-wrap">
-          <div className="section-header">
+          <div className="section-header" style={{ marginBottom: '28px' }}>
             <Reveal as="span" className="eyebrow">What We Do</Reveal>
-            <Reveal as="h2" delay={0.1} className="section-title">
+            <Reveal as="h2" delay={0.1} className="section-title" style={{ fontSize: 'clamp(26px, 3.5vw, 48px)', marginBottom: '0' }}>
               14 services.<br />
               <span className="gold-shimmer">One unified growth strategy.</span>
             </Reveal>
@@ -286,16 +286,16 @@ export default function HomePage() {
               features: (svc as any).features,
               icon: IconMap[svc.icon as keyof typeof IconMap]
             }))}
-            enableStars={true}
+            enableStars={false}
             enableSpotlight={true}
             enableBorderGlow={true}
-            enableTilt={true}
-            enableMagnetism={true}
-            clickEffect={true}
+            enableTilt={false}
+            enableMagnetism={false}
+            clickEffect={false}
             glowColor="201, 168, 76"
           />
           
-          <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <div style={{ textAlign: 'center', marginTop: '24px' }}>
             <Link href="/services" className="btn-outline">
               Explore All 14 Services →
             </Link>
@@ -323,7 +323,7 @@ export default function HomePage() {
               >
                 <Link
                   href={`/industries/${id}`}
-                  style={{ textDecoration: 'none' }}
+                  style={{ textDecoration: 'none', display: 'block', width: '100%', position: 'relative' }}
                   aria-label={`Learn more about ${name} industry`}
                 >
                   <WeatherIndustryCard name={name} desc={desc} ctaText={ctaText} />

@@ -1,96 +1,84 @@
-/* MagicBento.module.css */
+/* MagicBento.module.css — Front shows service name, hover flips to h3 + description */
 
+/* ── Container ─────────────────────────────────────────── */
 .bentoContainer {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 0;
 }
 
+/* ── Grid ─────────────────────────────────────────────── */
 .bentoGrid {
   display: grid;
-  gap: 16px;
+  gap: 14px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   grid-template-columns: repeat(1, 1fr);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .bentoGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 }
 
 @media (min-width: 1024px) {
   .bentoGrid {
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 240px;
-    grid-auto-flow: dense;
+    gap: 12px;
+    grid-auto-rows: 185px;
   }
-  
-  /* Create an interesting staggered bento layout for 14 items */
-  /* Cards 0, 3, 5, 8, 11 have extra features text, they MUST be span 2 rows (480px tall) */
-  .card-0 { grid-column: span 2; grid-row: span 2; }
-  .card-1 { grid-column: span 1; grid-row: span 1; }
-  .card-2 { grid-column: span 1; grid-row: span 1; }
-  .card-3 { grid-column: span 2; grid-row: span 2; }
-  
-  .card-4 { grid-column: span 2; grid-row: span 1; }
-  .card-5 { grid-column: span 2; grid-row: span 2; }
-  .card-6 { grid-column: span 1; grid-row: span 1; }
-  .card-7 { grid-column: span 2; grid-row: span 1; }
-  .card-8 { grid-column: span 2; grid-row: span 2; }
-  
-  .card-9 { grid-column: span 1; grid-row: span 1; }
-  .card-10 { grid-column: span 2; grid-row: span 1; }
-  .card-11 { grid-column: span 2; grid-row: span 2; }
-  .card-12 { grid-column: span 1; grid-row: span 1; }
-  .card-13 { grid-column: span 1; grid-row: span 1; }
 }
 
+/* All card-N — uniform, no masonry */
+.card-0, .card-1, .card-2, .card-3,
+.card-4, .card-5, .card-6, .card-7,
+.card-8, .card-9, .card-10, .card-11,
+.card-12, .card-13 {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* ── Outer card shell ──────────────────────────────────── */
 .bentoCard {
-  background: var(--bg-secondary);
-  border: 1px solid rgba(var(--accent-gold-rgb), 0.3); /* Golden border */
-  border-radius: 24px;
   position: relative;
-  overflow: hidden;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
+  min-height: 165px;
   width: 100%;
-  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(var(--accent-gold-rgb), 0.18);
+  background: var(--bg-secondary);
+  box-shadow: inset 0 0 20px rgba(var(--accent-gold-rgb), 0.015);
+  overflow: hidden;
+  perspective: 1000px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Push content to bottom by default */
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 0 15px rgba(var(--accent-gold-rgb), 0.05), inset 0 0 20px rgba(var(--accent-gold-rgb), 0.02);
+  transition:
+    border-color 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow   0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform    0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@media (min-width: 1024px) {
+  .bentoCard { min-height: unset; }
 }
 
 .bentoCard:hover {
-  border-color: rgba(var(--accent-gold-rgb), 0.8); /* Brighter gold on hover */
-  box-shadow: 0 0 25px rgba(var(--accent-gold-rgb), 0.15), inset 0 0 30px rgba(var(--accent-gold-rgb), 0.05);
+  border-color: rgba(var(--accent-gold-rgb), 0.65);
+  box-shadow:
+    0 10px 40px rgba(var(--accent-gold-rgb), 0.14),
+    0 0 0 1px rgba(var(--accent-gold-rgb), 0.12),
+    inset 0 0 28px rgba(var(--accent-gold-rgb), 0.04);
+  transform: scale(1.025);
 }
 
-.spotlightOverlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    var(--spotlight-radius, 300px) circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    var(--glow-color, rgba(var(--accent-primary-rgb), 0.15)),
-    transparent 80%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.bentoCard:hover .spotlightOverlay {
-  opacity: 1;
-}
-
+/* ── Border glow (mouse-tracked) ───────────────────────── */
 .borderGlow {
   position: absolute;
   inset: 0;
@@ -98,122 +86,185 @@
   border-radius: inherit;
   padding: 1px;
   background: radial-gradient(
-    var(--spotlight-radius, 300px) circle at var(--mouse-x, 0) var(--mouse-y, 0),
-    rgba(var(--accent-primary-rgb), 0.8), /* Accent green */
-    transparent 40%
+    var(--spotlight-radius, 280px) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(var(--accent-gold-rgb), 0.75),
+    transparent 50%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
+  transition: opacity 0.4s ease;
+  z-index: 20;
 }
 
-.bentoCard:hover .borderGlow {
-  opacity: 1;
+.bentoCard:hover .borderGlow { opacity: 1; }
+
+/* ── Spotlight overlay ─────────────────────────────────── */
+.spotlightOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    var(--spotlight-radius, 260px) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(var(--accent-primary-rgb), 0.06),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
 }
 
+.bentoCard:hover .spotlightOverlay { opacity: 1; }
+
+/* ── contentWrapper — the perspective anchor ───────────── */
 .contentWrapper {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 10;
+}
+
+/* ══════════════════════════════════════════════════════════
+   FRONT FACE — service name centred, visible by default
+══════════════════════════════════════════════════════════ */
+.iconWrapper {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-
-.iconWrapper {
-  margin-bottom: auto;
-  color: var(--accent-gold);
-  width: 48px;
-  height: 48px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(var(--accent-gold-rgb), 0.1);
-  border-radius: 12px;
-  border: 1px solid rgba(var(--accent-gold-rgb), 0.2);
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+  pointer-events: none;
+  transition:
+    opacity  0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.label {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--accent-green);
-  text-transform: uppercase;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-  margin-top: 16px;
+/* Service number label — hidden on front face */
+.iconNum {
+  display: none;
 }
 
-.bentoCard:hover .label {
-  opacity: 1;
-}
-
-.title {
-  font-size: 26px;
-  font-weight: 600;
+/* Service name on the front face — large and bold */
+.frontTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-top: 8px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-align: center;
 }
 
-.description {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-top: 0;
-  max-height: 0;
+@media (min-width: 1024px) {
+  .frontTitle { font-size: 20px; }
+}
+@media (min-width: 1280px) {
+  .frontTitle { font-size: 22px; }
+}
+
+/* Front face fades + shrinks on hover */
+.bentoCard:hover .iconWrapper {
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Springy transition */
+  transform: scale(0.8);
 }
 
-.bentoCard:hover .description {
-  margin-top: 12px;
-  max-height: 120px;
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ══════════════════════════════════════════════════════════
+   BACK FACE — split reveal on hover
+   TOP panel  → slides in from the top edge
+   BOTTOM panel → slides in from the bottom edge
+══════════════════════════════════════════════════════════ */
 
-.featuresList {
-  list-style: none;
-  padding: 0;
-  margin-top: 0;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition-delay: 0.05s;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.bentoCard:hover .featuresList {
-  margin-top: 16px;
-  max-height: 160px;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.featureItem {
-  font-size: 13px;
-  color: var(--text-primary);
+/* ── TOP panel: service number badge ─────────────────── */
+.cardContentTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px 12px;
+  box-sizing: border-box;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   align-items: center;
   gap: 8px;
+  border-bottom: 1px solid rgba(var(--accent-gold-rgb), 0.12);
 }
 
-.featureIcon {
-  width: 14px;
-  height: 14px;
-  color: var(--accent-gold);
+.bentoCard:hover .cardContentTop {
+  transform: rotateX(0deg);
 }
 
-.lineClamp {
+/* ── BOTTOM panel: title + description ───────────────── */
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 20px 18px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    to top,
+    rgba(var(--accent-gold-rgb), 0.05) 0%,
+    transparent 100%
+  );
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bentoCard:hover .cardContent {
+  transform: rotateX(0deg);
+}
+
+/* Service number label — top panel inline */
+.label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Service name in top panel */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Description text — bottom panel */
+.description {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.55;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ── Hidden compatibility stubs ────────────────────────── */
+.featuresList,
+.featureItem,
+.featureIcon,
+.lineClamp,
+.iconWrapper svg {
+  display: none;
 }

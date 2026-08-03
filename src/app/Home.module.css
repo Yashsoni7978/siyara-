@@ -1645,14 +1645,26 @@
 }
 
 /* ============================================================
-   SERVICES SECTION
+   SERVICES SECTION — compact layout override
 ============================================================ */
 .servicesSection {
   position: relative;
-  padding: var(--section-padding);
+  padding: 56px 0 60px;
   background: transparent;
   border-bottom: 1px solid var(--border-section);
 }
+
+/* Tighten the heading–grid gap only in the services section */
+.servicesSection :global(.section-header) {
+  margin-bottom: 28px;
+}
+
+/* Make the section-title smaller and tighter here */
+.servicesSection :global(.section-title) {
+  font-size: clamp(28px, 4vw, 50px);
+  margin-bottom: 12px;
+}
+
 
 .servicesGrid {
   display: grid;
