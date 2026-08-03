@@ -14,6 +14,7 @@ export interface BentoCardProps {
   description?: string;
   features?: string[];
   icon?: React.ReactNode;
+  ctaText?: string;
 }
 
 export interface BentoProps {
@@ -275,14 +276,17 @@ export const MagicBento: React.FC<BentoProps> = ({
                   <p className={styles.frontTitle}>{card.name || card.title}</p>
                 </div>
 
-                {/* ── BACK panel: title + description ── */}
+                {/* ── BACK panel: title + description + CTA ── */}
                 <div className={styles.cardContent}>
-                  <span className={styles.title} style={{ margin: 0, fontSize: '18px', textAlign: 'left' }}>
+                  <span className={styles.title}>
                     {card.name || card.title}
                   </span>
                   {card.description && (
                     <p className={styles.description}>{card.description}</p>
                   )}
+                  <div className={styles.ctaButton}>
+                    {card.ctaText || "Contact Now"}
+                  </div>
                 </div>
 
               </div>

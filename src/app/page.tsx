@@ -284,7 +284,8 @@ export default function HomePage() {
               fix: svc.fix,
               description: svc.desc,
               features: (svc as any).features,
-              icon: IconMap[svc.icon as keyof typeof IconMap]
+              icon: IconMap[svc.icon as keyof typeof IconMap],
+              ctaText: (svc as any).ctaText
             }))}
             enableStars={false}
             enableSpotlight={true}
