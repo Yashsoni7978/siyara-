@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link';
+import { IconMap } from '@/components/ui/Icons';
 import styles from './MagicBento.module.css';
 
 export interface BentoCardProps {
@@ -14,6 +15,7 @@ export interface BentoCardProps {
   description?: string;
   features?: string[];
   icon?: React.ReactNode;
+  iconKey?: string;
   ctaText?: string;
 }
 
@@ -261,6 +263,7 @@ export const MagicBento: React.FC<BentoProps> = ({
       <div ref={gridRef} className={styles.bentoGrid}>
         {items.map((card, index) => {
           const serviceLabel = card.num ? `Service ${card.num}` : (card.fix ? `Fixes: ${card.fix}` : 'Feature');
+          const iconNode = (card.iconKey && IconMap[card.iconKey]) ? IconMap[card.iconKey] : card.icon;
 
           const Content = (
             <>
@@ -271,8 +274,13 @@ export const MagicBento: React.FC<BentoProps> = ({
               {/* contentWrapper is the perspective anchor */}
               <div className={styles.contentWrapper}>
 
-                {/* ── FRONT: service name centred (visible by default) ── */}
+                {/* ── FRONT: icon + service name centred (visible by default) ── */}
                 <div className={styles.iconWrapper}>
+                  {iconNode && (
+                    <div className={styles.frontIcon}>
+                      {iconNode}
+                    </div>
+                  )}
                   <p className={styles.frontTitle}>{card.name || card.title}</p>
                 </div>
 

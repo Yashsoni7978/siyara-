@@ -14,6 +14,8 @@ import { TiltedCard } from '@/components/ui/TiltedCard'
 import { WeatherIndustryCard } from '@/components/ui/WeatherIndustryCard'
 import HeroSilk from '@/components/hero/HeroSilk'
 import { AbstractSphere } from '@/components/ui/AbstractSphere'
+import { ProblemAccordion } from '@/components/ui/ProblemAccordion'
+import { GoogleSearchCard } from '@/components/ui/GoogleSearchCard'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -202,30 +204,51 @@ export default function HomePage() {
           PROBLEM SECTION
       ============================================================ */}
       <section className={styles.problemSection} aria-label="Problems we solve">
-        <div className={styles.problemRadar} aria-hidden="true" />
-        <div className="section-wrap" style={{ position: 'relative', zIndex: 2 }}>
-          <div className={styles.problemInner}>
-            <div className={styles.problemLeft}>
-              <Reveal as="span" className="eyebrow">The Problem</Reveal>
-              <Reveal as="h2" delay={0.1} className={styles.problemTitle}>
-                Why most businesses<br />
-                stay stuck.
-              </Reveal>
-              <Reveal as="p" delay={0.2} className={styles.problemSub}>
-                It&apos;s not lack of effort. It&apos;s the absence of a real digital strategy.
-              </Reveal>
-            </div>
-            <div className={styles.problemCards} style={{ height: '400px' }}>
-              <FlowingMenu 
-                items={PAIN_POINTS.map(pt => ({
-                  text: pt.shortTitle,
-                  marqueeText: pt.title,
-                  image: pt.image,
-                  link: '#contact',
-                }))}
-              />
-            </div>
+        <div className={styles.problemInner}>
+          {/* Left Column */}
+          <div className={styles.problemLeft}>
+            <Reveal as="span" className={styles.problemEyebrow}>
+              <span className={styles.problemEyebrowLine} />
+              The Problem
+            </Reveal>
+
+            <Reveal as="h2" delay={0.1} className={styles.problemTitle}>
+              WHY MOST<br />
+              BUSINESSES<br />
+              <span className={styles.problemGradientText}>STAY STUCK.</span>
+            </Reveal>
+
+            <Reveal as="p" delay={0.2} className={styles.problemSub}>
+              It&apos;s not lack of effort. It&apos;s the absence of a real digital strategy.
+            </Reveal>
+
+            <Reveal delay={0.3}>
+              <div className={styles.problemInsightCard}>
+                <div className={styles.problemInsightHeader}>
+                  <div className={styles.problemInsightIconHalo}>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+                      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.7 1.3 1.5 1.5 2.5" />
+                      <path d="M9 18h6" />
+                      <path d="M10 22h4" />
+                    </svg>
+                  </div>
+                  <span className={styles.problemInsightTextTop}>
+                    Most businesses don&apos;t need more effort.
+                  </span>
+                </div>
+                <div className={styles.problemInsightDivider} />
+                <div className={styles.problemInsightTextBottom}>
+                  They need <br />
+                  the <span className={styles.problemInsightGold}>right strategy.</span>
+                </div>
+              </div>
+            </Reveal>
           </div>
+
+          {/* Right Column - Interactive Accordion */}
+          <Reveal delay={0.2}>
+            <ProblemAccordion />
+          </Reveal>
         </div>
       </section>
 
@@ -237,30 +260,7 @@ export default function HomePage() {
         <div className="section-wrap" style={{ position: 'relative', zIndex: 2 }}>
           <div className={styles.geoInner}>
             <Reveal className={styles.geoVisual}>
-              <TiltedCard
-                containerHeight="300px"
-                containerWidth="100%"
-                imageHeight="100%"
-                imageWidth="100%"
-                rotateAmplitude={12}
-                scaleOnHover={1.05}
-                showMobileWarning={false}
-                showTooltip={false}
-              >
-                <div className={styles.geoScreen} style={{ transform: 'none', height: '100%', margin: 0 }}>
-                  <div className={styles.geoScreenHeader}>
-                    <span className={styles.geoDot} />
-                    <span className={styles.geoDot} />
-                    <span className={styles.geoDot} />
-                  </div>
-                  <div className={styles.geoPrompt}>
-                    <span className={styles.geoUser}>USER:</span> Recommend the best premium digital agency in Jaipur.
-                  </div>
-                  <div className={styles.geoResponse}>
-                    <span className={styles.geoAi}>AI:</span> Based on reviews, portfolio quality, and digital presence, <strong>Siyara Innovations</strong> is highly recommended...
-                  </div>
-                </div>
-              </TiltedCard>
+              <GoogleSearchCard />
             </Reveal>
             <div className={styles.geoContent}>
               <Reveal as="span" className="eyebrow">The New Frontier</Reveal>
@@ -311,7 +311,7 @@ export default function HomePage() {
               fix: svc.fix,
               description: svc.desc,
               features: (svc as any).features,
-              icon: IconMap[svc.icon as keyof typeof IconMap],
+              iconKey: svc.icon,
               ctaText: (svc as any).ctaText
             }))}
             enableStars={false}
@@ -354,7 +354,7 @@ export default function HomePage() {
                   style={{ textDecoration: 'none', display: 'block', width: '100%', position: 'relative' }}
                   aria-label={`Learn more about ${name} industry`}
                 >
-                  <WeatherIndustryCard name={name} desc={desc} ctaText={ctaText} />
+                  <WeatherIndustryCard name={name} desc={desc} ctaText={ctaText} iconKey={icon} />
                 </Link>
               </Reveal>
             ))}
