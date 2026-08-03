@@ -38,8 +38,13 @@ export function CursorSpotlight() {
 
   return (
     <m.div
-      className="cursor-spotlight pointer-events-none fixed top-0 left-0 z-40"
+      className="cursor-spotlight"
       style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 40,
+        pointerEvents: 'none',
         width: 600,
         height: 600,
         x,
