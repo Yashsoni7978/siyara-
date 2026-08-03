@@ -13,6 +13,7 @@ import { FlowingMenu } from '@/components/ui/FlowingMenu'
 import { TiltedCard } from '@/components/ui/TiltedCard'
 import { WeatherIndustryCard } from '@/components/ui/WeatherIndustryCard'
 import HeroSilk from '@/components/hero/HeroSilk'
+import { AbstractSphere } from '@/components/ui/AbstractSphere'
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -138,19 +139,45 @@ export default function HomePage() {
       {/* ============================================================
           ABOUT / PHILOSOPHY (Centered)
       ============================================================ */}
-      <section style={{ padding: '6rem 1rem', textAlign: 'center', maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 2 }}>
-        <Reveal>
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 64px)', fontFamily: "var(--font-display), 'Times New Roman', serif", lineHeight: '1.1', marginBottom: '2rem', textTransform: 'uppercase' }}>
-            We don&apos;t just build websites.<br />
-            <span className="gold-shimmer">We architect growth engines.</span>
-          </h2>
-          <p style={{ fontSize: '18px', color: 'var(--text-body-secondary)', lineHeight: '1.6', marginBottom: '3rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
-            At Siyara Innovations, Jaipur's premium digital marketing and web development agency, we unify premium branding, cutting-edge development, and AI-driven automation under one roof. We eliminate the friction between your vision and your revenue, giving businesses across India the digital foundation they need to scale and dominate.
-          </p>
-          <Link href="/about" className="btn-outline">
-            Read Our Story →
-          </Link>
-        </Reveal>
+      <section className={styles.philosophySection} aria-label="Our Philosophy">
+        <div className={styles.philosophyGrid}>
+          {/* Left Content */}
+          <div className={styles.philosophyLeft}>
+            <Reveal as="span" className={styles.philosophyEyebrow}>
+              Our Philosophy
+            </Reveal>
+            
+            <Reveal as="h2" delay={0.1} className={styles.philosophyTitle}>
+              We don&apos;t just build websites.<br />
+              <span className={styles.philosophyHighlight}>We architect growth engines.</span>
+            </Reveal>
+            
+            <Reveal as="p" delay={0.2} className={styles.philosophyDesc}>
+              At Siyara Innovations, Jaipur's premium digital marketing and web development agency, we craft premium branding, cutting-edge development, and AI-driven automation under one roof. We eliminate the friction between your vision and your revenue.
+            </Reveal>
+            
+            <Reveal delay={0.3} className={styles.serviceRow}>
+              {['Brand Strategy', 'Web Development', 'AI Automation', 'SEO', 'Performance Marketing'].map((service, i, arr) => (
+                <span key={service} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <span className={styles.serviceItem}>{service}</span>
+                  {i < arr.length - 1 && <span className={styles.serviceSeparator}>•</span>}
+                </span>
+              ))}
+            </Reveal>
+            
+            <Reveal delay={0.4}>
+              <Link href="/about" className={styles.premiumCta}>
+                Read Our Story 
+                <span className={styles.premiumCtaArrow}>→</span>
+              </Link>
+            </Reveal>
+          </div>
+
+          {/* Right Content - Abstract Sphere */}
+          <Reveal delay={0.2} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <AbstractSphere />
+          </Reveal>
+        </div>
       </section>
 
       {/* ============================================================
