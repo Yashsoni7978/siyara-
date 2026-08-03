@@ -12,7 +12,7 @@
    These values are extracted from the existing production CSS.
    DO NOT modify without visual regression testing.
 ============================================================ */
-:root, .force-dark {
+:root, .force-dark, [data-theme='light'] .force-dark, [data-theme='dark'] .force-dark {
   /* ── Background ── */
   --bg-base:              #111416;
   --bg-primary:           #111416;

@@ -6,8 +6,8 @@ import styles from './CustomCursor.module.css'
 export function CustomCursor() {
   const dotRef  = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
-  const mouse   = useRef({ x: 0, y: 0 })
-  const ring    = useRef({ x: 0, y: 0 })
+  const mouse   = useRef({ x: -100, y: -100 })
+  const ring    = useRef({ x: -100, y: -100 })
   const rafId   = useRef<number>(0)
 
   useEffect(() => {
