@@ -13,12 +13,12 @@ export function AbstractSphere() {
       <m.div
         className={styles.sphereWrapper}
         animate={{
-          y: [0, -15, 0],
+          y: [0, -8, 0],
           rotate: [0, 360],
         }}
         transition={{
           y: {
-            duration: 8,
+            duration: 9,
             repeat: Infinity,
             ease: "easeInOut"
           },
