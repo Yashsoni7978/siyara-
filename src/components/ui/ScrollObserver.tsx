@@ -7,57 +7,45 @@ export function ScrollObserver() {
   const pathname = usePathname()
 
   useEffect(() => {
-    // 1. Setup IntersectionObserver
+    // 1. Single optimized IntersectionObserver
+    // No scroll listeners, no getBoundingClientRect calls, no forced layout reflows.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible')
+            // Immediately unobserve target to release memory & CPU tracking
             observer.unobserve(entry.target)
           }
         })
       },
-      { threshold: 0, rootMargin: '100px 0px 50px 0px' }
+      {
+        threshold: 0.05,
+        rootMargin: '80px 0px 40px 0px',
+      }
     )
 
-    // 2. Function to find and observe all unrevealed elements
-    const scanAndObserve = () => {
+    // 2. Observe all unrevealed elements
+    const observeElements = () => {
       const elements = document.querySelectorAll('.reveal:not(.visible)')
-      elements.forEach((el) => {
-        observer.observe(el)
-      })
+      elements.forEach((el) => observer.observe(el))
     }
 
-    // 3. Fallback: Manual check for elements currently in viewport
-    const manualCheck = () => {
-      const elements = document.querySelectorAll('.reveal:not(.visible)')
-      elements.forEach((el) => {
-        const rect = el.getBoundingClientRect()
-        // If element is anywhere within 100px of the viewport, force it visible
-        if (rect.top < window.innerHeight + 100 && rect.bottom > -100) {
-          el.classList.add('visible')
-          observer.unobserve(el)
-        }
-      })
-    }
+    observeElements()
 
-    // Initialize
-    scanAndObserve()
-    manualCheck()
+    // 3. Lightweight MutationObserver to detect dynamically added DOM nodes (replaces polling & scroll listeners)
+    const mutationObserver = new MutationObserver(() => {
+      observeElements()
+    })
 
-    // 4. Poll every 500ms to catch elements added by React late
-    const interval = setInterval(() => {
-      scanAndObserve()
-      manualCheck()
-    }, 500)
-
-    // 5. Scroll listener as an ultimate fallback if IntersectionObserver fails
-    window.addEventListener('scroll', manualCheck, { passive: true })
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    })
 
     return () => {
       observer.disconnect()
-      clearInterval(interval)
-      window.removeEventListener('scroll', manualCheck)
+      mutationObserver.disconnect()
     }
   }, [pathname])
 

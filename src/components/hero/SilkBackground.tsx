@@ -252,12 +252,13 @@ export default function SilkBackground({
       /* ---- Mouse listener ---- */
       window.addEventListener('mousemove', onMouseMove, { passive: true })
 
-      /* ---- Animation loop ---- */
+      /* ---- Animation loop with off-screen pause observer ---- */
       const lerpFactor = 1 - damping  // damping 0.9 → lerp 0.1 → smooth lag
       const startTime = performance.now()
+      let isVisible = true
 
       const animate = () => {
-        if (cancelled) return
+        if (cancelled || !isVisible) return
         animFrameRef.current = requestAnimationFrame(animate)
 
         /* Smoothly interpolate mouse position */
@@ -272,11 +273,23 @@ export default function SilkBackground({
         renderer.render({ scene: mesh })
       }
 
+      const observer = new IntersectionObserver(([entry]) => {
+        const wasVisible = isVisible
+        isVisible = entry.isIntersecting
+        if (isVisible && !wasVisible && !cancelled) {
+          cancelAnimationFrame(animFrameRef.current)
+          animFrameRef.current = requestAnimationFrame(animate)
+        }
+      }, { threshold: 0 })
+
+      if (container) observer.observe(container)
+
       animFrameRef.current = requestAnimationFrame(animate)
 
       /* ---- Stash full cleanup so unmount can call it ---- */
       cleanupRef.current = () => {
         cancelled = true
+        observer.disconnect()
         cancelAnimationFrame(animFrameRef.current)
         window.removeEventListener('resize', onResize)
         window.removeEventListener('mousemove', onMouseMove)

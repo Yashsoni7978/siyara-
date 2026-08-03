@@ -24,7 +24,8 @@ export function Reveal({
       initial={{ opacity: 0.01, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-      transition={{ duration: 0.7, delay: delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.65, delay: delay, ease: [0.16, 1, 0.3, 1] }}
+      style={{ willChange: 'transform, opacity', ...(props.style || {}) }}
       {...props}
     >
       {children}
