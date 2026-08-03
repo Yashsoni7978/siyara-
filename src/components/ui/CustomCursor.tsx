@@ -21,15 +21,13 @@ export function CustomCursor() {
 
     const onMove = (e: MouseEvent) => {
       mouse.current = { x: e.clientX, y: e.clientY }
-      dot.style.left = e.clientX + 'px'
-      dot.style.top  = e.clientY + 'px'
+      dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`
     }
 
     const animate = () => {
       ring.current.x += (mouse.current.x - ring.current.x) * 0.12
       ring.current.y += (mouse.current.y - ring.current.y) * 0.12
-      ringEl.style.left = ring.current.x + 'px'
-      ringEl.style.top  = ring.current.y + 'px'
+      ringEl.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%)`
       rafId.current = requestAnimationFrame(animate)
     }
 

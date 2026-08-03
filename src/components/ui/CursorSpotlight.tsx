@@ -1,6 +1,6 @@
 'use client'
 
-import { m, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion'
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 export function CursorSpotlight() {
@@ -14,8 +14,9 @@ export function CursorSpotlight() {
   const smoothX = useSpring(mouseX, springConfig)
   const smoothY = useSpring(mouseY, springConfig)
 
-  const background = useMotionTemplate`radial-gradient(600px circle at ${smoothX}px ${smoothY}px, rgba(var(--accent-primary-rgb), 0.05), transparent 40%)`
-  const maskImage = useMotionTemplate`radial-gradient(400px circle at ${smoothX}px ${smoothY}px, black, transparent 50%)`
+  // Translate by -300px to center the 600x600 circle on the cursor
+  const x = useTransform(smoothX, (val) => val - 300)
+  const y = useTransform(smoothY, (val) => val - 300)
 
   useEffect(() => {
     // Touch/coarse-pointer devices don't have a hovering cursor —
@@ -37,24 +38,19 @@ export function CursorSpotlight() {
 
   return (
     <m.div
-      className="cursor-spotlight pointer-events-none fixed inset-0 z-50"
-      style={{ background }}
+      className="cursor-spotlight pointer-events-none fixed top-0 left-0 z-40"
+      style={{
+        width: 600,
+        height: 600,
+        x,
+        y,
+        background: 'radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.05) 0%, transparent 60%)',
+        borderRadius: '50%',
+        willChange: 'transform'
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-    >
-      <m.div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          background: 'transparent',
-          maskImage,
-          WebkitMaskImage: maskImage,
-        }}
-      />
-    </m.div>
+    />
   )
 }

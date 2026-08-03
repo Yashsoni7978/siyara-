@@ -275,16 +275,11 @@ export const MagicBento: React.FC<BentoProps> = ({
                   <p className={styles.frontTitle}>{card.name || card.title}</p>
                 </div>
 
-                {/* ── TOP panel: service label — slides in from top ── */}
-                <div className={styles.cardContentTop}>
-                  <span className={styles.label}>{serviceLabel}</span>
-                  <span className={styles.title} style={{ margin: 0, fontSize: '13px' }}>
+                {/* ── BACK panel: title + description ── */}
+                <div className={styles.cardContent}>
+                  <span className={styles.title} style={{ margin: 0, fontSize: '18px', textAlign: 'left' }}>
                     {card.name || card.title}
                   </span>
-                </div>
-
-                {/* ── BOTTOM panel: description — slides in from bottom ── */}
-                <div className={styles.cardContent}>
                   {card.description && (
                     <p className={styles.description}>{card.description}</p>
                   )}
