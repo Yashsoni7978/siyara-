@@ -89,7 +89,7 @@
   min-height: 60px;
   margin: 2em 2vw;
   border-radius: 50px;
-  background-size: cover;
-  background-position: center;
   border: 1px solid var(--border-strong);
+  position: relative;
+  overflow: hidden;
 }

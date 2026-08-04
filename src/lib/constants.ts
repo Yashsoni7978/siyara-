@@ -82,6 +82,7 @@ export const INDUSTRIES = [
   { id: 'fitness',      icon: 'fitness',      name: 'Fitness & Wellness',          waLink: 'default',     desc: 'High-energy branding and recurring membership funnels for luxury gyms, wellness retreats, and personal trainers.', ctaText: 'Fill Memberships' },
   { id: 'automotive',   icon: 'automotive',   name: 'Automotive & Dealerships',    waLink: 'default',     desc: 'Showcase vehicle inventory with high-resolution visual tours, test drive booking systems, and instant financing inquiries.', ctaText: 'Book Test Drives' },
   { id: 'retail',       icon: 'retail',       name: 'Retail & Fashion Stores',     waLink: 'fashion',     desc: 'Bridge in-store retail with online shopping. Drive foot traffic to physical stores while building a scalable e-commerce channel.', ctaText: 'Elevate Retail' },
+  { id: 'events',       icon: 'events',       name: 'Events & Weddings',           waLink: 'events',      desc: 'Build authority and visual proof that makes you the obvious choice for high-end clients. Stunning portfolio showcases and immersive galleries.', ctaText: 'Get Booked' },
 ] as const
 export const PORTFOLIO = [
   { 

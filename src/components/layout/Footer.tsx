@@ -7,19 +7,19 @@ import { BRAND, WA_LINKS } from '@/lib/constants'
 import styles from './Footer.module.css'
 
 const SERVICES_LINKS = [
-  { href: WA_LINKS.webDev,             label: 'Web Development'           , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.branding,           label: 'Branding & Identity'       , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.seo,                label: 'SEO & GEO Optimisation'    , target: '_blank', rel: 'noopener noreferrer' },
-  { href: WA_LINKS.aiAuto,             label: 'AI Automation'             , target: '_blank', rel: 'noopener noreferrer' },
-  { href: '/services',                 label: 'View All Services →'       , target: undefined, rel: undefined },
+  { href: '/services/web-development', label: 'Web Development' },
+  { href: '/services/branding',        label: 'Branding & Identity' },
+  { href: '/services/seo',             label: 'SEO & GEO Optimisation' },
+  { href: '/services/ai-automation',   label: 'AI Automation' },
+  { href: '/services',                 label: 'View All Services →' },
 ]
 
 const INDUSTRY_LINKS = [
-  { label: 'Restaurants & Food',      href: WA_LINKS.restaurant, target: '_blank', rel: 'noopener noreferrer' },
-  { label: 'Fashion & Clothing',      href: WA_LINKS.fashion,    target: '_blank', rel: 'noopener noreferrer' },
-  { label: 'Real Estate & Interiors', href: WA_LINKS.realestate, target: '_blank', rel: 'noopener noreferrer' },
-  { label: 'E-commerce & D2C',        href: WA_LINKS.ecommerce,  target: '_blank', rel: 'noopener noreferrer' },
-  { label: 'Events & Weddings',       href: WA_LINKS.events,     target: '_blank', rel: 'noopener noreferrer' },
+  { label: 'Restaurants & Food',      href: '/industries/hospitality' },
+  { label: 'Fashion & Clothing',      href: '/industries/retail' },
+  { label: 'Real Estate & Interiors', href: '/industries/realestate' },
+  { label: 'E-commerce & D2C',        href: '/industries/ecommerce' },
+  { label: 'Events & Weddings',       href: '/industries/events' },
 ]
 
 const COMPANY_LINKS = [
@@ -94,7 +94,7 @@ export function Footer() {
           <ul className={styles.linkList}>
             {SERVICES_LINKS.map(s => (
               <li key={s.label}>
-                <Link href={s.href} className={styles.footerLink} target={s.target} rel={s.rel}>{s.label}</Link>
+                <Link href={s.href} className={styles.footerLink}>{s.label}</Link>
               </li>
             ))}
           </ul>
@@ -106,7 +106,7 @@ export function Footer() {
           <ul className={styles.linkList}>
             {INDUSTRY_LINKS.map(s => (
               <li key={s.label}>
-                <Link href={s.href} className={styles.footerLink} target={s.target} rel={s.rel}>{s.label}</Link>
+                <Link href={s.href} className={styles.footerLink}>{s.label}</Link>
               </li>
             ))}
           </ul>

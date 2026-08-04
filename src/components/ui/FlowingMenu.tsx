@@ -2,6 +2,8 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link';
+import Image from 'next/image';
 import styles from './FlowingMenu.module.css';
 
 export interface MenuItemData {
@@ -129,24 +131,42 @@ const MenuItem: React.FC<MenuItemProps> = ({
 
   return (
     <div className={styles.menuItem} ref={itemRef}>
-      <a
-        className={styles.itemLink}
-        href={link}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        {text}
-      </a>
+      {link.startsWith('/') ? (
+        <Link
+          className={styles.itemLink}
+          href={link}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {text}
+        </Link>
+      ) : (
+        <a
+          className={styles.itemLink}
+          href={link}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {text}
+        </a>
+      )}
       <div className={styles.marqueeWrapper} ref={marqueeRef}>
         <div className={styles.marqueeInner} ref={marqueeInnerRef}>
           {[...Array(repetitions)].map((_, idx) => (
             <div className={styles.marqueePart} key={idx}>
               <span className={styles.marqueeText}>{displayText}</span>
               {image && (
-                <div
-                  className={styles.marqueeImage}
-                  style={{ backgroundImage: `url(${image})` }}
-                />
+                <div className={styles.marqueeImage}>
+                  <Image 
+                    src={image} 
+                    alt={text} 
+                    fill 
+                    style={{ objectFit: 'cover' }} 
+                    sizes="250px"
+                  />
+                </div>
               )}
             </div>
           ))}

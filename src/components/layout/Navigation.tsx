@@ -9,8 +9,23 @@ import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import styles from './Navigation.module.css'
 
 const NAV_LINKS = [
-  { label: 'ABOUT', href: '/about' },
-  { label: 'SERVICES', href: '/services' },
+  {
+    label: 'EXPERTISE',
+    dropdown: [
+      { label: 'Services', href: '/services' },
+      { label: 'Industries', href: '/industries' },
+    ]
+  },
+  { label: 'PORTFOLIO', href: '/portfolio' },
+  { label: 'PRICING', href: '/pricing' },
+  {
+    label: 'COMPANY',
+    dropdown: [
+      { label: 'About', href: '/about' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Blog', href: '/blog' },
+    ]
+  },
   { label: 'CONTACT', href: '/contact' },
 ]
 
@@ -79,12 +94,29 @@ export function Navigation() {
           <ul className={styles.links}>
             {NAV_LINKS.map(link => (
               <li key={link.label} className={styles.navItem}>
-                <Link 
-                  href={link.href} 
-                  className={`${styles.link} ${pathname === link.href ? styles.active : ''}`}
-                >
-                  {link.label}
-                </Link>
+                {link.href ? (
+                  <Link 
+                    href={link.href} 
+                    className={`${styles.link} ${pathname === link.href ? styles.active : ''}`}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <>
+                    <span className={styles.link} style={{ cursor: 'pointer' }}>{link.label} ▾</span>
+                    <div className={styles.dropdownMenu}>
+                      {link.dropdown?.map(sub => (
+                        <Link 
+                          key={sub.label} 
+                          href={sub.href} 
+                          className={`${styles.dropdownLink} ${pathname === sub.href ? styles.active : ''}`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                )}
               </li>
             ))}
           </ul>
@@ -120,14 +152,30 @@ export function Navigation() {
         aria-modal="true"
         aria-label="Navigation menu"
       >
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
-          <ThemeToggle />
-        </div>
         <div className={styles.mobileGroup}>
           {NAV_LINKS.map(link => (
-            <Link key={link.label} href={link.href} className={styles.mobileLink}>
-              {link.label}
-            </Link>
+            link.href ? (
+              <Link 
+                key={link.label} 
+                href={link.href} 
+                className={`${styles.mobileLink} ${pathname === link.href ? styles.active : ''}`}
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <div key={link.label} className={styles.mobileDropdownGroup}>
+                <span className={styles.mobileDropdownLabel}>{link.label}</span>
+                {link.dropdown?.map(sub => (
+                  <Link 
+                    key={sub.label} 
+                    href={sub.href} 
+                    className={`${styles.mobileLink} ${styles.mobileSubLink} ${pathname === sub.href ? styles.active : ''}`}
+                  >
+                    {sub.label}
+                  </Link>
+                ))}
+              </div>
+            )
           ))}
         </div>
         <Link
