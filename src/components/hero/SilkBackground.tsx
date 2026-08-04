@@ -188,6 +188,16 @@ export default function SilkBackground({
     let cancelled = false
 
     ;(async () => {
+      // Phase 1: Critical Rendering
+      // Yield to the browser's rendering pipeline before starting expensive GPU work.
+      // A double requestAnimationFrame ensures the initial DOM (LCP text) is fully painted.
+      await new Promise((resolve) => {
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      })
+
+      if (cancelled || !container) return
+
+      // Phase 2: WebGL Initialization
       const { Renderer, Program, Mesh, Triangle } = await import('ogl')
 
       if (cancelled || !container) return
@@ -195,7 +205,7 @@ export default function SilkBackground({
       /* ---- Renderer ---- */
       const isMobile = window.innerWidth <= 768
       const dpr = isMobile
-        ? Math.min(window.devicePixelRatio, 1.5)
+        ? Math.min(window.devicePixelRatio, 1) // Capped at 1 for mobile performance
         : Math.min(window.devicePixelRatio, 2)
 
       const renderer = new Renderer({

@@ -123,7 +123,7 @@ export default function HomePage() {
       </section>
       </div>
 
-      <main className={styles.pageContent}>
+      <div className={styles.pageContent}>
         <div className={styles.heroStats} role="list" aria-label="Agency statistics">
           {[
             { num: '14', label: 'Digital services' },
@@ -560,7 +560,7 @@ export default function HomePage() {
           note="No pressure. No pitch deck. Just a real conversation."
         />
       </div>
-      </main>
+      </div>
     </>
   )
 }

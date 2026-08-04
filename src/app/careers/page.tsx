@@ -28,7 +28,7 @@ const JOBS = [
 
 export default function CareersPage() {
   return (
-    <main className="page-transition">
+    <div className="page-transition">
       {/* ============================================================
           HERO
       ============================================================ */}
@@ -132,7 +132,7 @@ export default function CareersPage() {
         description="We are always looking for exceptional talent. Send us your portfolio and let's talk." 
         primaryBtn={{ text: 'Email Us', href: `mailto:${BRAND.email}`, isExternal: false }} 
       />
-    </main>
+    </div>
   )
 }
 

@@ -39,7 +39,7 @@ const FAQS = [
 
 export default function FAQPage() {
   return (
-    <main className="page-transition">
+    <div className="page-transition">
       <section className={styles.heroSection} aria-label="FAQ Hero">
         <div className="section-wrap">
           <div style={{ padding: '160px 0 100px', maxWidth: '800px' }}>
@@ -98,7 +98,7 @@ export default function FAQPage() {
         description="We're here to help. Reach out to our team directly." 
         primaryBtn={{ text: 'Contact Us', href: '/contact', isExternal: false }} 
       />
-    </main>
+    </div>
   )
 }
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function IndustriesPage() {
   return (
-    <main className="page-transition">
+    <div className="page-transition">
       <PageHero
         eyebrow="INDUSTRIES WE SERVE"
         title={<>Specialized strategies.<br /><span className="gold-shimmer">Industry-leading results.</span></>}
@@ -62,6 +62,6 @@ export default function IndustriesPage() {
           secondaryBtn={{ text: 'View Our Services →', href: '/services' }}
         />
       </div>
-    </main>
+    </div>
   )
 }

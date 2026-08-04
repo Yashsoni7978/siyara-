@@ -88,6 +88,7 @@ const ParticleCard: React.FC<{
     timeoutsRef.current = [];
     magnetismAnimationRef.current?.kill();
     particlesRef.current.forEach(particle => {
+      gsap.killTweensOf(particle);
       gsap.to(particle, {
         scale: 0,
         opacity: 0,
@@ -199,7 +200,15 @@ const ParticleCard: React.FC<{
       element.removeEventListener('mouseleave', handleMouseLeave);
       element.removeEventListener('mousemove', handleMouseMove);
       element.removeEventListener('click', handleClick);
-      clearAllParticles();
+      
+      timeoutsRef.current.forEach(clearTimeout);
+      magnetismAnimationRef.current?.kill();
+      gsap.killTweensOf(element);
+      particlesRef.current.forEach(particle => {
+        gsap.killTweensOf(particle);
+        particle.parentNode?.removeChild(particle);
+      });
+      particlesRef.current = [];
     };
   }, [animateParticles, clearAllParticles, disableAnimations, enableTilt, enableMagnetism, clickEffect, glowColor]);
 
