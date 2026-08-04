@@ -307,56 +307,7 @@
   }
 }
 
-/* Cinematic Glass H1 */
-.h1 {
-  font-family: var(--font-chancery), var(--font-display);
-  font-size: clamp(80px, 11vw, 160px);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: center;
-  z-index: 2;
-  color: var(--hero-h1-color, var(--text-primary));
-  text-shadow: var(--hero-h1-shadow, none);
-}
 
-.h1Line1 {
-  color: inherit;
-  animation: fadeIn 0.9s var(--ease-out) 0.35s both;
-}
-
-.h1Line2 {
-  color: inherit;
-  animation: fadeIn 0.9s var(--ease-out) 0.52s both;
-}
-
-.h1Line3 {
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  animation: fadeIn 0.9s var(--ease-out) 0.68s both;
-  color: inherit;
-}
-
-.heroSub {
-  font-family: var(--font-ui);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text-muted);
-  max-width: 672px;
-  margin: 0 auto 48px;
-  animation: fadeIn 0.9s var(--ease-out) 0.88s both;
-  z-index: 2;
-}
-
-.heroSub em {
-  color: var(--text-secondary);
-  font-style: normal;
-}
 
 /* CTAs */
 .heroCtas {
