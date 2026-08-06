@@ -35,10 +35,10 @@
 }
 
 .logoMain {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 24px;
+  font-family: var(--font-forum), 'Times New Roman', Times, serif;
+  font-size: 22px;
   font-weight: 400;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--nav-logo);
   display: flex;
   align-items: center;

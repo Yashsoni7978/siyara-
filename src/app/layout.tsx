@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Young_Serif, Instrument_Sans } from 'next/font/google'
+import { Young_Serif, Instrument_Sans, Forum } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 import { Navigation } from '@/components/layout/Navigation'
@@ -33,12 +33,20 @@ const instrumentSans = Instrument_Sans({
   preload: true,
 })
 
+const forum = Forum({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-forum',
+  display: 'swap',
+  preload: true,
+})
+
 /* ── Root metadata ── */
 export const metadata: Metadata = defaultMetadata
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${youngSerif.variable} ${instrumentSans.variable} ${blackChancery.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${youngSerif.variable} ${instrumentSans.variable} ${blackChancery.variable} ${forum.variable}`} suppressHydrationWarning>
       <head>
         {/* JSON-LD Structured Data */}
         <script
