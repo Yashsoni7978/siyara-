@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PORTFOLIO, WA_LINKS, BRAND } from '@/lib/constants'
 import { CLIENT_TESTIMONIALS } from '@/lib/social-proof'
-import { CursorSpotlight } from '@/components/ui/CursorSpotlight'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
 import { PortfolioGrid } from './PortfolioGrid'
@@ -32,8 +31,6 @@ const MARQUEE_ITEMS = [
 export default function PortfolioPage() {
   return (
     <>
-      <CursorSpotlight />
-
       {/* ============================================================
           CINEMATIC HERO
       ============================================================ */}

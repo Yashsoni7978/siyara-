@@ -5,7 +5,7 @@ import './globals.css'
 import { Navigation } from '@/components/layout/Navigation'
 import { Footer } from '@/components/layout/Footer'
 import { CustomCursor } from '@/components/ui/CustomCursor'
-import { NoiseOverlay } from '@/components/ui/NoiseOverlay'
+
 import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat'
 import { ThemeProvider } from '@/components/ui/ThemeProvider'
 import { ThemeColorMeta } from '@/components/ui/ThemeColorMeta'
@@ -58,7 +58,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Skip navigation — accessibility */}
         <SkipNav />
         <ThemeProvider>
-          <NoiseOverlay />
           <CustomCursor />
           <Navigation />
           <main id="main-content">{children}</main>

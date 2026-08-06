@@ -7,10 +7,7 @@ import sharedStyles from './contact/contact.module.css'
 import { Reveal } from '@/components/ui/Reveal'
 import { CTA } from '@/components/ui/CTA'
 import { IconMap } from '@/components/ui/Icons'
-import { CursorSpotlight } from '@/components/ui/CursorSpotlight'
 import { MagicBento } from '@/components/ui/MagicBento'
-import { FlowingMenu } from '@/components/ui/FlowingMenu'
-import { TiltedCard } from '@/components/ui/TiltedCard'
 import { WeatherIndustryCard } from '@/components/ui/WeatherIndustryCard'
 import HeroSilk from '@/components/hero/HeroSilk'
 import { AbstractSphere } from '@/components/ui/AbstractSphere'
@@ -74,10 +71,6 @@ const POSTS = [
 export default function HomePage() {
   return (
     <>
-      <CursorSpotlight />
-      {/* ============================================================
-          HERO
-      ============================================================ */}
       <div className={`${styles.heroStickyContainer} force-dark`}>
         <section className={styles.hero} aria-label="Hero section">
         <HeroSilk
@@ -88,12 +81,6 @@ export default function HomePage() {
           mouseSensitivity={0.15}
           damping={0.9}
         />
-        <div className={styles.heroCurtain} aria-hidden="true" />
-        <div className={styles.silkOverlay} aria-hidden="true" />
-        <div className={styles.heroRays} aria-hidden="true" />
-        <div className={`${styles.orb} ${styles.orb1}`} aria-hidden="true" />
-        <div className={`${styles.orb} ${styles.orb2}`} aria-hidden="true" />
-        <div className={`${styles.orb} ${styles.orb3}`} aria-hidden="true" />
 
         <div className={styles.heroContentWrapper}>
           <div className={styles.heroInner}>
