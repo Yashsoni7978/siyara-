@@ -17,8 +17,6 @@ import { GoogleSearchCard } from '@/components/ui/GoogleSearchCard'
 import { PortfolioGrid } from './portfolio/PortfolioGrid'
 import { TrustMetrics } from '@/components/home/TrustMetrics'
 
-const FloatingServices = dynamic(() => import('@/components/ui/FloatingServices').then(mod => mod.FloatingServices), { ssr: false })
-
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
   description:
