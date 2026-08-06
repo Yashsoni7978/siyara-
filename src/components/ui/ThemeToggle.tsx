@@ -8,35 +8,32 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  useEffect(() => { setMounted(true) }, [])
 
-  if (!mounted) {
-    return <div style={{ width: 36, height: 36 }} />
-  }
+  if (!mounted) return <div style={{ width: 56, height: 28 }} />
 
   const isDark = resolvedTheme === 'dark'
 
   return (
     <button
-      className={styles.toggle}
+      className={`${styles.toggle} ${isDark ? styles.dark : styles.light}`}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label="Toggle Theme"
-      title={`Switch to ${isDark ? "Light" : "Dark"} Mode`}
+      aria-label={`Switch to ${isDark ? "Light" : "Dark"} mode`}
+      title={`Switch to ${isDark ? "Light" : "Dark"} mode`}
     >
-      <div className={`${styles.iconWrap} ${isDark ? styles.isDark : styles.isLight}`}>
-        {/* Sun Icon (shown in Dark mode) */}
-        <svg
-          className={styles.sun}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+      {/* Moon icon — left side */}
+      <span className={styles.iconLeft} aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill={isDark ? '#a5b4fc' : 'transparent'} stroke={isDark ? '#a5b4fc' : 'transparent'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </span>
+
+      {/* Sliding knob */}
+      <span className={styles.knob} />
+
+      {/* Sun icon — right side */}
+      <span className={styles.iconRight} aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill={isDark ? 'transparent' : '#f59e0b'} stroke={isDark ? 'transparent' : '#f59e0b'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
           <line x1="12" y1="21" x2="12" y2="23" />
@@ -47,21 +44,7 @@ export function ThemeToggle() {
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
-
-        {/* Moon Icon (shown in Light mode) */}
-        <svg
-          className={styles.moon}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      </div>
+      </span>
     </button>
   )
 }

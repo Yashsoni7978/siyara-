@@ -1,53 +1,77 @@
+/* ============================================================
+   THEME TOGGLE — Pill switch with sliding knob
+   Dark mode: dark pill, knob on RIGHT, moon icon on left (blue)
+   Light mode: white pill, knob on LEFT, sun icon on right (gold)
+============================================================ */
+
 .toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 60px;
+  height: 30px;
+  border-radius: 999px;
+  border: 2.5px solid;
+  cursor: pointer;
+  padding: 0 6px;
+  transition: background 0.35s ease, border-color 0.35s ease;
+  flex-shrink: 0;
+  gap: 0;
+  justify-content: space-between;
+}
+
+/* Dark mode pill — dark background, white border */
+.toggle.dark {
+  background: #1a1a2e;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Light mode pill — white background, dark border */
+.toggle.light {
+  background: #ffffff;
+  border-color: #1a1a1a;
+}
+
+/* ---- Icons ---- */
+.iconLeft,
+.iconRight {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--border-glow);
-  border: 1px solid var(--accent-primary);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.toggle:hover {
-  background: rgba(var(--accent-primary-rgb), 0.1);
-  transform: scale(1.05);
-}
-
-.iconWrap {
-  position: relative;
   width: 16px;
   height: 16px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
 }
 
-.sun, .moon {
+/* ---- Sliding knob ---- */
+.knob {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: left 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background 0.35s ease;
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* When dark is active: Sun is visible, Moon rotates and fades out */
-.isDark .sun {
-  opacity: 1;
-  transform: rotate(0) scale(1);
-}
-.isDark .moon {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.5);
+/* Dark mode: knob on the RIGHT */
+.toggle.dark .knob {
+  left: calc(100% - 26px);
+  background: #ffffff;
 }
 
-/* When light is active: Moon is visible, Sun rotates and fades out */
-.isLight .moon {
-  opacity: 1;
-  transform: rotate(0) scale(1);
+/* Light mode: knob on the LEFT */
+.toggle.light .knob {
+  left: 4px;
+  background: #1a1a1a;
 }
-.isLight .sun {
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.5);
+
+/* Hover scale */
+.toggle:hover {
+  transform: scale(1.04);
 }
