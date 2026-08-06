@@ -16,7 +16,8 @@
   background: var(--nav-bg);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--nav-border);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 1px 20px rgba(16, 185, 129, 0.15);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -29,14 +30,21 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
   z-index: 2;
 }
 
 .logoIcon {
-  opacity: 0.95;
-  transform: translateY(-1px); /* optical alignment with serif text */
+  opacity: 1;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3));
+}
+
+.logoDivider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 4px;
 }
 
 .logoMain {
@@ -100,11 +108,11 @@
 
 .dropdownLink {
   padding: 8px 24px;
-  font-family: var(--font-forum), serif;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  text-transform: none;
+  font-family: var(--font-ui), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--text-secondary);
   text-decoration: none;
   white-space: nowrap;
@@ -120,11 +128,11 @@
 .link {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-forum), serif;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.05em; /* slightly increased tracking */
-  text-transform: none;
+  font-family: var(--font-ui), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   color: var(--nav-link);
   text-decoration: none;
   transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
@@ -132,7 +140,7 @@
 }
 
 .link:hover, .link.active {
-  color: rgba(212, 175, 55, 0.85); /* elegant gold hover */
+  color: #D4AF37; /* elegant gold hover */
 }
 
 /* CTA button */
@@ -143,16 +151,31 @@
   padding: 10px 24px;
   background: transparent;
   color: #D4AF37;
-  font-family: var(--font-forum), serif;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: none;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  border-radius: 0;
+  font-family: var(--font-ui), sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  border-radius: 999px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15), inset 0 0 10px rgba(212, 175, 55, 0.1);
   text-decoration: none;
   cursor: pointer;
+  position: relative;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  right: 15px;
+  width: 4px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 3px #D4AF37, 0 0 15px 6px rgba(212, 175, 55, 0.4);
+  pointer-events: none;
 }
 
 .cta:hover {
