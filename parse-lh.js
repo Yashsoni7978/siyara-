@@ -1,0 +1,12 @@
+const fs = require('fs');
+const data = JSON.parse(fs.readFileSync('./lh-after.json', 'utf8'));
+const perf = data.categories.performance.score * 100;
+const lcp = data.audits['largest-contentful-paint'].displayValue;
+const tbt = data.audits['total-blocking-time'].displayValue;
+const inp = data.audits['interactive'] ? data.audits['interactive'].displayValue : 'N/A';
+const size = (data.audits['total-byte-weight'].numericValue / 1024).toFixed(2);
+console.log(`Performance: ${perf}`);
+console.log(`LCP: ${lcp}`);
+console.log(`TBT: ${tbt}`);
+console.log(`INP/Interactive: ${inp}`);
+console.log(`Size: ${size} KB`);
