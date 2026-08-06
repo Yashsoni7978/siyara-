@@ -29,9 +29,14 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
   z-index: 2;
+}
+
+.logoIcon {
+  opacity: 0.95;
+  transform: translateY(-1px); /* optical alignment with serif text */
 }
 
 .logoMain {
@@ -59,7 +64,7 @@
 .links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px; /* luxurious spacing */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -118,16 +123,16 @@
   font-family: var(--font-forum), serif;
   font-size: 15px;
   font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em; /* slightly increased tracking */
   text-transform: none;
   color: var(--nav-link);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
 }
 
 .link:hover, .link.active {
-  color: var(--nav-link-hover);
+  color: rgba(212, 175, 55, 0.85); /* elegant gold hover */
 }
 
 /* CTA button */
@@ -135,24 +140,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
+  padding: 10px 24px;
   background: transparent;
-  color: var(--btn-cta-color);
+  color: #D4AF37;
   font-family: var(--font-forum), serif;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0.06em;
   text-transform: none;
-  border: 1px solid var(--btn-cta-color);
+  border: 1px solid rgba(212, 175, 55, 0.4);
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .cta:hover {
-  background: var(--btn-cta-hover-bg);
-  color: var(--btn-cta-hover-color);
+  background: rgba(212, 175, 55, 0.06);
+  color: #F3E5AB;
+  border-color: rgba(212, 175, 55, 0.8);
 }
 
 /* Hamburger */

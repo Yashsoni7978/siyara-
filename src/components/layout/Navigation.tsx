@@ -87,6 +87,7 @@ export function Navigation() {
         aria-label="Main navigation"
       >
         <Link href="/" className={styles.logo} aria-label="Siyara Innovations Home">
+          <img src="/icon.png" alt="Siyara" width={22} height={22} className={styles.logoIcon} />
           <span className={styles.logoMain}>Siyara Innovations</span>
         </Link>
 
