@@ -1,6 +1,6 @@
 .section {
   padding: 48px 5%;
-  background: #080808; /* Dark charcoal */
+  background: transparent;
   position: relative;
   z-index: 10;
 }
@@ -33,13 +33,15 @@
 
 .card {
   flex: 1;
-  background: #121212; /* Slightly lighter charcoal */
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.22s ease-out, border-color 0.22s ease-out, box-shadow 0.22s ease-out;
+  transition: transform 0.22s ease-out, border-color 0.22s ease-out, box-shadow 0.22s ease-out, background 0.22s ease-out;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   cursor: default;
 }
@@ -47,6 +49,7 @@
 /* Hover States */
 .card:hover, .card:focus-visible {
   transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.04);
   border-color: #10b981; /* Emerald */
   box-shadow: 0 14px 40px rgba(16, 185, 129, 0.08), 0 4px 12px rgba(0, 0, 0, 0.5);
   outline: none;
