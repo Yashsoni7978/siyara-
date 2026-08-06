@@ -27,6 +27,7 @@ const fragmentShader = /* glsl */ `
   uniform vec3  uColor;          /* #06402B forest green silk color */
   uniform vec2  uMouse;
   uniform float uMouseSensitivity;
+  uniform float uIntroProgress;
 
   /* ---- Fast procedural noise ---- */
   const float E = 2.71828182845904523536;
@@ -87,7 +88,10 @@ const fragmentShader = /* glsl */ `
 
     /* Vertical silk curtain folds structure */
     float verticalFolds = 0.5 + 0.5 * sin(uv.x * 12.0 + r.x * 3.5 + t * 0.2);
-    float pattern = fbm(p + r * uNoiseIntensity) * 0.45 + verticalFolds * 0.55;
+    
+    // Scale motion amplitude with intro progress so it "wakes up"
+    float currentNoiseIntensity = uNoiseIntensity * (0.2 + 0.8 * uIntroProgress);
+    float pattern = fbm(p + r * currentNoiseIntensity) * 0.45 + verticalFolds * 0.55;
 
     /* Contrast curves: fold peaks catch green light, fold troughs stay pitch black */
     float foldLight = pow(clamp(pattern, 0.0, 1.0), 1.25);
@@ -95,9 +99,12 @@ const fragmentShader = /* glsl */ `
 
     /* ============================================================
        COLOR COMPOSITION
-       Base: PITCH BLACK (vec3(0.0))
+       Base: CSS Background #04100B
        Curtain: Rich Forest Green (#06402B) Silk Folds with Emerald Luster
     ============================================================ */
+    // The exact CSS background color (#04100B -> rgb 4, 16, 11)
+    vec3 cssBg = vec3(0.0157, 0.0627, 0.0431);
+    
     vec3 pitchBlack = vec3(0.0);
     vec3 greenSilk = uColor * 2.5;                       /* Deep vibrant green #06402B */
     vec3 emeraldSheen = vec3(0.22, 0.88, 0.55);          /* Luminous emerald silk sheen */
@@ -107,6 +114,10 @@ const fragmentShader = /* glsl */ `
 
     /* Glossy emerald sheen on lit silk crests */
     col += emeraldSheen * sheen * 0.95;
+
+    /* Smoothly fade from the static CSS background to the full animated silk over 2 seconds */
+    float transition = smoothstep(0.0, 1.0, uIntroProgress);
+    col = mix(cssBg, col, transition);
 
     gl_FragColor = vec4(col, 1.0);
   }
@@ -244,6 +255,7 @@ export default function SilkBackground({
           uColor: { value: [r, g, b] },
           uMouse: { value: [0.5, 0.5] },
           uMouseSensitivity: { value: mouseSensitivity },
+          uIntroProgress: { value: 0.0 },
         },
       })
 
@@ -277,8 +289,10 @@ export default function SilkBackground({
         s.mouseCurrent[1] += (s.mouseTarget[1] - s.mouseCurrent[1]) * lerpFactor
 
         /* Update uniforms */
-        program.uniforms.uTime.value = (performance.now() - startTime) / 1000
+        const elapsed = performance.now() - startTime
+        program.uniforms.uTime.value = elapsed / 1000
         program.uniforms.uMouse.value = [s.mouseCurrent[0], s.mouseCurrent[1]]
+        program.uniforms.uIntroProgress.value = Math.min(1.0, elapsed / 2000.0)
 
         renderer.render({ scene: mesh })
       }
