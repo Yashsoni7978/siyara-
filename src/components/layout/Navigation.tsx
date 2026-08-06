@@ -87,7 +87,7 @@ export function Navigation() {
         aria-label="Main navigation"
       >
         <Link href="/" className={styles.logo} aria-label="Siyara Innovations Home">
-          <span className={styles.logoMain}>SIYARA.INNOVATIONS</span>
+          <span className={styles.logoMain}>Siyara Innovations</span>
         </Link>
 
         <div className={styles.desktopLinksContainer}>
