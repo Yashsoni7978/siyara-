@@ -150,7 +150,7 @@
   --theme-color:          #04100B;
 
   /* ── Typography ── */
-  --font-display: var(--font-young-serif), Georgia, serif;
+  --font-display: var(--font-forum), Georgia, serif;
   --font-ui:      var(--font-ui), system-ui, sans-serif;
 
   /* ── Spacing ── */
@@ -386,9 +386,9 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: var(--font-forum), Georgia, serif;
   letter-spacing: 0.02em;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
 }
 
