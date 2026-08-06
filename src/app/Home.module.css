@@ -212,60 +212,7 @@
   animation: fadeIn 0.9s var(--ease-out) 1.06s both;
 }
 
-/* Stats */
-.heroStats {
-  display: flex;
-  justify-content: center;
-  background: rgba(var(--accent-primary-rgb), 0.02);
-  border: none;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  animation: fadeIn 0.8s var(--ease-out) 1.2s both;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 10;
-}
 
-.heroStat {
-  padding: 40px;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  align-items: center;
-  text-align: center;
-  flex: 1;
-  position: relative;
-}
-
-.heroStat:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 48px;
-  width: 1px;
-  background: rgba(var(--accent-primary-rgb), 0.15);
-}
-
-.heroStatNum {
-  font-family: var(--font-display);
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--accent-green);
-  line-height: 1;
-}
-
-.heroStatLabel {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
 
 /* Shiny Border Button */
 .shinyButtonWrap {
@@ -1649,17 +1596,7 @@
     padding-top: calc(var(--nav-h) + 20px);
   }
 
-  .heroStats {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
-  .heroStat:nth-child(2) {
-    border-right: none;
-  }
-
-  .heroStat:nth-child(3) {
-    border-top: 1px solid var(--border-color);
-  }
 
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -1731,18 +1668,7 @@
     padding: 0 24px;
   }
 
-  .heroStats {
-    grid-template-columns: 1fr;
-  }
 
-  .heroStat {
-    border-right: none !important;
-    border-top: 1px solid var(--border-color);
-  }
-
-  .heroStat:first-child {
-    border-top: none;
-  }
 
   .industriesGrid {
     grid-template-columns: 1fr;

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { WA_LINKS, BRAND, SERVICES, INDUSTRIES } from '@/lib/constants'
 import styles from './Home.module.css'
 import sharedStyles from './contact/contact.module.css'
@@ -13,6 +14,10 @@ import HeroSilk from '@/components/hero/HeroSilk'
 import { AbstractSphere } from '@/components/ui/AbstractSphere'
 import { ProblemAccordion } from '@/components/ui/ProblemAccordion'
 import { GoogleSearchCard } from '@/components/ui/GoogleSearchCard'
+import { PortfolioGrid } from './portfolio/PortfolioGrid'
+import { TrustMetrics } from '@/components/home/TrustMetrics'
+
+const FloatingServices = dynamic(() => import('@/components/ui/FloatingServices').then(mod => mod.FloatingServices), { ssr: false })
 
 export const metadata: Metadata = {
   title: `${BRAND.name} — Jaipur's Premium Digital Growth Agency`,
@@ -111,19 +116,8 @@ export default function HomePage() {
       </div>
 
       <div className={styles.pageContent}>
-        <div className={styles.heroStats} role="list" aria-label="Agency statistics">
-          {[
-            { num: '14', label: 'Digital services' },
-            { num: '5', label: 'Industries served' },
-            { num: '1', label: 'Unified strategy' },
-            { num: '0', label: 'Generic work. Ever.' },
-          ].map(({ num, label }) => (
-            <div key={label} className={styles.heroStat} role="listitem">
-              <span className={styles.heroStatNum}>{num}</span>
-              <span className={styles.heroStatLabel}>{label}</span>
-            </div>
-          ))}
-        </div>
+
+      <TrustMetrics />
 
       {/* ============================================================
           ABOUT / PHILOSOPHY (Centered)
